@@ -1,0 +1,2974 @@
+[[rule]]
+  id = 10001
+  name = "[ddl] start DDL worker"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] start DDL worker"
+    fields = ["worker"]
+
+[[rule]]
+  id = 10002
+  name = "Telemetry configuration"
+  [rule.patterns]
+    level = "INFO"
+    message = "Telemetry configuration"
+    fields = ["endpoint", "report_interval", "enabled"]
+
+[[rule]]
+  id = 10003
+  name = "cpu profiler started"
+  [rule.patterns]
+    level = "INFO"
+    message = "cpu profiler started"
+    fields = []
+
+[[rule]]
+  id = 10004
+  name = "[ddl] DDL job is finished"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] DDL job is finished"
+    fields = ["jobID"]
+
+[[rule]]
+  id = 10005
+  name = "Welcome to TiDB."
+  [rule.patterns]
+    level = "INFO"
+    message = "Welcome to TiDB."
+    fields = ["Release Version", "Git Commit Hash", "Git Branch", "UTC Build Time", "GoVersion", "Race Enabled", "Check Table Before Drop", "TiKV Min Version"]
+
+[[rule]]
+  id = 10006
+  name = "Mem Profile Tracker started"
+  [rule.patterns]
+    level = "INFO"
+    message = "Mem Profile Tracker started"
+    fields = []
+
+[[rule]]
+  id = 10007
+  name = "loaded config"
+  [rule.patterns]
+    level = "INFO"
+    message = "loaded config"
+    fields = ["config"]
+
+[[rule]]
+  id = 10008
+  name = "disable Prometheus push client"
+  [rule.patterns]
+    level = "INFO"
+    message = "disable Prometheus push client"
+    fields = []
+
+[[rule]]
+  id = 10009
+  name = "init stats info time"
+  [rule.patterns]
+    level = "INFO"
+    message = "init stats info time"
+    fields = ["take time"]
+
+[[rule]]
+  id = 10010
+  name = "for status and metrics report"
+  [rule.patterns]
+    level = "INFO"
+    message = "for status and metrics report"
+    fields = ["listening on addr"]
+
+[[rule]]
+  id = 10011
+  name = "server is running MySQL protocol"
+  [rule.patterns]
+    level = "INFO"
+    message = "server is running MySQL protocol"
+    fields = ["addr"]
+
+[[rule]]
+  id = 10011
+  name = "server is running MySQL protocol"
+  [rule.patterns]
+    level = "INFO"
+    message = "server is running MySQL protocol"
+    message_mode = "equal"
+    fields = ["socket"]
+
+[[rule]]
+  id = 10012
+  name = "Automatic TLS Certificate creation is disabled"
+  [rule.patterns]
+    level = "WARN"
+    message = "Automatic TLS Certificate creation is disabled"
+    fields = []
+
+[[rule]]
+  id = 10013
+  name = "sysvar cache is empty, triggering rebuild"
+  [rule.patterns]
+    level = "WARN"
+    message = "sysvar cache is empty, triggering rebuild"
+    fields = []
+
+[[rule]]
+  id = 10014
+  name = "full load and reset schema validator"
+  [rule.patterns]
+    level = "INFO"
+    message = "full load and reset schema validator"
+    fields = []
+
+[[rule]]
+  id = 10015
+  name = "[ddl] start delRange emulator"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] start delRange emulator"
+    fields = []
+
+[[rule]]
+  id = 10016
+  name = "[ddl] start delRangeManager OK"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] start delRangeManager OK"
+    fields = ["is a emulator"]
+
+[[rule]]
+  id = 10017
+  name = "[ddl] start DDL"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] start DDL"
+    fields = ["ID", "runWorker"]
+
+[[rule]]
+  id = 10018
+  name = "new store"
+  [rule.patterns]
+    level = "INFO"
+    message = "new store"
+    fields = ["path"]
+
+[[rule]]
+  id = 10019
+  name = "start system time monitor"
+  [rule.patterns]
+    level = "INFO"
+    message = "start system time monitor"
+    fields = []
+
+[[rule]]
+  id = 10020
+  name = "replay wal"
+  [rule.patterns]
+    level = "INFO"
+    message = "replay wal"
+    fields = ["first key"]
+
+[[rule]]
+  id = 10021
+  name = "new store with retry success"
+  [rule.patterns]
+    level = "INFO"
+    message = "new store with retry success"
+    fields = []
+
+[[rule]]
+  id = 10022
+  name = "new domain"
+  [rule.patterns]
+    level = "INFO"
+    message = "new domain"
+    fields = ["store", "ddl lease", "stats lease", "index usage sync lease"]
+
+[[rule]]
+  id = 10023
+  name = "unexpected `Flen` value(-1) in CONCAT's args"
+  [rule.patterns]
+    level = "WARN"
+    message = "unexpected `Flen` value(-1) in CONCAT's args"
+    fields = ["arg's index"]
+
+[[rule]]
+  id = 10024
+  name = "parse SQL failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "parse SQL failed"
+    fields = ["conn", "error", "SQL"]
+
+[[rule]]
+  id = 10025
+  name = "command dispatched failed"
+  [rule.patterns]
+    level = "INFO"
+    message = "command dispatched failed"
+    fields = ["conn", "connInfo", "command", "status", "sql", "txn_mode", "err"]
+
+[[rule]]
+  id = 10026
+  name = "[pd] create pd client with endpoints"
+  [rule.patterns]
+    level = "INFO"
+    message = "[pd] create pd client with endpoints"
+    fields = ["pd-address"]
+
+[[rule]]
+  id = 10027
+  name = "Channel Created"
+  [rule.patterns]
+    level = "INFO"
+    message = "Channel Created"
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10028
+  name = "[pd] switch leader"
+  [rule.patterns]
+    level = "INFO"
+    message = "[pd] switch leader"
+    fields = ["new-leader", "old-leader"]
+
+[[rule]]
+  id = 10029
+  name = "[pd] init cluster id"
+  [rule.patterns]
+    level = "INFO"
+    message = "[pd] init cluster id"
+    fields = ["cluster-id"]
+
+[[rule]]
+  id = 10030
+  name = "[pd] create tso dispatcher"
+  [rule.patterns]
+    level = "INFO"
+    message = "[pd] create tso dispatcher"
+    fields = ["dc-location"]
+
+[[rule]]
+  id = 10031
+  name = "split batch regions request"
+  [rule.patterns]
+    level = "INFO"
+    message = "split batch regions request"
+    fields = ["split key count", "batch count", "first batch, region ID", "first split key"]
+
+[[rule]]
+  id = 10032
+  name = "CRUCIAL OPERATION"
+  [rule.patterns]
+    level = "INFO"
+    message = "CRUCIAL OPERATION"
+    fields = ["conn", "schemaVersion", "cur_db", "sql", "user"]
+
+[[rule]]
+  id = 10032
+  name = "CRUCIAL OPERATION"
+  [rule.patterns]
+    level = "INFO"
+    message = "CRUCIAL OPERATION"
+    message_mode = "equal"
+    fields = ["conn", "schemaVersion", "secure text", "user"]
+
+[[rule]]
+  id = 10033
+  name = "performing DDL change, must reload"
+  [rule.patterns]
+    level = "INFO"
+    message = "performing DDL change, must reload"
+    fields = []
+
+[[rule]]
+  id = 10034
+  name = "[ddl] finish DDL job"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] finish DDL job"
+    fields = ["worker", "job"]
+
+[[rule]]
+  id = 10035
+  name = "[ddl] run DDL job"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] run DDL job"
+    fields = ["worker", "job"]
+
+[[rule]]
+  id = 10036
+  name = "[ddl] start DDL job"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] start DDL job"
+    fields = ["job", "query"]
+
+[[rule]]
+  id = 10037
+  name = "[ddl] wait latest schema version changed"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] wait latest schema version changed"
+    fields = ["worker", "ver", "take time", "job"]
+
+[[rule]]
+  id = 10038
+  name = "diff load InfoSchema success"
+  [rule.patterns]
+    level = "INFO"
+    message = "diff load InfoSchema success"
+    fields = ["currentSchemaVersion", "neededSchemaVersion", "start time", "phyTblIDs", "actionTypes"]
+
+[[rule]]
+  id = 10038
+  name = "diff load InfoSchema success"
+  [rule.patterns]
+    level = "INFO"
+    message = "diff load InfoSchema success"
+    message_mode = "equal"
+    fields = ["usedSchemaVersion", "neededSchemaVersion", "start time", "phyTblIDs", "actionTypes"]
+
+[[rule]]
+  id = 10039
+  name = "[ddl] add DDL jobs"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] add DDL jobs"
+    fields = ["batch count", "jobs"]
+
+[[rule]]
+  id = 10040
+  name = "split regions complete"
+  [rule.patterns]
+    level = "INFO"
+    message = "split regions complete"
+    fields = ["region count", "region IDs"]
+
+[[rule]]
+  id = 10041
+  name = "start campaign owner"
+  [rule.patterns]
+    level = "INFO"
+    message = "start campaign owner"
+    fields = ["ownerInfo"]
+
+[[rule]]
+  id = 10042
+  name = "get owner"
+  [rule.patterns]
+    level = "INFO"
+    message = "get owner"
+    fields = ["owner info", "ownerID"]
+
+[[rule]]
+  id = 10043
+  name = "rollbackTxn called due to ddl/autocommit failure"
+  [rule.patterns]
+    level = "INFO"
+    message = "rollbackTxn called due to ddl/autocommit failure"
+    fields = []
+
+[[rule]]
+  id = 10044
+  name = "run statement failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "run statement failed"
+    fields = ["schemaVersion", "error", "session"]
+
+[[rule]]
+  id = 10044
+  name = "run statement error"
+  [rule.patterns]
+    level = "WARN"
+    message = "run statement error"
+    message_mode = ""
+    fields = ["schemaVersion", "error", "session"]
+
+[[rule]]
+  id = 10045
+  name = "batch split regions complete"
+  [rule.patterns]
+    level = "INFO"
+    message = "batch split regions complete"
+    fields = ["batch region ID", "first at", "first new region left", "new region count"]
+
+[[rule]]
+  id = 10046
+  name = "bootstrap successful"
+  [rule.patterns]
+    level = "INFO"
+    message = "bootstrap successful"
+    fields = ["take time"]
+
+[[rule]]
+  id = 10047
+  name = "is not the owner"
+  [rule.patterns]
+    level = "WARN"
+    message = "is not the owner"
+    fields = ["owner info"]
+
+[[rule]]
+  id = 10048
+  name = "break campaign loop, context is done"
+  [rule.patterns]
+    level = "INFO"
+    message = "break campaign loop, context is done"
+    fields = ["owner info"]
+
+[[rule]]
+  id = 10049
+  name = "revoke session"
+  [rule.patterns]
+    level = "INFO"
+    message = "revoke session"
+    fields = ["owner info"]
+
+[[rule]]
+  id = 10049
+  name = "revoke session"
+  [rule.patterns]
+    level = "INFO"
+    message = "revoke session"
+    message_mode = "equal"
+    fields = ["owner info", "error"]
+
+[[rule]]
+  id = 10050
+  name = "[ddl] DDL worker closed"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] DDL worker closed"
+    fields = ["worker", "take time"]
+
+[[rule]]
+  id = 10051
+  name = "[ddl] closing delRange"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] closing delRange"
+    fields = []
+
+[[rule]]
+  id = 10052
+  name = "[ddl] closing sessionPool"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] closing sessionPool"
+    fields = []
+
+[[rule]]
+  id = 10053
+  name = "[ddl] DDL closed"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] DDL closed"
+    fields = ["ID", "take time"]
+
+[[rule]]
+  id = 10054
+  name = "[ddl] stop DDL"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] stop DDL"
+    fields = ["ID"]
+
+[[rule]]
+  id = 10055
+  name = "loadSchemaInLoop exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "loadSchemaInLoop exited."
+    fields = []
+
+[[rule]]
+  id = 10056
+  name = "topologySyncerKeeper exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "topologySyncerKeeper exited."
+    fields = []
+
+[[rule]]
+  id = 10057
+  name = "infoSyncerKeeper exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "infoSyncerKeeper exited."
+    fields = []
+
+[[rule]]
+  id = 10058
+  name = "topNSlowQueryLoop exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "topNSlowQueryLoop exited."
+    fields = []
+
+[[rule]]
+  id = 10059
+  name = "domain closed"
+  [rule.patterns]
+    level = "INFO"
+    message = "domain is closed"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10059
+  name = "domain closed"
+  [rule.patterns]
+    level = "INFO"
+    message = "domain closed"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10060
+  name = "[domain:9009]Prometheus address is not set in PD and etcd"
+  [rule.patterns]
+    level = "INFO"
+    message = "[domain:9009]Prometheus address is not set in PD and etcd"
+    fields = []
+
+[[rule]]
+  id = 10061
+  name = "Telemetry slow query stats, postReportSlowQueryStats finished"
+  [rule.patterns]
+    level = "INFO"
+    message = "Telemetry slow query stats, postReportSlowQueryStats finished"
+    fields = []
+
+[[rule]]
+  id = 10062
+  name = "Uploading telemetry data to https://telemetry.pingcap.com/api/v1/tidb/report"
+  [rule.patterns]
+    level = "INFO"
+    message = "Uploading telemetry data to https://telemetry.pingcap.com/api/v1/tidb/report"
+    fields = []
+
+[[rule]]
+  id = 10063
+  name = "[gc worker] start"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] start"
+    fields = ["uuid"]
+
+[[rule]]
+  id = 10064
+  name = "[gc worker] another gc job has just finished, skipped."
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] another gc job has just finished, skipped."
+    fields = ["leaderTick on "]
+
+[[rule]]
+  id = 10065
+  name = "recycle idle connection"
+  [rule.patterns]
+    level = "INFO"
+    message = "recycle idle connection"
+    fields = ["target"]
+
+[[rule]]
+  id = 10066
+  name = "upgrade successful in bootstrap"
+  [rule.patterns]
+    level = "INFO"
+    message = "upgrade successful in bootstrap"
+    fields = ["take time"]
+
+[[rule]]
+  id = 10067
+  name = "etcd session is done, creates a new one"
+  [rule.patterns]
+    level = "INFO"
+    message = "etcd session is done, creates a new one"
+    fields = ["owner info"]
+
+[[rule]]
+  id = 10068
+  name = "break campaign loop, NewSession failed"
+  [rule.patterns]
+    level = "INFO"
+    message = "break campaign loop, NewSession failed"
+    fields = ["owner info", "error"]
+
+[[rule]]
+  id = 10069
+  name = "sql"
+  [rule.patterns]
+    level = "WARN"
+    message = "sql"
+    fields = ["label"]
+
+[[rule]]
+  id = 10070
+  name = "retrying"
+  [rule.patterns]
+    level = "WARN"
+    message = "retrying"
+    message_mode = "equal"
+    fields = ["schemaVersion", "retryCnt", "queryNum"]
+    
+[[rule]]
+  id = 10071
+  name = "transaction association"
+  [rule.patterns]
+    level = "WARN"
+    message = "transaction association"
+    fields = ["retrying txnStartTS", "original txnStartTS"]
+
+[[rule]]
+  id = 10071
+  name = "transaction association"
+  [rule.patterns]
+    level = "WARN"
+    message = "transaction association"
+    fields = ["conn", "retrying txnStartTS", "original txnStartTS"]
+
+[[rule]]
+  id = 10071
+  name = "transaction association"
+  [rule.patterns]
+    level = "WARN"
+    message = "transaction association"
+    message_mode = "equal"
+    fields = ["retrying txnStartTS", "original txnStartTS", "isPessimistic"]
+
+[[rule]]
+  id = 10072
+  name = "[gc worker] starts the whole job"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] starts the whole job"
+    fields = ["uuid", "safePoint", "concurrency"]
+
+[[rule]]
+  id = 10073
+  name = "[gc worker] start resolve locks"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] start resolve locks"
+    fields = ["uuid", "safePoint", "concurrency"]
+
+[[rule]]
+  id = 10074
+  name = "range task started"
+  [rule.patterns]
+    level = "INFO"
+    message = "range task started"
+    fields = ["name", "startKey", "endKey", "concurrency"]
+
+[[rule]]
+  id = 10075
+  name = "range task finished"
+  [rule.patterns]
+    level = "INFO"
+    message = "range task finished"
+    fields = ["name", "startKey", "endKey", "cost time", "completed regions"]
+
+[[rule]]
+  id = 10076
+  name = "[gc worker] finish resolve locks"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] finish resolve locks"
+    fields = ["uuid", "safePoint", "regions"]
+
+[[rule]]
+  id = 10077
+  name = "[gc worker] there's already a gc job running, skipped"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] there's already a gc job running, skipped"
+    fields = ["leaderTick on"]
+
+[[rule]]
+  id = 10078
+  name = "[gc worker] start delete ranges"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] start delete ranges"
+    fields = ["uuid", "ranges"]
+
+[[rule]]
+  id = 10079
+  name = "[gc worker] finish delete ranges"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] finish delete ranges"
+    fields = ["uuid", "num of ranges", "cost time"]
+
+[[rule]]
+  id = 10080
+  name = "[gc worker] start redo-delete ranges"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] start redo-delete ranges"
+    fields = ["uuid", "num of ranges"]
+
+[[rule]]
+  id = 10081
+  name = "[gc worker] finish redo-delete ranges"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] finish redo-delete ranges"
+    fields = ["uuid", "num of ranges", "cost time"]
+
+[[rule]]
+  id = 10082
+  name = "[gc worker] distributed mode will be used"
+  [rule.patterns]
+    level = "WARN"
+    message = "[gc worker] distributed mode will be used"
+    fields = ["invalid gc mode"]
+
+[[rule]]
+  id = 10083
+  name = "[gc worker] sent safe point to PD"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] sent safe point to PD"
+    fields = ["uuid", "safe point"]
+
+[[rule]]
+  id = 10084
+  name = "get user privilege record fail"
+  [rule.patterns]
+    level = "ERROR"
+    message = "get user privilege record fail"
+    fields = ["user", "host"]
+  
+[[rule]]
+  id = 10085
+  name = "failed to check the user authplugin"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to check the user authplugin"
+    fields = ["conn", "error"]
+
+[[rule]]
+  id = 10086
+  name = "compile SQL failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "compile SQL failed"
+    fields = ["conn", "error", "SQL"]
+
+[[rule]]
+  id = 10086
+  name = "compile sql failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "compile sql error"
+    message_mode = ""
+    fields = ["conn", "error", "sql"]
+  
+[[rule]]
+  id = 10087
+  name = "wait response is cancelled"
+  [rule.patterns]
+    level = "WARN"
+    message = "wait response is cancelled"
+    fields = ["to", "cause"]
+
+[[rule]]
+  id = 10088
+  name = "open new session or authentication failure"
+  [rule.patterns]
+    level = "WARN"
+    message = "open new session or authentication failure"
+    fields = ["conn", "error"]
+
+[[rule]]
+  id = 10089
+  name = "get timestamp too slow"
+  [rule.patterns]
+    level = "WARN"
+    message = "get timestamp too slow"
+    fields = ["cost time"]
+
+[[rule]]
+  id = 10090
+  name = "encountered error"
+  [rule.patterns]
+    level = "ERROR"
+    message = "encountered error"
+    fields = ["error", "stack"]
+
+[[rule]]
+  id = 10091
+  name = "read packet timeout, close this connection"
+  [rule.patterns]
+    level = "INFO"
+    message = "read packet timeout, close this connection"
+    fields = ["conn", "idle", "waitTimeout", "error"]
+
+[[rule]]
+  id = 10092
+  name = "schemaLeaseChecker is not set for this transaction"
+  [rule.patterns]
+    level = "WARN"
+    message = "schemaLeaseChecker is not set for this transaction"
+    fields = ["sessionID", "startTS", "commitTS"]
+
+[[rule]]
+  id = 10093
+  name = "lock txn not found, lock has expired"
+  [rule.patterns]
+    level = "WARN"
+    message = "lock txn not found, lock has expired"
+    fields = ["CallerStartTs", "lock str"]
+
+[[rule]]
+  id = 10093
+  name = "lock txn not found, lock has expired"
+  [rule.patterns]
+    level = "WARN"
+    message = "lock txn not found, lock has expired"
+    message_mode = "equal"
+    fields = ["conn", "CallerStartTs", "lock str"]
+
+[[rule]]
+  id = 10094
+  name = "is not the owner"
+  [rule.patterns]
+    level = "WARN"
+    message = "RunInNewTxn"
+    fields = ["retry txn", "original txn", "error"]
+
+[[rule]]
+  id = 10095
+  name = "prewrite encounters lock"
+  [rule.patterns]
+    level = "INFO"
+    message = "prewrite encounters lock"
+    fields = ["session", "lock"]
+
+[[rule]]
+  id = 10095
+  name = "prewrite encounters lock"
+  [rule.patterns]
+    level = "INFO"
+    message = "prewrite encounters lock"
+    message_mode = "equal"
+    fields = ["conn", "lock"]
+
+[[rule]]
+  id = 10096
+  name = "Try to create a new txn inside a transaction auto commit"
+  [rule.patterns]
+    level = "INFO"
+    message = "Try to create a new txn inside a transaction auto commit"
+    fields = ["conn", "schemaVersion", "txnStartTS", "txnScope"]
+
+[[rule]]
+  id = 10097
+  name = "Client without Auth Plugin support; Please upgrade client"
+  [rule.patterns]
+    level = "WARN"
+    message = "Client without Auth Plugin support; Please upgrade client"
+    fields = ["conn"]
+
+[[rule]]
+  id = 10098
+  name = "wait response is cancelled"
+  [rule.patterns]
+    level = "WARN"
+    message = "send request is cancelled"
+    fields = ["to", "cause"]
+
+[[rule]]
+  id = 10099
+  name = "kill"
+  [rule.patterns]
+    level = "INFO"
+    message = "kill"
+    fields = ["connID", "query"]
+
+[[rule]]
+  id = 10100
+  name = "the schema validator enqueue, queue is too long"
+  [rule.patterns]
+    level = "INFO"
+    message = "the schema validator enqueue, queue is too long"
+    fields = ["delta max count", "remove schema version"]
+
+[[rule]]
+  id = 10101
+  name = "2PC commitTS rejected by TiKV, retry with a newer commitTS"
+  [rule.patterns]
+    level = "INFO"
+    message = "2PC commitTS rejected by TiKV, retry with a newer commitTS"
+    fields = ["txnStartTS", "info"]
+
+[[rule]]
+  id = 10101
+  name = "2PC commitTS rejected by TiKV, retry with a newer commitTS"
+  [rule.patterns]
+    level = "INFO"
+    message = "2PC commitTS rejected by TiKV, retry with a newer commitTS"
+    message_mode = "equal"
+    fields = ["conn", "txnStartTS", "info"]
+
+[[rule]]
+  id = 10102
+  name = "expensive_query"
+  [rule.patterns]
+    level = "WARN"
+    message = "expensive_query"
+    message_mode = "equal"
+    fields = ["cost_time"]
+
+[[rule]]
+  id = 10103
+  name = "resolveLock rollback"
+  [rule.patterns]
+    level = "INFO"
+    message = "resolveLock rollback"
+    fields = ["lock"]
+
+[[rule]]
+  id = 10104
+  name = "parallel hash aggregation panicked"
+  [rule.patterns]
+    level = "ERROR"
+    message = "parallel hash aggregation panicked"
+    fields = ["error", "stack"]
+
+[[rule]]
+  id = 10105
+  name = "send TxnHeartBeat"
+  [rule.patterns]
+    level = "INFO"
+    message = "send TxnHeartBeat"
+    fields = ["startTS", "newTTL"]
+
+[[rule]]
+  id = 10106
+  name = "read packet failed, close this connection"
+  [rule.patterns]
+    level = "WARN"
+    message = "read packet failed, close this connection"
+    fields = ["conn", "error"]
+
+[[rule]]
+  id = 10107
+  name = "[BIG_TXN]"
+  [rule.patterns]
+    level = "INFO"
+    message = "[BIG_TXN]"
+    fields = ["size", "keys", "puts", "dels", "locks", "checks", "txnStartTS"]
+
+[[rule]]
+  id = 10108
+  name = "Dispatch mpp task"
+  [rule.patterns]
+    level = "INFO"
+    message = "Dispatch mpp task"
+    fields = ["timestamp", "ID", "address", "plan"]
+
+[[rule]]
+  id = 10109
+  name = "detecting available mpp stores"
+  [rule.patterns]
+    level = "INFO"
+    message = "detecting available mpp stores"
+    fields = []
+
+[[rule]]
+  id = 10110
+  name = "Mpp will generate tasks"
+  [rule.patterns]
+    level = "INFO"
+    message = "Mpp will generate tasks"
+    fields = ["plan"]
+
+[[rule]]
+  id = 10111
+  name = "invalid region because tiflash detected stale region"
+  [rule.patterns]
+    level = "INFO"
+    message = "invalid region because tiflash detected stale region"
+    fields = ["region id"]
+
+[[rule]]
+  id = 10112
+  name = "TiFlash found \\d+ stale regions. Only first \\d+ regions will be logged if the log level is higher than Debug"
+  [rule.patterns]
+    level = "INFO"
+    message = "TiFlash found \\d+ stale regions. Only first \\d+ regions will be logged if the log level is higher than Debug"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 10113
+  name = "multiple regions are stale and need to be refreshed"
+  [rule.patterns]
+    level = "INFO"
+    message = "multiple regions are stale and need to be refreshed"
+    message_mode = "equal"
+    fields = ["region size"]
+
+[[rule]]
+  id = 10114
+  name = "analyze table `[[:ascii:]]+`.`[[:ascii:]]+` has finished"
+  [rule.patterns]
+    level = "INFO"
+    message = "analyze table `[[:ascii:]]+`.`[[:ascii:]]+` has finished"
+    message_mode = "regex"
+    fields = ["conn", "partition", "job info", "start time", "end time", "cost"]
+
+[[rule]]
+  id = 10114
+  name = "analyze table `[[:ascii:]]+`.`[[:ascii:]]+` has finished"
+  [rule.patterns]
+    level = "INFO"
+    message = "analyze table `[[:ascii:]]+`.`[[:ascii:]]+` has finished"
+    message_mode = "regex"
+    fields = ["partition", "job info", "start time", "end time", "cost"]
+
+[[rule]]
+  id = 10115
+  name = "GENERAL_LOG"
+  [rule.patterns]
+    level = "INFO"
+    message = "GENERAL_LOG"
+    message_mode = "equal"
+    fields = ["conn", "user", "schemaVersion", "txnStartTS", "forUpdateTS", "isReadConsistency", "current_db", "txn_mode", "sql"]
+
+[[rule]]
+  id = 10116
+  name = "shuffle panicked"
+  [rule.patterns]
+    level = "ERROR"
+    message = "shuffle panicked"
+    message_mode = "equal"
+    fields = ["error", "stack"]
+
+[[rule]]
+  id = 10117
+  name = "table reader fetch next chunk failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "table reader fetch next chunk failed"
+    message_mode = "equal"
+    fields = ["conn", "error"]
+
+[[rule]]
+  id = 10118
+  name = "invalid cop task execution summaries length"
+  [rule.patterns]
+    level = "ERROR"
+    message = "invalid cop task execution summaries length"
+    message_mode = "equal"
+    fields = ["conn", "expected", "received"]
+
+[[rule]]
+  id = 10119
+  name = "batchRecvLoop re-create streaming fail"
+  [rule.patterns]
+    level = "INFO"
+    message = "batchRecvLoop re-create streaming fail"
+    message_mode = "equal"
+    fields = ["target", "forwardedHost", "error"]
+
+[[rule]]
+  id = 10119
+  name = "batchRecvLoop re-create streaming fail"
+  [rule.patterns]
+    level = "INFO"
+    message = "batchRecvLoop re-create streaming fail"
+    message_mode = "equal"
+    fields = ["target", "forwardedHost"]
+
+[[rule]]
+  id = 10120
+  name = "mark store's regions need be refill"
+  [rule.patterns]
+    level = "INFO"
+    message = "mark store's regions need be refill"
+    message_mode = "equal"
+    fields = ["id", "addr", "error"]
+
+[[rule]]
+  id = 10120
+  name = "mark store's regions need be refill"
+  [rule.patterns]
+    level = "INFO"
+    message = "mark store's regions need be refill"
+    message_mode = "equal"
+    fields = ["store"]
+
+[[rule]]
+  id = 10121
+  name = "[health check] check health error"
+  [rule.patterns]
+    level = "INFO"
+    message = "[health check] check health error"
+    message_mode = "equal"
+    fields = ["store", "error"]
+
+[[rule]]
+  id = 10122
+  name = "no available connections"
+  [rule.patterns]
+    level = "WARN"
+    message = "no available connections"
+
+[[rule]]
+  id = 10122
+  name = "no available connections"
+  [rule.patterns]
+    level = "ERROR"
+    message = "no available connections"
+
+[[rule]]
+  id = 10123
+  name = "batchRecvLoop fails when receiving, needs to reconnect"
+  [rule.patterns]
+    level = "INFO"
+    message = "batchRecvLoop fails when receiving, needs to reconnect"
+    message_mode = "equal"
+    fields = ["target", "forwardedHost", "error"]
+
+[[rule]]
+  id = 10123
+  name = "batchRecvLoop fails when receiving, needs to reconnect"
+  [rule.patterns]
+    level = "INFO"
+    message = "batchRecvLoop fails when receiving, needs to reconnect"
+    message_mode = "equal"
+    fields = ["target", "error"]
+
+[[rule]]
+  id = 10124
+  name = "batchRecvLoop re-create streaming success"
+  [rule.patterns]
+    level = "INFO"
+    message = "batchRecvLoop re-create streaming success"
+    message_mode = "equal"
+    fields = ["target", "forwardedHost"]
+
+[[rule]]
+  id = 10124
+  name = "batchRecvLoop re-create streaming success"
+  [rule.patterns]
+    level = "INFO"
+    message = "batchRecvLoop re-create streaming success"
+    message_mode = "equal"
+    fields = ["target"]
+
+[[rule]]
+  id = 10125
+  name = "[pd] cannot update member from this address"
+  [rule.patterns]
+    level = "INFO"
+    message = "[pd] cannot update member from this address"
+    message_mode = "equal"
+    fields = ["address", "error"]
+
+[[rule]]
+  id = 10126
+  name = "[pd] failed updateMember"
+  [rule.patterns]
+    level = "ERROR"
+    message = "[pd] failed updateMember"
+    message_mode = "equal"
+    fields = ["error"]
+
+[[rule]]
+  id = 10127
+  name = "[pd] getTS error"
+  [rule.patterns]
+    level = "ERROR"
+    message = "[pd] getTS error"
+    message_mode = "equal"
+    fields = ["error"]
+
+[[rule]]
+  id = 10128
+  name = "load privilege loop watch channel closed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "load privilege loop watch channel closed"
+    message_mode = "equal"
+    fields = []
+
+[[rule]]
+  id = 10129
+  name = "[ddl] syncer watch global schema finished"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] syncer watch global schema finished"
+    message_mode = "equal"
+    fields = []
+
+[[rule]]
+  id = 10130
+  name = "reload schema in loop, schema syncer need rewatch"
+  [rule.patterns]
+    level = "WARN"
+    message = "reload schema in loop, schema syncer need rewatch"
+    message_mode = "equal"
+    fields = []
+
+[[rule]]
+  id = 10131
+  name = "[ddl] start worker watch channel closed"
+  [rule.patterns]
+    level = "WARN"
+    message = "[ddl] start worker watch channel closed"
+    message_mode = "equal"
+    fields = ["worker", "watch key"]
+
+[[rule]]
+  id = 10132
+  name = "failed to campaign"
+  [rule.patterns]
+    level = "INFO"
+    message = "failed to campaign"
+    message_mode = "equal"
+    fields = ["owner info", "error"]
+
+[[rule]]
+  id = 10133
+  name = "stop TxnHeartBeat"
+  [rule.patterns]
+    level = "WARN"
+    message = "stop TxnHeartBeat"
+    message_mode = "equal"
+    fields = ["error", "consecutiveFailure", "txnStartTS"]
+
+[[rule]]
+  id = 10134
+  name = "2PC detect large amount of mutations on a single region"
+  [rule.patterns]
+    level = "INFO"
+    message = "2PC detect large amount of mutations on a single region"
+    message_mode = "equal"
+    fields = ["region", "mutations count"]
+
+[[rule]]
+  id = 10135
+  name = "wait scatter region finished"
+  [rule.patterns]
+    level = "INFO"
+    message = "wait scatter region finished"
+    message_mode = "equal"
+    fields = ["regionID"]
+
+[[rule]]
+  id = 10136
+  name = "wait scatter region"
+  [rule.patterns]
+    level = "INFO"
+    message = "wait scatter region"
+    message_mode = "equal"
+    fields = ["regionID", "backoff(ms)"]
+
+[[rule]]
+  id = 10136
+  name = "wait scatter region"
+  [rule.patterns]
+    level = "INFO"
+    message = "wait scatter region"
+    message_mode = "equal"
+    fields = ["regionID", "reverse", "status"]
+
+[[rule]]
+  id = 10137
+  name = "batch split regions, scatter region complete"
+  [rule.patterns]
+    level = "INFO"
+    message = "batch split regions, scatter region complete"
+    message_mode = "equal"
+    fields = ["batch region ID", "at", "new region left"]
+
+[[rule]]
+  id = 10138
+  name = "start scatter region"
+  [rule.patterns]
+    level = "INFO"
+    message = "start scatter region"
+    message_mode = "equal"
+    fields = ["regionID"]
+
+[[rule]]
+  id = 10139
+  name = "Unable to get collator by name, use binCollator instead."
+  [rule.patterns]
+    level = "WARN"
+    message = "Unable to get collator by name, use binCollator instead."
+    message_mode = "equal"
+    fields = ["name", "stack"]
+
+[[rule]]
+  id = 10140
+  name = "[pd] tso dispatcher created"
+  [rule.patterns]
+    level = "INFO"
+    message = "[pd] tso dispatcher created"
+    message_mode = "equal"
+    fields = ["dc-location"]
+
+[[rule]]
+  id = 10141
+  name = "[pd] exit tso dispatcher"
+  [rule.patterns]
+    level = "INFO"
+    message = "[pd] exit tso dispatcher"
+    message_mode = "equal"
+    fields = ["dc-location"]
+
+[[rule]]
+  id = 10142
+  name = "[gc worker] quit"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] quit"
+    message_mode = "equal"
+    fields = ["uuid"]
+
+[[rule]]
+  id = 10143
+  name = "updateStatsWorker exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "updateStatsWorker exited."
+    message_mode = "equal"
+    fields = []
+
+[[rule]]
+  id = 10144
+  name = "globalBindHandleWorkerLoop exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "globalBindHandleWorkerLoop exited."
+    message_mode = "equal"
+    fields = []
+
+[[rule]]
+  id = 10145
+  name = "handleEvolvePlanTasksLoop exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "handleEvolvePlanTasksLoop exited."
+    message_mode = "equal"
+    fields = []
+
+[[rule]]
+  id = 10146
+  name = "TelemetryReportLoop exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "TelemetryReportLoop exited."
+    message_mode = "equal"
+    fields = []
+
+[[rule]]
+  id = 10147
+  name = "failed to new session to etcd"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to new session to etcd"
+    message_mode = "equal"
+    fields = ["ownerInfo", "error"]
+
+[[rule]]
+  id = 10148
+  name = "LoadSysVarCacheLoop exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "LoadSysVarCacheLoop exited."
+    message_mode = "equal"
+    fields = []
+
+[[rule]]
+  id = 10149
+  name = "TelemetryRotateSubWindowLoop exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "TelemetryRotateSubWindowLoop exited."
+    message_mode = "equal"
+    fields = []
+
+[[rule]]
+  id = 10150
+  name = "autoAnalyzeWorker exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "autoAnalyzeWorker exited."
+    message_mode = "equal"
+    fields = []
+
+[[rule]]
+  id = 10151
+  name = "grpc server error"
+  [rule.patterns]
+    level = "ERROR"
+    message = "grpc server error"
+    message_mode = "equal"
+    fields = ["error"]
+
+[[rule]]
+  id = 10152
+  name = "start status/rpc server error"
+  [rule.patterns]
+    level = "ERROR"
+    message = "start status/rpc server error"
+    message_mode = "equal"
+    fields = ["error"]
+
+[[rule]]
+  id = 10153
+  name = "setting tidb-server to report unhealthy (shutting-down)"
+  [rule.patterns]
+    level = "INFO"
+    message = "setting tidb-server to report unhealthy (shutting-down)"
+    message_mode = "equal"
+    fields = []
+
+[[rule]]
+  id = 10154
+  name = "got signal to exit"
+  [rule.patterns]
+    level = "INFO"
+    message = "got signal to exit"
+    message_mode = "equal"
+    fields = ["signal"]
+
+[[rule]]
+  id = 10155
+  name = "http server error"
+  [rule.patterns]
+    level = "ERROR"
+    message = "http server error"
+    message_mode = "equal"
+    fields = ["error"]
+
+[[rule]]
+  id = 10056
+  name = "loadPrivilegeInLoop exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "loadPrivilegeInLoop exited."
+    message_mode = "equal"
+    fields = []
+
+[[rule]]
+  id = 10157
+  name = "loadStatsWorker exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "loadStatsWorker exited."
+    message_mode = "equal"
+    fields = []
+
+[[rule]]
+  id = 10158
+  name = "graceful shutdown..."
+  [rule.patterns]
+    level = "INFO"
+    message = "graceful shutdown..."
+    message_mode = "equal"
+    fields = ["conn count"]
+
+[[rule]]
+  id = 10159
+  name = "[server] graceful shutdown."
+  [rule.patterns]
+    level = "INFO"
+    message = "[server] graceful shutdown."
+    message_mode = "equal"
+    fields = []
+
+[[rule]]
+  id = 10160
+  name = "single statement deadlock, retry statement"
+  [rule.patterns]
+    level = "INFO"
+    message = "single statement deadlock, retry statement"
+    message_mode = "equal"
+    fields = ["conn", "txn", "lockTS", "lockKey", "deadlockKeyHash"]
+
+[[rule]]
+  id = 10161
+  name = "remove stats in GC due to dropped table"
+  [rule.patterns]
+    level = "INFO"
+    message = "remove stats in GC due to dropped table"
+    message_mode = "equal"
+    fields = ["table_id"]
+
+[[rule]]
+  id = 10162
+  name = "[stats] auto analyze triggered"
+  [rule.patterns]
+    level = "INFO"
+    message = "[stats] auto analyze triggered"
+    message_mode = "equal"
+    fields = ["sql"]
+
+[[rule]]
+  id = 10163
+  name = "[ddl] insert into delete-range table"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] insert into delete-range table"
+    message_mode = "equal"
+    fields = ["jobID", "elementID"]
+
+[[rule]]
+  id = 10164
+  name = "[ddl] run add column job"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] run add column job"
+    message_mode = "equal"
+    fields = ["job", "columnInfo", "offset"]
+
+[[rule]]
+  id = 10164
+  name = "[ddl] run add column job"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] run add columns job"
+    message_mode = ""
+    fields = ["job", "columnInfo", "offset"]
+
+[[rule]]
+  id = 10165
+  name = "[ddl] syncer check all versions, someone is not synced, continue checking"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] syncer check all versions, someone is not synced, continue checking"
+    message_mode = "equal"
+    fields = ["ddl", "currentVer", "latestVer"]
+
+[[rule]]
+  id = 10166
+  name = "[stats] error occurred when read table stats"
+  [rule.patterns]
+    level = "ERROR"
+    message = "[stats] error occurred when read table stats"
+    message_mode = "equal"
+    fields = ["table", "error"]
+
+[[rule]]
+  id = 10167
+  name = "physical scan lock for store encountered error"
+  [rule.patterns]
+    level = "ERROR"
+    message = "physical scan lock for store encountered error"
+    message_mode = "equal"
+    fields = ["safePoint", "store", "error"]
+
+[[rule]]
+  id = 10168
+  name = "[gc worker] resolve locks with physical scan failed, trying fallback to legacy resolve lock"
+  [rule.patterns]
+    level = "ERROR"
+    message = "[gc worker] resolve locks with physical scan failed, trying fallback to legacy resolve lock"
+    message_mode = "equal"
+    fields = ["uuid", "safePoint", "error"]
+
+[[rule]]
+  id = 10169
+  name = "[gc worker] removing lock observers"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] removing lock observers"
+    message_mode = "equal"
+    fields = ["uuid", "safePoint"]
+
+[[rule]]
+  id = 10170
+  name = "[gc worker] registering lock observers to tikv"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] registering lock observers to tikv"
+    message_mode = "equal"
+    fields = ["uuid", "safePoint"]
+
+[[rule]]
+  id = 10171
+  name = "[gc worker] checking lock observers"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] checking lock observers"
+    message_mode = "equal"
+    fields = ["uuid", "safePoint"]
+
+[[rule]]
+  id = 10172
+  name = "[gc worker] start resolve locks with physical scan locks"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] start resolve locks with physical scan locks"
+    message_mode = "equal"
+    fields = ["uuid", "safePoint"]
+
+[[rule]]
+  id = 10173
+  name = "[gc worker] gc safepoint blocked by a running session"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] gc safepoint blocked by a running session"
+    message_mode = "equal"
+    fields = ["uuid", "globalMinStartTS", "safePoint"]
+
+[[rule]]
+  id = 10174
+  name = "[gc worker] there's another service in the cluster requires an earlier safe point. gc will continue with the earlier one"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] there's another service in the cluster requires an earlier safe point. gc will continue with the earlier one"
+    message_mode = "equal"
+    fields = ["uuid", "ourSafePoint", "minSafePoint"]
+
+[[rule]]
+  id = 10175
+  name = "wait tso failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "wait tso failed"
+    message_mode = "equal"
+    fields = ["error"]
+
+[[rule]]
+  id = 10176
+  name = "[server] kill all connections."
+  [rule.patterns]
+    level = "INFO"
+    message = "[server] kill all connections."
+    message_mode = "equal"
+    fields = []
+
+[[rule]]
+  id = 10177
+  name = "[kv] pessimisticRollback failed."
+  [rule.patterns]
+    level = "WARN"
+    message = "[kv] pessimisticRollback failed."
+    message_mode = "equal"
+    fields = ["error"]
+
+[[rule]]
+  id = 10178
+  name = "connection running loop panic"
+  [rule.patterns]
+    level = "ERROR"
+    message = "connection running loop panic"
+    message_mode = "equal"
+    fields = ["conn", "lastSQL", "err", "stack"]
+
+[[rule]]
+  id = 10179
+  name = "Error exists when getting the SQL Metric."
+  [rule.patterns]
+    level = "INFO"
+    message = "Error exists when getting the SQL Metric."
+    message_mode = "equal"
+    fields = []
+
+[[rule]]
+  id = 10180
+  name = "use snapshot schema"
+  [rule.patterns]
+    level = "INFO"
+    message = "use snapshot schema"
+    message_mode = "equal"
+    fields = ["conn", "schemaVersion"]
+
+[[rule]]
+  id = 10181
+  name = "handshake panic"
+  [rule.patterns]
+    level = "ERROR"
+    message = "handshake panic"
+    message_mode = "equal"
+    fields = ["conn", "packetData"]
+
+[[rule]]
+  id = 10182
+  name = "set global var"
+  [rule.patterns]
+    level = "INFO"
+    message = "set global var"
+    message_mode = "equal"
+    fields = ["conn", "name", "val"]
+
+[[rule]]
+  id = 10183
+  name = "updateTS error"
+  [rule.patterns]
+    level = "ERROR"
+    message = "updateTS error"
+    message_mode = "equal"
+    fields = ["error"]
+
+[[rule]]
+  id = 10184
+  name = "[pd] tso stream is not ready"
+  [rule.patterns]
+    level = "INFO"
+    message = "[pd] tso stream is not ready"
+    message_mode = "equal"
+    fields = ["dc"]
+
+[[rule]]
+  id = 10185
+  name = "[pd] tso request is canceled due to timeout"
+  [rule.patterns]
+    level = "ERROR"
+    message = "tso request is canceled due to timeout"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 10186
+  name = "buildCopTasks takes too much time"
+  [rule.patterns]
+    level = "WARN"
+    message = "buildCopTasks takes too much time"
+    message_mode = "equal"
+    fields = ["elapsed", "range len", "task len"]
+
+[[rule]]
+  id = 10187
+  name = "GetPreparedStmt failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "GetPreparedStmt failed"
+    message_mode = "equal"
+    fields = ["error"]
+
+[[rule]]
+  id = 10188
+  name = "getTxnStatusFromLock backoff fail"
+  [rule.patterns]
+    level = "WARN"
+    message = "getTxnStatusFromLock backoff fail"
+    message_mode = "equal"
+    fields = ["error"]
+
+[[rule]]
+  id = 10189
+  name = "incorrect string value"
+  [rule.patterns]
+    level = "ERROR"
+    message = "incorrect string value"
+    message_mode = "equal"
+    fields = ["conn", "error"]
+
+[[rule]]
+  id = 10190
+  name = "switch region leader to specific leader due to kv return NotLeader"
+  [rule.patterns]
+    level = "INFO"
+    message = "switch region leader to specific leader due to kv return NotLeader"
+    message_mode = "equal"
+    fields = ["regionID", "currIdx", "leaderStoreID"]
+
+[[rule]]
+  id = 10191
+  name = "invalidate region cache due to cannot find peer when updating leader"
+  [rule.patterns]
+    level = "INFO"
+    message = "invalidate region cache due to cannot find peer when updating leader"
+    message_mode = "equal"
+    fields = ["regionID", "currIdx", "leaderStoreID"]
+
+[[rule]]
+  id = 10192
+  name = "2PC clean up done"
+  [rule.patterns]
+    level = "INFO"
+    message = "2PC clean up done"
+    message_mode = "equal"
+    fields = ["txnStartTS"]
+
+[[rule]]
+  id = 10193
+  name = "commit failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "commit failed"
+    message_mode = "equal"
+    fields = ["finished txn", "error"]
+
+[[rule]]
+  id = 10194
+  name = "invalidate current region, because others failed on same store"
+  [rule.patterns]
+    level = "INFO"
+    message = "invalidate current region, because others failed on same store"
+    message_mode = "equal"
+    fields = ["region", "store"]
+
+[[rule]]
+  id = 10195
+  name = "switch region peer to next due to send request fail"
+  [rule.patterns]
+    level = "INFO"
+    message = "switch region peer to next due to send request fail"
+    message_mode = "equal"
+    fields = ["current", "needReload", "error"]
+
+[[rule]]
+  id = 10196
+  name = "full load InfoSchema success"
+  [rule.patterns]
+    level = "INFO"
+    message = "full load InfoSchema success"
+    fields = ["currentSchemaVersion", "neededSchemaVersion", "start time"]
+
+[[rule]]
+  id = 10196
+  name = "full load InfoSchema success"
+  [rule.patterns]
+    level = "INFO"
+    message = "full load InfoSchema success"
+    message_mode = "equal"
+    fields = ["usedSchemaVersion", "neededSchemaVersion", "start time"]
+
+[[rule]]
+  id = 10197
+  name = "incorrect UTF-8 value"
+  [rule.patterns]
+    level = "ERROR"
+    message = "incorrect UTF-8 value"
+    message_mode = "equal"
+    fields = ["conn", "error"]
+
+[[rule]]
+  id = 10198
+  name = "loading schema takes a long time"
+  [rule.patterns]
+    level = "WARN"
+    message = "loading schema takes a long time"
+    message_mode = "equal"
+    fields = ["take time"]
+
+[[rule]]
+  id = 10199
+  name = "tidb-server has the risk of OOM. Running SQLs and heap profile will be recorded in record path"
+  [rule.patterns]
+    level = "WARN"
+    message = "tidb-server has the risk of OOM. Running SQLs and heap profile will be recorded in record path"
+    message_mode = "equal"
+    fields = ["is server-memory-quota set", "system memory total", "system memory usage", "tidb-server memory usage", "memory-usage-alarm-ratio", "record path"]
+
+[[rule]]
+  id = 10200
+  name = "loading schema takes a long time"
+  [rule.patterns]
+    level = "WARN"
+    message = "loading schema takes a long time"
+    message_mode = "equal"
+    fields = ["take time"]
+
+[[rule]]
+  id = 10201
+  name = "rollbackTxn for ddl/autocommit failed"
+  [rule.patterns]
+    level = "INFO"
+    message = "rollbackTxn for ddl/autocommit failed"
+    message_mode = "equal"
+    fields = []
+
+[[rule]]
+  id = 10202
+  name = "analyze failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "analyze failed"
+    message_mode = "equal"
+    fields = ["conn", "error"]
+
+[[rule]]
+  id = 10203
+  name = "can not retry txn"
+  [rule.patterns]
+    level = "WARN"
+    message = "can not retry txn"
+    message_mode = "equal"
+    fields = ["label", "error", "IsBatchInsert", "IsPessimistic", "InRestrictedSQL", "tidb_retry_limit", "tidb_disable_txn_auto_retry"]
+
+[[rule]]
+  id = 10204
+  name = "open new session failure"
+  [rule.patterns]
+    level = "WARN"
+    message = "open new session failure"
+    message_mode = "equal"
+    fields = ["conn", "error"]
+
+[[rule]]
+  id = 10205
+  name = "send TxnHeartBeat"
+  [rule.patterns]
+    level = "WARN"
+    message = "send TxnHeartBeat failed"
+    message_mode = "equal"
+    fields = ["error", "txnStartTS"]
+
+[[rule]]
+  id = 10206
+  name = "range task in progress"
+  [rule.patterns]
+    level = "INFO"
+    message = "range task in progress"
+    message_mode = "equal"
+    fields = ["name", "startKey", "endKey", "concurrency", "cost time", "completed regions"]
+
+[[rule]]
+  id = 10207
+  name = "decode plan in statement summary failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "decode plan in statement summary failed"
+    message_mode = "equal"
+    fields = ["plan", "error"]
+
+[[rule]]
+  id = 10208
+  name = "check index handle failed"
+  [rule.patterns]
+    level = "INFO"
+    message = "check index handle failed"
+    message_mode = "equal"
+    fields = ["conn", "error"]
+
+[[rule]]
+  id = 10209
+  name = "read packet timeout, close this connection"
+  [rule.patterns]
+    level = "INFO"
+    message = "ttlManager live up to its lifetime"
+    message_mode = "equal"
+    fields = ["txnStartTS", "uptime", "maxTxnTTL"]
+
+[[rule]]
+  id = 10210
+  name = "check indices count"
+  [rule.patterns]
+    level = "INFO"
+    message = "check indices count"
+    message_mode = "equal"
+    fields = ["table", "cnt", "index", "cnt"]
+
+[[rule]]
+  id = 10211
+  name = "save stats to storage failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "save stats to storage failed"
+    message_mode = "equal"
+    fields = ["error"]
+
+
+[[rule]]
+  id = 10212
+  name = "[ddl] add job into delete-range table"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] add job into delete-range table"
+    message_mode = "equal"
+    fields = ["jobID", "jobType"]
+
+[[rule]]
+  id = 10213
+  name = "[stats] auto analyze triggered"
+  [rule.patterns]
+    level = "ERROR"
+    message = "[stats] auto analyze failed"
+    message_mode = "equal"
+    fields = ["sql", "cost_time", "error"]
+
+[[rule]]
+  id = 10214
+  name = "[TIME_COP_PROCESS]"
+  [rule.patterns]
+    level = "INFO"
+    message = "[TIME_COP_PROCESS]"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 10215
+  name = "[ddl:1273]Unsupported collation when new collation is enabled: '[[:word:]]+'"
+  [rule.patterns]
+    level = "WARN"
+    message = "\\[ddl:1273\\]Unsupported collation when new collation is enabled: '[[:word:]]+'"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 10216
+  name = "[TIME_COP_WAIT]"
+  [rule.patterns]
+    level = "INFO"
+    message = "[TIME_COP_WAIT]"
+    message_mode = "substr"
+    fields = []
+
+
+[[rule]]
+  id = 10217
+  name = "regionScheduling backoffer.maxSleep [0-9ms]+ is exceeded"
+  [rule.patterns]
+    level = "WARN"
+    message = "regionScheduling backoffer\\.maxSleep [0-9ms]+ is exceeded.*"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 10218
+  name = "slow prewrite request"
+  [rule.patterns]
+    level = "WARN"
+    message = "slow prewrite request"
+    fields = ["startTS", "region", "attempts"]
+
+[[rule]]
+  id = 10219
+  name = "LoadSysVarCacheLoop failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "LoadSysVarCacheLoop failed"
+    fields = ["error"]
+
+[[rule]]
+  id = 10220
+  name = "async commit cannot proceed since the returned minCommitTS is zero, fallback to normal path"
+  [rule.patterns]
+    level = "WARN"
+    message = "async commit cannot proceed since the returned minCommitTS is zero, fallback to normal path"
+    message_mode = ""
+    fields = ["startTS"]
+
+[[rule]]
+  id = 10221
+  name = "update bindinfo failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "update bindinfo failed"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10222
+  name = "2PC commit result undetermined"
+  [rule.patterns]
+    level = "ERROR"
+    message = "2PC commit result undetermined"
+    message_mode = ""
+    fields = ["error", "rpcErr", "txnStartTS"]
+
+[[rule]]
+  id = 10223
+  name = "result undetermined, close this connection"
+  [rule.patterns]
+    level = "ERROR"
+    message = "result undetermined, close this connection"
+    message_mode = ""
+    fields = ["conn", "error"]
+
+[[rule]]
+  id = 10224
+  name = "No user plugin set, assuming MySQL Native Password"
+  [rule.patterns]
+    level = "WARN"
+    message = "No user plugin set, assuming MySQL Native Password"
+    message_mode = ""
+    fields = ["conn", "user", "host"]
+
+[[rule]]
+  id = 10225
+  name = "regionMiss backoffer.maxSleep [0-9ms]+ is exceeded"
+  [rule.patterns]
+    level = "WARN"
+    message = "regionMiss backoffer\\.maxSleep [0-9ms]+ is exceeded.*"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 10226
+  name = "globalConfigSyncerKeeper exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "globalConfigSyncerKeeper exited."
+    fields = []
+
+[[rule]]
+  id = 10227
+  name = "Automatically convert BLOB(\\d+) to [[:alpha:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "Automatically convert BLOB\\(\\d+\\) to [[:alpha:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 10228
+  name = "tikvRPC backoffer.maxSleep [0-9ms]+ is exceeded"
+  [rule.patterns]
+    level = "WARN"
+    message = "tikvRPC backoffer\\.maxSleep [0-9ms]+ is exceeded.*"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 10229
+  name = "slow commit request"
+  [rule.patterns]
+    level = "WARN"
+    message = "slow commit request"
+    fields = ["startTS", "region", "attempts"]
+
+[[rule]]
+  id = 10230
+  name = "BatchResolveLocks: resolve locks in a batch"
+  [rule.patterns]
+    level = "INFO"
+    message = "BatchResolveLocks: resolve locks in a batch"
+    fields = ["cost time", "num of locks"]
+
+[[rule]]
+  id = 10231
+  name = "[gc worker] check leader"
+  [rule.patterns]
+    level = "WARN"
+    message = "[gc worker] check leader"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10232
+  name = "BatchResolveLocks: lookup txn status"
+  [rule.patterns]
+    level = "INFO"
+    message = "BatchResolveLocks: lookup txn status"
+    fields = ["cost time", "num of txn"]
+
+[[rule]]
+  id = 10233
+  name = "1pc failed and fallbacks to normal commit procedure"
+  [rule.patterns]
+    level = "WARN"
+    message = "1pc failed and fallbacks to normal commit procedure"
+    fields = ["startTS"]
+
+[[rule]]
+  id = 10234
+  name = "load privilege failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "load privilege failed"
+    fields = ["error"]
+
+[[rule]]
+  id = 10235
+  name = "region unavailable"
+  [rule.patterns]
+    level = "ERROR"
+    message = "region unavailable"
+    fields = []
+
+[[rule]]
+  id = 10236
+  name = "load mysql.user fail"
+  [rule.patterns]
+    level = "WARN"
+    message = "load mysql.user fail"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10237
+  name = "GC bind record failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "GC bind record failed"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10238
+  name = "reload schema in loop failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "reload schema in loop failed"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10239
+  name = "[ddl] handle DDL job failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "[ddl] handle DDL job failed"
+    message_mode = ""
+    fields = ["worker", "error"]
+
+[[rule]]
+  id = 10239
+  name = "[ddl] handle DDL job failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "[ddl] handle DDL job failed"
+    message_mode = ""
+    fields = ["worker", "error"]
+
+[[rule]]
+  id = 10240
+  name = "2PC cleanup failed"
+  [rule.patterns]
+    level = "INFO"
+    message = "2PC cleanup failed"
+    message_mode = ""
+    fields = ["error", "txnStartTS", "isPessimistic", "isOnePC"]
+
+[[rule]]
+  id = 10241
+  name = "[gc worker] runGCJob"
+  [rule.patterns]
+    level = "ERROR"
+    message = "[gc worker] runGCJob"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10242
+  name = "2PC async commit failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "2PC async commit failed"
+    message_mode = ""
+    fields = ["sessionID", "startTS", "commitTS", "error"]
+
+[[rule]]
+  id = 10243
+  name = "[gc worker] delete range returns an error"
+  [rule.patterns]
+    level = "ERROR"
+    message = "[gc worker] delete range returns an error"
+    message_mode = ""
+    fields = ["uuid", "error"]
+
+[[rule]]
+  id = 10244
+  name = "[ddl] batch insert into delete-range table"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] batch insert into delete-range table"
+    message_mode = ""
+    fields = ["jobID", "elementIDs"]
+
+[[rule]]
+  id = 10245
+  name = "load snapshot info schema"
+  [rule.patterns]
+    level = "INFO"
+    message = "load snapshot info schema"
+    message_mode = ""
+    fields = ["conn", "SnapshotTS"]
+
+[[rule]]
+  id = 10246
+  name = "[ddl] DDL job is finished"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] DDL job is cancelled normally"
+    message_mode = ""
+    fields = ["worker", "error"]
+
+[[rule]]
+  id = 10247
+  name = "the schema validator stopped before checking"
+  [rule.patterns]
+    level = "INFO"
+    message = "the schema validator stopped before checking"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10248
+  name = "reload schema in loop, schema syncer restart failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "reload schema in loop, schema syncer restart failed"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10249
+  name = "reload schema in loop, schema syncer need rewatch"
+  [rule.patterns]
+    level = "ERROR"
+    message = "reload schema in loop, schema syncer restart failed"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10250
+  name = "execute sql panic"
+  [rule.patterns]
+    level = "ERROR"
+    message = "execute sql panic"
+    message_mode = ""
+    fields = ["sql", "stack"]
+
+[[rule]]
+  id = 10251
+  name = "projection executor panicked"
+  [rule.patterns]
+    level = "ERROR"
+    message = "projection executor panicked"
+    message_mode = ""
+    fields = ["error", "stack"]
+
+[[rule]]
+  id = 10252
+  name = "NewTxn() inside a transaction auto commit"
+  [rule.patterns]
+    level = "INFO"
+    message = "NewTxn() inside a transaction auto commit"
+    message_mode = ""
+    fields = ["conn", "schemaVersion", "txnStartTS", "txnScope"]
+
+[[rule]]
+  id = 10253
+  name = "[stats] dump stats delta fail"
+  [rule.patterns]
+    level = "ERROR"
+    message = "[stats] dump stats delta fail"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10254
+  name = "reload schema in loop, schema syncer need restart"
+  [rule.patterns]
+    level = "INFO"
+    message = "reload schema in loop, schema syncer need restart"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10255
+  name = "the schema validator stops"
+  [rule.patterns]
+    level = "INFO"
+    message = "the schema validator stops"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10256
+  name = "watcher is closed, no owner"
+  [rule.patterns]
+    level = "INFO"
+    message = "watcher is closed, no owner"
+    message_mode = ""
+    fields = ["owner info"]
+
+[[rule]]
+  id = 10257
+  name = "[ddl] run reorg job done"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] run reorg job done"
+    message_mode = ""
+    fields = ["handled rows"]
+
+[[rule]]
+  id = 10258
+  name = "[ddl] start to add table index"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] start to add table index"
+    message_mode = ""
+    fields = ["job", "reorgInfo"]
+
+[[rule]]
+  id = 10259
+  name = "sleep before DDL finishes to make async commit and 1PC safe"
+  [rule.patterns]
+    level = "INFO"
+    message = "sleep before DDL finishes to make async commit and 1PC safe"
+    message_mode = ""
+    fields = ["duration"]
+
+[[rule]]
+  id = 10260
+  name = "[ddl] schema version doesn't change"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] schema version doesn't change"
+    message_mode = ""
+    fields = ["worker"]
+
+[[rule]]
+  id = 10261
+  name = "[ddl] job get table range"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] job get table range"
+    message_mode = ""
+    fields = ["jobID", "physicalTableID", "startHandle", "endHandle"]
+
+[[rule]]
+  id = 10262
+  name = "[ddl] get table range, endHandle < startHandle"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] get table range, endHandle < startHandle"
+    message_mode = ""
+    fields = ["table", "table/partition ID", "endHandle", "startHandle"]
+
+[[rule]]
+  id = 10263
+  name = "[ddl] run add index job"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] run add index job"
+    message_mode = ""
+    fields = ["job", "indexInfo"]
+
+[[rule]]
+  id = 10264
+  name = "init create streaming fail"
+  [rule.patterns]
+    level = "WARN"
+    message = "init create streaming fail"
+    message_mode = ""
+    fields = ["target", "forwardedHost", "error"]
+
+[[rule]]
+  id = 10265
+  name = "[pd] failed to get cluster id"
+  [rule.patterns]
+    level = "WARN"
+    message = "[pd] failed to get cluster id"
+    message_mode = ""
+    fields = ["url", "error"]
+
+[[rule]]
+  id = 10266
+  name = "updateTS error"
+  [rule.patterns]
+    level = "FATAL"
+    message = "unexpected error"
+    message_mode = ""
+    fields = ["error", "stack", "stack"]
+
+[[rule]]
+  id = 10267
+  name = "parsed scheme"
+  [rule.patterns]
+    level = "INFO"
+    message = "parsed scheme: \"[[:word:]]*\""
+    message_mode = "regex"
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10268
+  name = "scheme not registered, fallback to default scheme"
+  [rule.patterns]
+    level = "INFO"
+    message = "scheme \"[[:word:]]*\" not registered, fallback to default scheme"
+    message_mode = "regex"
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10269
+  name = "Subchannel Connectivity change to READY"
+  [rule.patterns]
+    level = "INFO"
+    message = "Subchannel Connectivity change to READY"
+    message_mode = ""
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10270
+  name = "Channel Connectivity change to CONNECTING"
+  [rule.patterns]
+    level = "INFO"
+    message = "Channel Connectivity change to CONNECTING"
+    message_mode = ""
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10271
+  name = "Subchannel Created"
+  [rule.patterns]
+    level = "INFO"
+    message = "Subchannel Created"
+    message_mode = ""
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10271
+  name = "Subchannel Created"
+  [rule.patterns]
+    level = "INFO"
+    message = "Subchannel\\(id:\\d+\\) created"
+    message_mode = "regex"
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10272
+  name = "Channel switches to new LB policy \"[[:word:]]+\""
+  [rule.patterns]
+    level = "INFO"
+    message = "Channel switches to new LB policy \"[[:word:]]+\""
+    message_mode = "regex"
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10273
+  name = "Subchannel Connectivity change to READY"
+  [rule.patterns]
+    level = "INFO"
+    message = "Channel Connectivity change to READY"
+    message_mode = ""
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10274
+  name = "Subchannel picks a new address to connect"
+  [rule.patterns]
+    level = "INFO"
+    message = "Subchannel picks a new address \"(http://|https://)?[0-9.:]+\" to connect"
+    message_mode = "regex"
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10275
+  name = "Channel Connectivity change to CONNECTING"
+  [rule.patterns]
+    level = "INFO"
+    message = "Subchannel Connectivity change to CONNECTING"
+    message_mode = ""
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10276
+  name = "ccResolverWrapper: sending update to cc"
+  [rule.patterns]
+    level = "INFO"
+    message = "ccResolverWrapper: sending update to cc: "
+    message_mode = "substr"
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10277
+  name = "ClientConn switching balancer to \"[[:word:]]+\""
+  [rule.patterns]
+    level = "INFO"
+    message = "ClientConn switching balancer to \"[[:word:]]+\""
+    message_mode = "regex"
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10178
+  name = "Resolver state updated"
+  [rule.patterns]
+    level = "INFO"
+    message = "Resolver state updated: "
+    message_mode = "substr"
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10279
+  name = "ccResolverWrapper: sending new addresses to cc"
+  [rule.patterns]
+    level = "INFO"
+    message = "ccResolverWrapper: sending new addresses to cc: "
+    message_mode = "substr"
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10280
+  name = "blockingPicker: the picked transport is not ready, loop back to repick"
+  [rule.patterns]
+    level = "INFO"
+    message = "blockingPicker: the picked transport is not ready, loop back to repick"
+    message_mode = ""
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10281
+  name = "attempt to delete child from a parent that doesn't currently exist"
+  [rule.patterns]
+    level = "INFO"
+    message = "attempt to delete child with id \\d+ from a parent \\(id=\\d+\\) that doesn't currently exist"
+    message_mode = "regex"
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10282
+  name = "Subchannel Connectivity change to SHUTDOWN"
+  [rule.patterns]
+    level = "INFO"
+    message = "Subchannel Connectivity change to SHUTDOWN"
+    message_mode = ""
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10283
+  name = "Subchannel Deleted"
+  [rule.patterns]
+    level = "INFO"
+    message = "Subchannel Deleted"
+    message_mode = ""
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10283
+  name = "Subchannel Deleted"
+  [rule.patterns]
+    level = "INFO"
+    message = "Subchanel\\(id:\\d+\\) deleted"
+    message_mode = "regex"
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10284
+  name = "Channel Connectivity change to SHUTDOWN"
+  [rule.patterns]
+    level = "INFO"
+    message = "Channel Connectivity change to SHUTDOWN"
+    message_mode = ""
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10285
+  name = "Channel Deleted"
+  [rule.patterns]
+    level = "INFO"
+    message = "Channel Deleted"
+    message_mode = ""
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10286
+  name = "Channel Connectivity change to TRANSIENT_FAILURE"
+  [rule.patterns]
+    level = "INFO"
+    message = "Channel Connectivity change to TRANSIENT_FAILURE"
+    message_mode = ""
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10287
+  name = "grpc: addrConn.createTransport failed to connect"
+  [rule.patterns]
+    level = "WARN"
+    message = "grpc: addrConn.createTransport failed to connect to "
+    message_mode = "substr"
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10288
+  name = "Subchannel Connectivity change to TRANSIENT_FAILURE"
+  [rule.patterns]
+    level = "INFO"
+    message = "Subchannel Connectivity change to TRANSIENT_FAILURE"
+    message_mode = ""
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10289
+  name = "grpc: Server.Serve failed to create ServerTransport"
+  [rule.patterns]
+    level = "WARN"
+    message = "grpc: Server.Serve failed to create ServerTransport: "
+    message_mode = "substr"
+    fields = ["system", "grpc_log"]
+
+[[rule]]
+  id = 10290
+  name = "compaction done"
+  [rule.patterns]
+    level = "INFO"
+    message = "compaction done"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10291
+  name = "compaction done"
+  [rule.patterns]
+    level = "INFO"
+    message = "compact send discard stats"
+    message_mode = ""
+    fields = ["stats"]
+
+[[rule]]
+  id = 10292
+  name = "flush memtable storing offset"
+  [rule.patterns]
+    level = "INFO"
+    message = "flush memtable storing offset"
+    message_mode = ""
+    fields = ["fid", "offset"]
+
+[[rule]]
+  id = 10293
+  name = "flushing memtable"
+  [rule.patterns]
+    level = "INFO"
+    message = "flushing memtable"
+    message_mode = ""
+    fields = ["memtable size", "size of flushChan"]
+
+[[rule]]
+  id = 10294
+  name = "running compaction"
+  [rule.patterns]
+    level = "INFO"
+    message = "running compaction"
+    message_mode = ""
+    fields = ["def"]
+
+[[rule]]
+  id = 10295
+  name = "start compaction"
+  [rule.patterns]
+    level = "INFO"
+    message = "start compaction"
+    message_mode = ""
+    fields = ["level", "score"]
+
+[[rule]]
+  id = 10296
+  name = "region \\d+ acquire \\d+ locks takes [0-9.ms]+, waitCnt \\d+"
+  [rule.patterns]
+    level = "WARN"
+    message = "region \\d+ acquire \\d+ locks takes [0-9.ms]+, waitCnt \\d+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 10297
+  name = "build compaction fill tables failed"
+  [rule.patterns]
+    level = "INFO"
+    message = "build compaction fill tables failed"
+    message_mode = ""
+    fields = ["level"]
+
+[[rule]]
+  id = 10298
+  name = "tikv reports `ServerIsBusy` retry later"
+  [rule.patterns]
+    level = "WARN"
+    message = "tikv reports `ServerIsBusy` retry later"
+    message_mode = ""
+    fields = ["reason", "ctx"]
+
+[[rule]]
+  id = 10299
+  name = "[pd] update member urls"
+  [rule.patterns]
+    level = "INFO"
+    message = "[pd] update member urls"
+    message_mode = ""
+    fields = ["old-urls", "new-urls"]
+
+[[rule]]
+  id = 10300
+  name = "[ddl] start DDL worker"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] backfill worker exit"
+    message_mode = ""
+    fields = ["workerID"]
+
+[[rule]]
+  id = 10301
+  name = "[ddl] backfill workers successfully processed batch"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] backfill workers successfully processed batch"
+    message_mode = ""
+    fields = ["elementType", "elementID", "totalAddedCount", "startHandle", "nextHandle", "batchAddedCount", "takeTime"]
+
+[[rule]]
+  id = 10302
+  name = "[ddl] backfill worker finish task"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] backfill worker finish task"
+    message_mode = ""
+    fields = ["workerID", "task", "addedCount", "scanCount", "nextHandle", "takeTime"]
+
+[[rule]]
+  id = 10303
+  name = "[ddl] send range task to workers, change end key"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] send range task to workers, change end key"
+    message_mode = ""
+    fields = ["end key", "current end key"]
+
+[[rule]]
+  id = 10304
+  name = "[ddl] split table range from PD"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] split table range from PD"
+    message_mode = ""
+    fields = ["physicalTableID", "startHandle", "endHandle"]
+
+[[rule]]
+  id = 10305
+  name = "[ddl] start backfill workers to reorg record"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] start backfill workers to reorg record"
+    message_mode = ""
+    fields = ["workerCnt", "regionCnt", "startHandle", "endHandle"]
+
+[[rule]]
+  id = 10306
+  name = "[ddl] backfill worker start"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] backfill worker start"
+    message_mode = ""
+    fields = ["workerID"]
+
+[[rule]]
+  id = 10307
+  name = "dispatch error"
+  [rule.patterns]
+    level = "ERROR"
+    message = "dispatch error"
+    message_mode = ""
+    fields = ["conn", "connInfo", "command", "status", "sql", "err"]
+
+[[rule]]
+  id = 10308
+  name = "syntax error"
+  [rule.patterns]
+    level = "ERROR"
+    message = "syntax error"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10309
+  name = "parse sql error"
+  [rule.patterns]
+    level = "WARN"
+    message = "parse sql error"
+    message_mode = ""
+    fields = ["conn", "error", "sql"]
+
+[[rule]]
+  id = 10310
+  name = "inconsistent index handles"
+  [rule.patterns]
+    level = "ERROR"
+    message = "inconsistent index handles"
+    message_mode = ""
+    fields = ["conn", "index", "index_cnt", "table_cnt", "missing_handles", "total_handles"]
+
+[[rule]]
+  id = 10311
+  name = "parse attrs failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "parse attrs failed"
+    message_mode = ""
+    fields = ["conn", "error"]
+
+[[rule]]
+  id = 10312
+  name = "data too long for column"
+  [rule.patterns]
+    level = "ERROR"
+    message = "data too long for column"
+    message_mode = ""
+    fields = ["colName", "rowIndex"]
+
+[[rule]]
+  id = 10313
+  name = "fail to load safepoint from pd"
+  [rule.patterns]
+    level = "ERROR"
+    message = "fail to load safepoint from pd"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10314
+  name = "[pd] cannot update leader"
+  [rule.patterns]
+    level = "WARN"
+    message = "[pd] cannot update leader"
+    message_mode = ""
+    fields = ["address", "error"]
+
+[[rule]]
+  id = 10314
+  name = "[pd] failed updateMember"
+  [rule.patterns]
+    level = "ERROR"
+    message = "[pd] failed updateLeader"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10315
+  name = "[pd] create tso stream error"
+  [rule.patterns]
+    level = "ERROR"
+    message = "[pd] create tso stream error"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10316
+  name = "updateLeader backoffer.maxSleep [0-9ms]+ is exceeded"
+  [rule.patterns]
+    level = "WARN"
+    message = "updateLeader backoffer\\.maxSleep [0-9ms]+ is exceeded.*"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 10317
+  name = "partition pruning not applicable"
+  [rule.patterns]
+    level = "WARN"
+    message = "partition pruning not applicable"
+    message_mode = ""
+    fields = ["expression"]
+
+[[rule]]
+  id = 10318
+  name = "[ddl] etcd-cli put kv failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "[ddl] etcd-cli put kv failed"
+    message_mode = ""
+    fields = ["key", "value", "error", "retryCnt"]
+
+[[rule]]
+  id = 10319
+  name = "new TiDB binary running on old TiDB DDL reorg data"
+  [rule.patterns]
+    level = "WARN"
+    message = "new TiDB binary running on old TiDB DDL reorg data"
+    message_mode = ""
+    fields = ["partition ID", "startHandle", "endHandle"]

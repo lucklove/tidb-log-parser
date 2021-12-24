@@ -1,0 +1,8 @@
+[[rule]]
+id = 20001
+name = "更新 PD Client 完毕"
+
+  [rule.patterns]
+  level = "INFO"
+  message = "trying to update PD client done"
+  fields = ["spend"]

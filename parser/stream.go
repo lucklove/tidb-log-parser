@@ -1,4 +1,4 @@
-// Copyright 2020 PingCAP, Inc.
+// Copyright 2021 PingCAP, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,6 +17,8 @@ package parser
 import (
 	"bufio"
 	"io"
+
+	"github.com/pingcap/errors"
 )
 
 // StreamParser is a parser implementation which parses bytes from
@@ -29,8 +31,11 @@ type StreamParser struct {
 
 // NewStreamParser creates new *StreamParser associated with the io.Reader.
 func NewStreamParser(reader io.Reader) *StreamParser {
+	scanner := bufio.NewScanner(reader)
+	buf := make([]byte, 0, 64*1024)
+	scanner.Buffer(buf, 1024*1024)
 	return &StreamParser{
-		scanner: bufio.NewScanner(reader),
+		scanner: scanner,
 		Line:    0,
 	}
 }
@@ -38,19 +43,20 @@ func NewStreamParser(reader io.Reader) *StreamParser {
 // Next reads and parses one LogEntry from bufio.Reader on demand.
 // This function will return (nil, nil) if the underlying io.Reader returns
 // io.EOF in the standard case.
-func (p *StreamParser) Next() (*LogEntry, error) {
-	for p.scanner.Scan() {
-		p.Line++
-		tokens := parseLine(p.scanner.Text())
+func (sp *StreamParser) Next() (*LogEntry, error) {
+	for sp.scanner.Scan() {
+		sp.Line++
+		tokens := parseLine(sp.scanner.Text())
 		if len(tokens) == 0 {
 			continue
 		}
 		p := Parser{tokens: tokens}
 		log, err := p.Parse()
 		if err != nil {
-			return nil, err
+			return nil, errors.Annotatef(err, "at line %d", sp.Line)
 		}
 		return log, nil
 	}
-	return nil, p.scanner.Err()
+	sp.Line++
+	return nil, errors.Annotatef(sp.scanner.Err(), "at line %d", sp.Line)
 }

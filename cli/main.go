@@ -12,25 +12,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package parser
+package main
 
-import "fmt"
+import (
+	"github.com/spf13/cobra"
+)
 
-// UnexpectedEOLError indicates an unexpected end of line
-type UnexpectedEOLError struct {
-	ExpectedToken string
+func main() {
+	command().Execute()
 }
 
-func (e *UnexpectedEOLError) Error() string {
-	return fmt.Sprintf("expect token '%s', got end of line", e.ExpectedToken)
-}
+func command() *cobra.Command {
+	cmd := &cobra.Command{
+		Use: `cli`,
+		RunE: func(cmd *cobra.Command, args []string) error {
+			return cmd.Help()
+		},
+		SilenceUsage: true,
+	}
 
-// UnexpectedTokenError indicates an unexpected token
-type UnexpectedTokenError struct {
-	ExpectedToken string
-	GotToken      string
-}
+	cmd.AddCommand(
+		newCheckCommand(),
+		newLearnCommand(),
+		newDiagCommand(),
+	)
 
-func (e *UnexpectedTokenError) Error() string {
-	return fmt.Sprintf("expect token '%s', got '%s'", e.ExpectedToken, e.GotToken)
+	return cmd
 }

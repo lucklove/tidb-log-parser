@@ -12,25 +12,28 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package parser
+package event
 
-import "fmt"
+import (
+	"github.com/hbollon/go-edlib"
+)
 
-// UnexpectedEOLError indicates an unexpected end of line
-type UnexpectedEOLError struct {
-	ExpectedToken string
+// sort strings by similarity with key
+type stringSorter struct {
+	key  string
+	strs []string
 }
 
-func (e *UnexpectedEOLError) Error() string {
-	return fmt.Sprintf("expect token '%s', got end of line", e.ExpectedToken)
+func (s *stringSorter) Len() int {
+	return len(s.strs)
 }
 
-// UnexpectedTokenError indicates an unexpected token
-type UnexpectedTokenError struct {
-	ExpectedToken string
-	GotToken      string
+func (s *stringSorter) Swap(i, j int) {
+	s.strs[i], s.strs[j] = s.strs[j], s.strs[i]
 }
 
-func (e *UnexpectedTokenError) Error() string {
-	return fmt.Sprintf("expect token '%s', got '%s'", e.ExpectedToken, e.GotToken)
+func (s *stringSorter) Less(i, j int) bool {
+	r1, _ := edlib.StringsSimilarity(s.key, s.strs[i], edlib.Levenshtein)
+	r2, _ := edlib.StringsSimilarity(s.key, s.strs[j], edlib.Levenshtein)
+	return r1 > r2
 }

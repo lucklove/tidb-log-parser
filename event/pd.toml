@@ -1,0 +1,8 @@
+[[rule]]
+id = 30001
+name = "发送调度指令"
+
+  [rule.patterns]
+  level = "INFO"
+  message = "send schedule command"
+  fields = ["region-id", "step", "source"]
