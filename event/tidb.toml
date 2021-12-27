@@ -181,7 +181,7 @@
   [rule.patterns]
     level = "INFO"
     message = "new domain"
-    fields = ["store", "ddl lease", "stats lease", "index usage sync lease"]
+    fields = ["store", "ddl lease", "stats lease"]
 
 [[rule]]
   id = 10023
@@ -1057,7 +1057,7 @@
     level = "ERROR"
     message = "table reader fetch next chunk failed"
     message_mode = "equal"
-    fields = ["conn", "error"]
+    fields = ["error"]
 
 [[rule]]
   id = 10118
@@ -1075,16 +1075,7 @@
     level = "INFO"
     message = "batchRecvLoop re-create streaming fail"
     message_mode = "equal"
-    fields = ["target", "forwardedHost", "error"]
-
-[[rule]]
-  id = 10119
-  name = "batchRecvLoop re-create streaming fail"
-  [rule.patterns]
-    level = "INFO"
-    message = "batchRecvLoop re-create streaming fail"
-    message_mode = "equal"
-    fields = ["target", "forwardedHost"]
+    fields = ["target"]
 
 [[rule]]
   id = 10120
@@ -2233,7 +2224,7 @@
     level = "INFO"
     message = "2PC cleanup failed"
     message_mode = ""
-    fields = ["error", "txnStartTS", "isPessimistic", "isOnePC"]
+    fields = ["error", "txnStartTS"]
 
 [[rule]]
   id = 10241
@@ -2341,7 +2332,7 @@
     level = "INFO"
     message = "NewTxn() inside a transaction auto commit"
     message_mode = ""
-    fields = ["conn", "schemaVersion", "txnStartTS", "txnScope"]
+    fields = ["conn", "schemaVersion", "txnStartTS"]
 
 [[rule]]
   id = 10253
@@ -2449,7 +2440,7 @@
     level = "WARN"
     message = "init create streaming fail"
     message_mode = ""
-    fields = ["target", "forwardedHost", "error"]
+    fields = ["target", "error"]
 
 [[rule]]
   id = 10265
@@ -2972,3 +2963,94 @@
     message = "new TiDB binary running on old TiDB DDL reorg data"
     message_mode = ""
     fields = ["partition ID", "startHandle", "endHandle"]
+
+  [[rule]]
+  id = 10320
+  name = "[ddl] fail to notify DDL event"
+  [rule.patterns]
+    level = "WARN"
+    message = "[ddl] fail to notify DDL event"
+    message_mode = ""
+    fields = ["event"]
+
+[[rule]]
+  id = 10321
+  name = "single statement deadlock, retry statement"
+  [rule.patterns]
+    level = "INFO"
+    message = "pessimistic write conflict, retry statement"
+    message_mode = ""
+    fields = ["txn", "forUpdateTS", "err"]
+
+[[rule]]
+  id = 10322
+  name = "handleTelemetryLoop exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "handleTelemetryLoop exited."
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10323
+  name = "2PC failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "2PC failed"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10324
+  name = "[gc worker] leader tick"
+  [rule.patterns]
+    level = "WARN"
+    message = "[gc worker] leader tick"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10325
+  name = "[liveness] request kv status fail"
+  [rule.patterns]
+    level = "INFO"
+    message = "[liveness] request kv status fail"
+    message_mode = ""
+    fields = ["store", "error"]
+
+[[rule]]
+  id = 10326
+  name = "pdRPC backoffer.maxSleep [0-9ms]+ is exceeded"
+  [rule.patterns]
+    level = "WARN"
+    message = "pdRPC backoffer\\.maxSleep [0-9ms]+ is exceeded.*"
+    message_mode = "regex"
+    fields = []
+
+  [[rule]]
+  id = 10327
+  name = "sending batch commands meets error"
+  [rule.patterns]
+    level = "INFO"
+    message = "sending batch commands meets error"
+    message_mode = ""
+    fields = ["target", "requestIDs", "error"]
+
+[[rule]]
+  id = 10328
+  name = "failed to load global variables"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to load global variables"
+    message_mode = ""
+    fields = ["conn", "error"]
+
+
+[[rule]]
+  id = 10329
+  name = "load mysql.db fail"
+  [rule.patterns]
+    level = "WARN"
+    message = "load mysql.db fail"
+    message_mode = ""
+    fields = ["error"]
