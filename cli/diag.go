@@ -93,10 +93,10 @@ func newDiagCommand() *cobra.Command {
 
 			wm := make(map[uint]float64)
 			eids := d.Produce()
+			lfc, err := store.LogFragmentCount()
+			assert(err)
 			for _, eid := range eids {
 				ec, err := store.EventCount(eid)
-				assert(err)
-				lfc, err := store.LogFragmentCount()
 				assert(err)
 				wm[eid] = d.Weight(eid) * math.Log(float64(lfc)/float64(ec+1))
 			}
@@ -107,7 +107,9 @@ func newDiagCommand() *cobra.Command {
 
 			for _, eid := range eids {
 				rs := em.GetRulesByEventID(eid)
-				fmt.Printf("%f\t%d\t%s\n", wm[eid], d.Count(eid), rs[0].Name)
+				ec, err := store.EventCount(eid)
+				assert(err)
+				fmt.Printf("%f\t%d\t%d\t%d\t%s\n", wm[eid], d.Count(eid), ec, lfc, rs[0].Name)
 			}
 
 			return nil
