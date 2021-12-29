@@ -1,4 +1,4 @@
-module github.com/pingcap-inc/tidb-log-parser
+module github.com/lucklove/tidb-log-parser
 
 go 1.16
 

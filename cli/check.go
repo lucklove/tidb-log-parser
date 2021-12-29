@@ -19,8 +19,8 @@ import (
 	"strings"
 
 	"github.com/BurntSushi/toml"
-	"github.com/pingcap-inc/tidb-log-parser/event"
-	"github.com/pingcap-inc/tidb-log-parser/parser"
+	"github.com/lucklove/tidb-log-parser/event"
+	"github.com/lucklove/tidb-log-parser/parser"
 	"github.com/spf13/cobra"
 )
 

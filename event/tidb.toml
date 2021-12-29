@@ -3054,3 +3054,12 @@
     message = "load mysql.db fail"
     message_mode = ""
     fields = ["error"]
+
+[[rule]]
+  id = 10330
+  name = "analyze table `[[:ascii:]]+`.`[[:ascii:]]+` has failed"
+  [rule.patterns]
+    level = "INFO"
+    message = "analyze table `[[:ascii:]]+`.`[[:ascii:]]+` has failed"
+    message_mode = "regex"
+    fields = ["partition", "job info", "start time", "end time", "cost"]

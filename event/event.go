@@ -19,8 +19,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/pingcap-inc/tidb-log-parser/parser"
-	"github.com/pingcap-inc/tidb-log-parser/utils"
+	"github.com/lucklove/tidb-log-parser/parser"
+	"github.com/lucklove/tidb-log-parser/utils"
 )
 
 // EventManager is responsible for allocate event id for every LogEntry

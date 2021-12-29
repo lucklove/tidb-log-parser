@@ -17,7 +17,7 @@ package event
 import (
 	"testing"
 
-	"github.com/pingcap-inc/tidb-log-parser/parser"
+	"github.com/lucklove/tidb-log-parser/parser"
 	"github.com/stretchr/testify/assert"
 )
 

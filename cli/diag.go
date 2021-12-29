@@ -21,9 +21,9 @@ import (
 	"path"
 	"sort"
 
-	"github.com/pingcap-inc/tidb-log-parser/event"
-	"github.com/pingcap-inc/tidb-log-parser/parser"
-	"github.com/pingcap-inc/tidb-log-parser/store"
+	"github.com/lucklove/tidb-log-parser/event"
+	"github.com/lucklove/tidb-log-parser/parser"
+	"github.com/lucklove/tidb-log-parser/store"
 	"github.com/spf13/cobra"
 )
 
