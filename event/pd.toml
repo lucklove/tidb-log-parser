@@ -1,8 +1,964 @@
 [[rule]]
 id = 30001
-name = "发送调度指令"
+name = "send schedule command"
 
   [rule.patterns]
   level = "INFO"
   message = "send schedule command"
   fields = ["region-id", "step", "source"]
+
+[[rule]]
+  id = 30002
+  name = "trace[id] put"
+  [rule.patterns]
+    level = "INFO"
+    message = "trace\\[\\d+\\] put"
+    message_mode = "regex"
+    fields = ["detail", "duration", "start", "end", "steps"]
+
+[[rule]]
+  id = 30003
+  name = "apply request took too long"
+  [rule.patterns]
+    level = "WARN"
+    message = "apply request took too long"
+    message_mode = ""
+    fields = ["took", "expected-duration", "prefix", "request", "response"]
+
+[[rule]]
+  id = 30004
+  name = "compact tree index"
+  [rule.patterns]
+    level = "INFO"
+    message = "compact tree index"
+    message_mode = ""
+    fields = ["revision"]
+
+[[rule]]
+  id = 30005
+  name = "triggering snapshot"
+  [rule.patterns]
+    level = "INFO"
+    message = "triggering snapshot"
+    message_mode = ""
+    fields = ["local-member-id", "local-member-applied-index", "local-member-snapshot-index", "local-member-snapshot-count"]
+
+[[rule]]
+  id = 30006
+  name = "finished scheduled compaction"
+  [rule.patterns]
+    level = "INFO"
+    message = "finished scheduled compaction"
+    message_mode = ""
+    fields = ["compact-revision", "took"]
+
+[[rule]]
+  id = 30007
+  name = "trace[id] range"
+  [rule.patterns]
+    level = "INFO"
+    message = "trace\\[\\d+\\] range"
+    message_mode = "regex"
+    fields = ["detail", "duration", "start", "end", "steps"]
+
+[[rule]]
+  id = 30008
+  name = "saved snapshot"
+  [rule.patterns]
+    level = "INFO"
+    message = "saved snapshot"
+    message_mode = ""
+    fields = ["snapshot-index"]
+
+[[rule]]
+  id = 30009
+  name = "compacted Raft logs"
+  [rule.patterns]
+    level = "INFO"
+    message = "compacted Raft logs"
+    message_mode = ""
+    fields = ["compact-index"]
+
+[[rule]]
+  id = 30010
+  name = "created a new WAL segment"
+  [rule.patterns]
+    level = "INFO"
+    message = "created a new WAL segment"
+    message_mode = ""
+    fields = ["path"]
+
+[[rule]]
+  id = 30011
+  name = "purged"
+  [rule.patterns]
+    level = "INFO"
+    message = "purged"
+    message_mode = ""
+    fields = ["path"]
+
+[[rule]]
+  id = 30012
+  name = "slow fdatasync"
+  [rule.patterns]
+    level = "WARN"
+    message = "slow fdatasync"
+    message_mode = ""
+    fields = ["took", "expected-duration"]
+
+[[rule]]
+  id = 30013
+  name = "kv gets too slow"
+  [rule.patterns]
+    level = "WARN"
+    message = "kv gets too slow"
+    message_mode = ""
+    fields = ["request-key", "cost"]
+
+[[rule]]
+  id = 30014
+  name = "ignored out-of-date read index response; local node read indexes queueing up and waiting to be in sync with leader"
+  [rule.patterns]
+    level = "WARN"
+    message = "ignored out-of-date read index response; local node read indexes queueing up and waiting to be in sync with leader"
+    message_mode = ""
+    fields = ["sent-request-id", "received-request-id"]
+
+[[rule]]
+  id = 30015
+  name = "raft.node: [[:xdigit:]]+ elected leader [[:xdigit:]]+ at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "raft.node: [[:xdigit:]]+ elected leader [[:xdigit:]]+ at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30016
+  name = "[[:xdigit:]]+ became follower at term [[:xdigit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ became follower at term [[:xdigit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30017
+  name = "[[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+\\] sent MsgPreVote request to [[:xdigit:]]+ at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+\\] sent MsgPreVote request to [[:xdigit:]]+ at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30018
+  name = "raft.node: [[:xdigit:]]+ lost leader [[:xdigit:]]+ at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "raft.node: [[:xdigit:]]+ lost leader [[:xdigit:]]+ at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30019
+  name = "[[:xdigit:]]+ received MsgPreVoteResp from [[:xdigit:]]+ at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ received MsgPreVoteResp from [[:xdigit:]]+ at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30020
+  name = "[[:xdigit:]]+ became pre-candidate at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ became pre-candidate at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30021
+  name = "[[:xdigit:]]+ is starting a new election at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ is starting a new election at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30022
+  name = "send keepalive message fail"
+  [rule.patterns]
+    level = "ERROR"
+    message = "send keepalive message fail"
+    message_mode = ""
+    fields = ["target-store-id", "error"]
+
+[[rule]]
+  id = 30023
+  name = "invalid timestamp"
+  [rule.patterns]
+    level = "ERROR"
+    message = "invalid timestamp"
+    message_mode = ""
+    fields = ["timestamp"]
+
+[[rule]]
+  id = 30024
+  name = "server starts to synchronize with leader"
+  [rule.patterns]
+    level = "INFO"
+    message = "server starts to synchronize with leader"
+    message_mode = ""
+    fields = ["server", "leader", "request-index"]
+
+    fields = []
+[[rule]]
+  id = 30025
+  name = "start watch leader"
+  [rule.patterns]
+    level = "INFO"
+    message = "start watch leader"
+    message_mode = ""
+    fields = ["leader"]
+
+[[rule]]
+  id = 30026
+  name = "server starts to synchronize with leader"
+  [rule.patterns]
+    level = "INFO"
+    message = "server starts to synchronize with leader"
+    message_mode = ""
+    fields = ["server", "leader", "request-index"]
+
+[[rule]]
+  id = 30027
+  name = "start watch leader"
+  [rule.patterns]
+    level = "INFO"
+    message = "start watch leader"
+    message_mode = ""
+    fields = ["leader"]
+
+[[rule]]
+  id = 30028
+  name = "server enable region storage"
+  [rule.patterns]
+    level = "INFO"
+    message = "server enable region storage"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30029
+  name = "skip campaign leader and check later"
+  [rule.patterns]
+    level = "INFO"
+    message = "skip campaign leader and check later"
+    message_mode = ""
+    fields = ["server-name", "etcd-leader-id"]
+
+[[rule]]
+  id = 30030
+  name = "background jobs has been stopped"
+  [rule.patterns]
+    level = "INFO"
+    message = "background jobs has been stopped"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30031
+  name = "region syncer has been stopped"
+  [rule.patterns]
+    level = "INFO"
+    message = "region syncer has been stopped"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30032
+  name = "coordinator has been stopped"
+  [rule.patterns]
+    level = "INFO"
+    message = "coordinator has been stopped"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30033
+  name = "coordinator is stopping"
+  [rule.patterns]
+    level = "INFO"
+    message = "coordinator is stopping"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30034
+  name = "coordinator stops running"
+  [rule.patterns]
+    level = "INFO"
+    message = "coordinator stops running"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30035
+  name = "metrics are reset"
+  [rule.patterns]
+    level = "INFO"
+    message = "metrics are reset"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30036
+  name = "failed to update timestamp"
+  [rule.patterns]
+    level = "ERROR"
+    message = "failed to update timestamp"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 30037
+  name = "txn runs too slow"
+  [rule.patterns]
+    level = "WARN"
+    message = "txn runs too slow"
+    message_mode = ""
+    fields = ["response", "cost"]
+
+[[rule]]
+  id = 30038
+  name = "sync hasn't completed yet, wait for a while"
+  [rule.patterns]
+    level = "INFO"
+    message = "sync hasn't completed yet, wait for a while"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30039
+  name = "raft.node: [[:xdigit:]]+ elected leader [[:xdigit:]]+ at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "raft.node: [[:xdigit:]]+ changed leader from [[:xdigit:]]+ to [[:xdigit:]]+ at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30040
+  name = "truncate the unstable entries before index [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "truncate the unstable entries before index [[:digit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30041
+  name = "found conflict at index [[:digit:]]+ \\[existing term: [[:digit:]]+, conflicting term: [[:digit:]]+\\]"
+  [rule.patterns]
+    level = "INFO"
+    message = "found conflict at index [[:digit:]]+ \\[existing term: [[:digit:]]+, conflicting term: [[:digit:]]+\\]"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30042
+  name = "[[:xdigit:]]+ \\[term: [[:digit:]]+\\] received a MsgApp message with higher term from [[:xdigit:]]+ \\[term: [[:digit:]]+\\]"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ \\[term: [[:digit:]]+\\] received a MsgApp message with higher term from [[:xdigit:]]+ \\[term: [[:digit:]]+\\]"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30043
+  name = "[[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+, vote: [[:xdigit:]]+\\] ignored MsgVote from [[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+\\] at term [[:digit:]]+: lease is not expired \\(remaining ticks: [[:digit:]]+\\)"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+, vote: [[:xdigit:]]+\\] ignored MsgVote from [[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+\\] at term [[:digit:]]+: lease is not expired \\(remaining ticks: [[:digit:]]+\\)"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30044
+  name = "[[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+, vote: [[:xdigit:]]+\\] ignored MsgPreVote from [[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+\\] at term [[:digit:]]+: lease is not expired \\(remaining ticks: [[:digit:]]+\\)"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+, vote: [[:xdigit:]]+\\] ignored MsgPreVote from [[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+\\] at term [[:digit:]]+: lease is not expired \\(remaining ticks: [[:digit:]]+\\)"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30045
+  name = "region batch split, generate new regions"
+  [rule.patterns]
+    level = "INFO"
+    message = "region batch split, generate new regions"
+    message_mode = ""
+    fields = ["region-id", "origin", "total"]
+
+[[rule]]
+  id = 30046
+  name = "region Version changed"
+  [rule.patterns]
+    level = "INFO"
+    message = "region Version changed"
+    message_mode = ""
+    fields = ["region-id", "detail", "old-version", "new-version"]
+
+[[rule]]
+  id = 30047
+  name = "server enable region storage"
+  [rule.patterns]
+    level = "INFO"
+    message = "alloc ids for region split"
+    message_mode = ""
+    fields = ["region-id", "peer-ids"]
+
+[[rule]]
+  id = 30048
+  name = "finished scheduled compaction"
+  [rule.patterns]
+    level = "INFO"
+    message = "completed auto periodic compaction"
+    message_mode = ""
+    fields = ["revision", "compact-period", "took"]
+
+[[rule]]
+  id = 30049
+  name = "transport: http2Server.HandleStreams failed to read frame: read tcp [0-9.:]+->[0-9.:]+: read: connection reset by peer"
+  [rule.patterns]
+    level = "WARN"
+    message = "transport: http2Server.HandleStreams failed to read frame: read tcp [0-9.:]+->[0-9.:]+: read: connection reset by peer"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30050
+  name = "get timestamp too slow"
+  [rule.patterns]
+    level = "WARN"
+    message = "get timestamp too slow"
+    message_mode = ""
+    fields = ["cost"]
+
+[[rule]]
+  id = 30051
+  name = "starting auto periodic compaction"
+  [rule.patterns]
+    level = "INFO"
+    message = "starting auto periodic compaction"
+    message_mode = ""
+    fields = ["revision", "compact-period"]
+
+[[rule]]
+  id = 30052
+  name = "region ConfVer changed"
+  [rule.patterns]
+    level = "INFO"
+    message = "region ConfVer changed"
+    message_mode = ""
+    fields = ["region-id", "detail", "old-confver", "new-confver"]
+
+[[rule]]
+  id = 30053
+  name = "update service GC safe point"
+  [rule.patterns]
+    level = "INFO"
+    message = "update service GC safe point"
+    message_mode = ""
+    fields = ["service-id", "expire-at", "safepoint"]
+
+[[rule]]
+  id = 30054
+  name = "PD cluster leader is ready to serve"
+  [rule.patterns]
+    level = "INFO"
+    message = "PD cluster leader is ready to serve"
+    message_mode = ""
+    fields = ["leader-name"]
+
+[[rule]]
+  id = 30055
+  name = "load cluster version"
+  [rule.patterns]
+    level = "INFO"
+    message = "load cluster version"
+    message_mode = ""
+    fields = ["cluster-version"]
+
+[[rule]]
+  id = 30056
+  name = "idAllocator allocates a new id"
+  [rule.patterns]
+    level = "INFO"
+    message = "idAllocator allocates a new id"
+    message_mode = ""
+    fields = ["alloc-id"]
+
+[[rule]]
+  id = 30057
+  name = "coordinator starts to collect cluster information"
+  [rule.patterns]
+    level = "INFO"
+    message = "coordinator starts to collect cluster information"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30058
+  name = "load regions"
+  [rule.patterns]
+    level = "INFO"
+    message = "load regions"
+    message_mode = ""
+    fields = ["count", "cost"]
+
+[[rule]]
+  id = 30059
+  name = "load stores"
+  [rule.patterns]
+    level = "INFO"
+    message = "load stores"
+    message_mode = ""
+    fields = ["count", "cost"]
+
+[[rule]]
+  id = 30060
+  name = "sync and save timestamp"
+  [rule.patterns]
+    level = "INFO"
+    message = "sync and save timestamp"
+    message_mode = ""
+    fields = ["last", "save", "next"]
+
+[[rule]]
+  id = 30061
+  name = "timed out waiting for read index response (local node might have slow network)"
+  [rule.patterns]
+    level = "WARN"
+    message = "timed out waiting for read index response (local node might have slow network)"
+    message_mode = ""
+    fields = ["timeout"]
+
+[[rule]]
+  id = 30062
+  name = "failed to reload persist options"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to reload persist options"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30063
+  name = "load from etcd meet error"
+  [rule.patterns]
+    level = "ERROR"
+    message = "load from etcd meet error"
+    message_mode = ""
+    fields = ["key", "error"]
+
+[[rule]]
+  id = 30064
+  name = "requested server has already in sync with server"
+  [rule.patterns]
+    level = "INFO"
+    message = "requested server has already in sync with server"
+    message_mode = ""
+    fields = ["requested-server", "server", "last-index"]
+
+[[rule]]
+  id = 30065
+  name = "establish sync region stream"
+  [rule.patterns]
+    level = "INFO"
+    message = "establish sync region stream"
+    message_mode = ""
+    fields = ["requested-server", "url"]
+
+[[rule]]
+  id = 30066
+  name = "requested server has already in sync with server"
+  [rule.patterns]
+    level = "INFO"
+    message = "requested server has already in sync with server"
+    message_mode = ""
+    fields = ["requested-server", "server", "last-index"]
+
+[[rule]]
+  id = 30067
+  name = "campaign leader ok"
+  [rule.patterns]
+    level = "INFO"
+    message = "campaign leader ok"
+    message_mode = ""
+    fields = ["campaign-leader-name"]
+
+[[rule]]
+  id = 30068
+  name = "start to campaign leader"
+  [rule.patterns]
+    level = "INFO"
+    message = "start to campaign leader"
+    message_mode = ""
+    fields = ["campaign-leader-name"]
+
+[[rule]]
+  id = 30069
+  name = "leader changed, try to campaign leader"
+  [rule.patterns]
+    level = "INFO"
+    message = "leader changed, try to campaign leader"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30070
+  name = "region sync with leader meet error"
+  [rule.patterns]
+    level = "ERROR"
+    message = "region sync with leader meet error"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 30071
+  name = "leader is deleted"
+  [rule.patterns]
+    level = "INFO"
+    message = "leader is deleted"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30072
+  name = "[[:xdigit:]]+ became leader at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ became leader at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30073
+  name = "[[:xdigit:]]+ has received [[:digit:]]+ MsgVoteResp votes and [[:digit:]]+ vote rejections"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ has received [[:digit:]]+ MsgVoteResp votes and [[:digit:]]+ vote rejections"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30074
+  name = "[[:xdigit:]]+ received MsgVoteResp from [[:xdigit:]]+ at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ received MsgVoteResp from [[:xdigit:]]+ at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30075
+  name = "[[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+\\] sent MsgVote request to [[:xdigit:]]+ at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+\\] sent MsgVote request to [[:xdigit:]]+ at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30076
+  name = "[[:xdigit:]]+ became candidate at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ became candidate at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30077
+  name = "[[:xdigit:]]+ has received [[:digit:]]+ MsgPreVoteResp votes and [[:digit:]]+ vote rejections"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ has received [[:digit:]]+ MsgPreVoteResp votes and [[:digit:]]+ vote rejections"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30078
+  name = "grpc: Server.processUnaryRPC failed to write status"
+  [rule.patterns]
+    level = "WARN"
+    message = "grpc: Server.processUnaryRPC failed to write status"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 30079
+  name = "transport: http2Server.HandleStreams failed to read frame"
+  [rule.patterns]
+    level = "WARN"
+    message = "transport: http2Server.HandleStreams failed to read frame"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 30080
+  name = "established TCP streaming connection with remote peer"
+  [rule.patterns]
+    level = "INFO"
+    message = "established TCP streaming connection with remote peer"
+    message_mode = ""
+    fields = ["local-member-id", "remote-peer-id"]
+
+[[rule]]
+  id = 30080
+  name = "established TCP streaming connection with remote peer"
+  [rule.patterns]
+    level = "WARN"
+    message = "established TCP streaming connection with remote peer"
+    message_mode = ""
+    fields = ["local-member-id", "remote-peer-id"]
+
+[[rule]]
+  id = 30081
+  name = "lost TCP streaming connection with remote peer"
+  [rule.patterns]
+    level = "WARN"
+    message = "lost TCP streaming connection with remote peer"
+    message_mode = ""
+    fields = ["local-member-id", "remote-peer-id"]
+
+[[rule]]
+  id = 30082
+  name = "peer became active"
+  [rule.patterns]
+    level = "INFO"
+    message = "peer became active"
+    message_mode = ""
+    fields = ["peer-id"]
+
+[[rule]]
+  id = 30083
+  name = "prober detected unhealthy status"
+  [rule.patterns]
+    level = "WARN"
+    message = "prober detected unhealthy status"
+    message_mode = ""
+    fields = ["round-tripper-name", "remote-peer-id", "rtt", "error"]
+
+[[rule]]
+  id = 30084
+  name = "peer became inactive (message send to peer failed)"
+  [rule.patterns]
+    level = "WARN"
+    message = "peer became inactive (message send to peer failed)"
+    message_mode = ""
+    fields = ["peer-id", "error"]
+
+[[rule]]
+  id = 30085
+  name = "add operator"
+  [rule.patterns]
+    level = "INFO"
+    message = "add operator"
+    message_mode = ""
+    fields = ["region-id", "operator", "additional info"]
+
+[[rule]]
+  id = 30086
+  name = "operator finish"
+  [rule.patterns]
+    level = "INFO"
+    message = "operator finish"
+    message_mode = ""
+    fields = ["region-id", "takes", "operator", "additional info"]
+
+[[rule]]
+  id = 30087
+  name = "leader changed"
+  [rule.patterns]
+    level = "INFO"
+    message = "leader changed"
+    message_mode = ""
+    fields = ["region-id", "from", "to"]
+
+[[rule]]
+  id = 30088
+  name = "operator canceled"
+  [rule.patterns]
+    level = "INFO"
+    message = "operator canceled"
+    message_mode = ""
+    fields = ["region-id", "takes", "operator"]
+
+[[rule]]
+  id = 30089
+  name = "update service GC safe point"
+  [rule.patterns]
+    level = "INFO"
+    message = "update service GC safe point"
+    message_mode = ""
+    fields = ["safe-point"]
+
+[[rule]]
+  id = 30090
+  name = "clock offset"
+  [rule.patterns]
+    level = "WARN"
+    message = "clock offset"
+    message_mode = ""
+    fields = ["jet-lag", "prev-physical", "now"]
+
+[[rule]]
+  id = 30091
+  name = "send heartbeat message fail"
+  [rule.patterns]
+    level = "ERROR"
+    message = "send heartbeat message fail"
+    message_mode = ""
+    fields = ["region-id", "error"]
+
+[[rule]]
+  id = 30091
+  name = "updated gc safe point"
+  [rule.patterns]
+    level = "INFO"
+    message = "updated gc safe point"
+    message_mode = ""
+    fields = ["safe-point"]
+
+[[rule]]
+  id = 30092
+  name = "operator timeout"
+  [rule.patterns]
+    level = "INFO"
+    message = "operator timeout"
+    message_mode = ""
+    fields = ["region-id", "takes", "operator"]
+
+[[rule]]
+  id = 30093
+  name = "remove operator because region disappeared"
+  [rule.patterns]
+    level = "WARN"
+    message = "remove operator because region disappeared"
+    message_mode = ""
+    fields = ["region-id", "operator"]
+
+[[rule]]
+  id = 30094
+  name = "set message encoder"
+  [rule.patterns]
+    level = "INFO"
+    message = "set message encoder"
+    message_mode = ""
+    fields = ["from", "to", "stream-type"]
+
+[[rule]]
+  id = 30095
+  name = "closed TCP streaming connection with remote peer"
+  [rule.patterns]
+    level = "WARN"
+    message = "closed TCP streaming connection with remote peer"
+    message_mode = ""
+    fields = ["local-member-id", "remote-peer-id"]
+
+[[rule]]
+  id = 30096
+  name = "request failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "request failed"
+    message_mode = ""
+    fields = ["error"]
+
+
+[[rule]]
+  id = 30097
+  name = "failed to get tidb schema version"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to get tidb schema version"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 30098
+  name = "[[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+, vote: [[:digit:]]+\\] cast MsgVote for [[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+\\] at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+, vote: [[:digit:]]+\\] cast MsgVote for [[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+\\] at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30099
+  name = "[[:xdigit:]]+ \\[term: [[:digit:]]+\\] received a MsgVote message with higher term from [[:xdigit:]]+ \\[term: [[:digit:]]+\\]"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ \\[term: [[:digit:]]+\\] received a MsgVote message with higher term from [[:xdigit:]]+ \\[term: [[:digit:]]+\\]"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30100
+  name = "[[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+, vote: [[:digit:]]+\\] cast MsgPreVote for [[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+\\] at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+, vote: [[:digit:]]+\\] cast MsgPreVote for [[:xdigit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+\\] at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30101
+  name = "scheduler has been stopped"
+  [rule.patterns]
+    level = "INFO"
+    message = "scheduler has been stopped"
+    message_mode = ""
+    fields = ["scheduler-name", "error"]
+
+[[rule]]
+  id = 30102
+  name = "patrol regions has been stopped"
+  [rule.patterns]
+    level = "INFO"
+    message = "patrol regions has been stopped"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30103
+  name = "drive push operator has been stopped"
+  [rule.patterns]
+    level = "INFO"
+    message = "drive push operator has been stopped"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30104
+  name = "etcd leader changed, resigns leadership"
+  [rule.patterns]
+    level = "INFO"
+    message = "etcd leader changed, resigns leadership"
+    message_mode = ""
+    fields = ["old-leader-name"]
+
+[[rule]]
+  id = 30105
+  name = "replace the unstable entries from index [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "replace the unstable entries from index [[:digit:]]+"
+    message_mode = "regex"
+    fields = []

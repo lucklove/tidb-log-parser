@@ -35,6 +35,7 @@ func command() *cobra.Command {
 		newCheckCommand(),
 		newLearnCommand(),
 		newDiagCommand(),
+		newExportCommand(),
 	)
 
 	return cmd
