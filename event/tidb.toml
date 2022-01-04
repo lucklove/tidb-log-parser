@@ -84,16 +84,7 @@
   [rule.patterns]
     level = "INFO"
     message = "server is running MySQL protocol"
-    fields = ["addr"]
-
-[[rule]]
-  id = 10011
-  name = "server is running MySQL protocol"
-  [rule.patterns]
-    level = "INFO"
-    message = "server is running MySQL protocol"
-    message_mode = "equal"
-    fields = ["socket"]
+    fields = []
 
 [[rule]]
   id = 10012
@@ -261,16 +252,7 @@
   [rule.patterns]
     level = "INFO"
     message = "CRUCIAL OPERATION"
-    fields = ["conn", "schemaVersion", "cur_db", "sql", "user"]
-
-[[rule]]
-  id = 10032
-  name = "CRUCIAL OPERATION"
-  [rule.patterns]
-    level = "INFO"
-    message = "CRUCIAL OPERATION"
-    message_mode = "equal"
-    fields = ["conn", "schemaVersion", "secure text", "user"]
+    fields = ["conn", "schemaVersion", "user"]
 
 [[rule]]
   id = 10033
@@ -318,16 +300,8 @@
   [rule.patterns]
     level = "INFO"
     message = "diff load InfoSchema success"
-    fields = ["currentSchemaVersion", "neededSchemaVersion", "start time", "phyTblIDs", "actionTypes"]
-
-[[rule]]
-  id = 10038
-  name = "diff load InfoSchema success"
-  [rule.patterns]
-    level = "INFO"
-    message = "diff load InfoSchema success"
     message_mode = "equal"
-    fields = ["usedSchemaVersion", "neededSchemaVersion", "start time", "phyTblIDs", "actionTypes"]
+    fields = ["neededSchemaVersion", "start time", "phyTblIDs", "actionTypes"]
 
 [[rule]]
   id = 10039
@@ -379,7 +353,7 @@
 
 [[rule]]
   id = 10044
-  name = "run statement error"
+  name = "run statement failed"
   [rule.patterns]
     level = "WARN"
     message = "run statement error"
@@ -425,15 +399,6 @@
     level = "INFO"
     message = "revoke session"
     fields = ["owner info"]
-
-[[rule]]
-  id = 10049
-  name = "revoke session"
-  [rule.patterns]
-    level = "INFO"
-    message = "revoke session"
-    message_mode = "equal"
-    fields = ["owner info", "error"]
 
 [[rule]]
   id = 10050
@@ -623,23 +588,6 @@
     fields = ["retrying txnStartTS", "original txnStartTS"]
 
 [[rule]]
-  id = 10071
-  name = "transaction association"
-  [rule.patterns]
-    level = "WARN"
-    message = "transaction association"
-    fields = ["conn", "retrying txnStartTS", "original txnStartTS"]
-
-[[rule]]
-  id = 10071
-  name = "transaction association"
-  [rule.patterns]
-    level = "WARN"
-    message = "transaction association"
-    message_mode = "equal"
-    fields = ["retrying txnStartTS", "original txnStartTS", "isPessimistic"]
-
-[[rule]]
   id = 10072
   name = "[gc worker] starts the whole job"
   [rule.patterns]
@@ -761,7 +709,7 @@
 
 [[rule]]
   id = 10086
-  name = "compile sql failed"
+  name = "compile SQL failed"
   [rule.patterns]
     level = "WARN"
     message = "compile sql error"
@@ -825,15 +773,6 @@
     fields = ["CallerStartTs", "lock str"]
 
 [[rule]]
-  id = 10093
-  name = "lock txn not found, lock has expired"
-  [rule.patterns]
-    level = "WARN"
-    message = "lock txn not found, lock has expired"
-    message_mode = "equal"
-    fields = ["conn", "CallerStartTs", "lock str"]
-
-[[rule]]
   id = 10094
   name = "is not the owner"
   [rule.patterns]
@@ -847,16 +786,7 @@
   [rule.patterns]
     level = "INFO"
     message = "prewrite encounters lock"
-    fields = ["session", "lock"]
-
-[[rule]]
-  id = 10095
-  name = "prewrite encounters lock"
-  [rule.patterns]
-    level = "INFO"
-    message = "prewrite encounters lock"
-    message_mode = "equal"
-    fields = ["conn", "lock"]
+    fields = ["lock"]
 
 [[rule]]
   id = 10096
@@ -905,15 +835,6 @@
     level = "INFO"
     message = "2PC commitTS rejected by TiKV, retry with a newer commitTS"
     fields = ["txnStartTS", "info"]
-
-[[rule]]
-  id = 10101
-  name = "2PC commitTS rejected by TiKV, retry with a newer commitTS"
-  [rule.patterns]
-    level = "INFO"
-    message = "2PC commitTS rejected by TiKV, retry with a newer commitTS"
-    message_mode = "equal"
-    fields = ["conn", "txnStartTS", "info"]
 
 [[rule]]
   id = 10102
@@ -1021,15 +942,6 @@
     level = "INFO"
     message = "analyze table `[[:ascii:]]+`.`[[:ascii:]]+` has finished"
     message_mode = "regex"
-    fields = ["conn", "partition", "job info", "start time", "end time", "cost"]
-
-[[rule]]
-  id = 10114
-  name = "analyze table `[[:ascii:]]+`.`[[:ascii:]]+` has finished"
-  [rule.patterns]
-    level = "INFO"
-    message = "analyze table `[[:ascii:]]+`.`[[:ascii:]]+` has finished"
-    message_mode = "regex"
     fields = ["partition", "job info", "start time", "end time", "cost"]
 
 [[rule]]
@@ -1084,16 +996,7 @@
     level = "INFO"
     message = "mark store's regions need be refill"
     message_mode = "equal"
-    fields = ["id", "addr", "error"]
-
-[[rule]]
-  id = 10120
-  name = "mark store's regions need be refill"
-  [rule.patterns]
-    level = "INFO"
-    message = "mark store's regions need be refill"
-    message_mode = "equal"
-    fields = ["store"]
+    fields = []
 
 [[rule]]
   id = 10121
@@ -1125,25 +1028,7 @@
     level = "INFO"
     message = "batchRecvLoop fails when receiving, needs to reconnect"
     message_mode = "equal"
-    fields = ["target", "forwardedHost", "error"]
-
-[[rule]]
-  id = 10123
-  name = "batchRecvLoop fails when receiving, needs to reconnect"
-  [rule.patterns]
-    level = "INFO"
-    message = "batchRecvLoop fails when receiving, needs to reconnect"
-    message_mode = "equal"
     fields = ["target", "error"]
-
-[[rule]]
-  id = 10124
-  name = "batchRecvLoop re-create streaming success"
-  [rule.patterns]
-    level = "INFO"
-    message = "batchRecvLoop re-create streaming success"
-    message_mode = "equal"
-    fields = ["target", "forwardedHost"]
 
 [[rule]]
   id = 10124
@@ -1260,16 +1145,7 @@
     level = "INFO"
     message = "wait scatter region"
     message_mode = "equal"
-    fields = ["regionID", "backoff(ms)"]
-
-[[rule]]
-  id = 10136
-  name = "wait scatter region"
-  [rule.patterns]
-    level = "INFO"
-    message = "wait scatter region"
-    message_mode = "equal"
-    fields = ["regionID", "reverse", "status"]
+    fields = ["regionID"]
 
 [[rule]]
   id = 10137
@@ -1817,16 +1693,7 @@
   [rule.patterns]
     level = "INFO"
     message = "full load InfoSchema success"
-    fields = ["currentSchemaVersion", "neededSchemaVersion", "start time"]
-
-[[rule]]
-  id = 10196
-  name = "full load InfoSchema success"
-  [rule.patterns]
-    level = "INFO"
-    message = "full load InfoSchema success"
-    message_mode = "equal"
-    fields = ["usedSchemaVersion", "neededSchemaVersion", "start time"]
+    fields = ["neededSchemaVersion", "start time"]
 
 [[rule]]
   id = 10197
@@ -1880,7 +1747,7 @@
     level = "ERROR"
     message = "analyze failed"
     message_mode = "equal"
-    fields = ["conn", "error"]
+    fields = ["error"]
 
 [[rule]]
   id = 10203
@@ -3063,3 +2930,66 @@
     message = "analyze table `[[:ascii:]]+`.`[[:ascii:]]+` has failed"
     message_mode = "regex"
     fields = ["partition", "job info", "start time", "end time", "cost"]
+
+[[rule]]
+  id = 10331
+  name = "encountered error"
+  [rule.patterns]
+    level = "WARN"
+    message = "other error"
+    message_mode = ""
+    fields = ["conn", "txnStartTS", "regionID", "storeAddr", "error"]
+
+[[rule]]
+  id = 10332
+  name = "[gc worker] registering lock observers to tikv"
+  [rule.patterns]
+    level = "INFO"
+    message = "region epoch is ahead of tikv"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10333
+  name = "[stats] auto analyze triggered"
+  [rule.patterns]
+    level = "INFO"
+    message = "[stats] auto analyze for unanalyzed"
+    message_mode = ""
+    fields = ["sql"]
+
+[[rule]]
+  id = 10334
+  name = "handle flash replica report"
+  [rule.patterns]
+    level = "INFO"
+    message = "handle flash replica report"
+    message_mode = ""
+    fields = ["table ID", "region count", "flash region count"]
+
+[[rule]]
+  id = 10335
+  name = "stream unknown error"
+  [rule.patterns]
+    level = "INFO"
+    message = "stream unknown error"
+    message_mode = ""
+    fields = ["error", "timestamp", "task"]
+
+[[rule]]
+  id = 10336
+  name = "establish mpp connection meet error and cannot retry"
+  [rule.patterns]
+    level = "WARN"
+    message = "establish mpp connection meet error and cannot retry"
+    message_mode = ""
+    fields = ["error", "timestamp", "task"]
+
+[[rule]]
+  id = 10337
+  name = "[gc worker] finish resolve locks with physical scan locks"
+  [rule.patterns]
+    level = "INFO"
+    message = "[gc worker] finish resolve locks with physical scan locks"
+    message_mode = ""
+    fields = ["uuid", "safePoint"]

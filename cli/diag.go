@@ -80,9 +80,6 @@ func newDiagCommand() *cobra.Command {
 				if ignore(log) {
 					continue
 				}
-				if ignore(log) {
-					continue
-				}
 				eid := em.GetLogEventID(log)
 				if eid == 0 {
 					fmt.Println(log.Message)
