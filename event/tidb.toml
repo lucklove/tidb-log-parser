@@ -806,7 +806,7 @@
 
 [[rule]]
   id = 10098
-  name = "wait response is cancelled"
+  name = "send request is cancelled"
   [rule.patterns]
     level = "WARN"
     message = "send request is cancelled"
