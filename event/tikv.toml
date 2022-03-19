@@ -1,8 +1,2780 @@
 [[rule]]
 id = 20001
-name = "更新 PD Client 完毕"
+name = "trying to update PD client done"
 
   [rule.patterns]
   level = "INFO"
   message = "trying to update PD client done"
   fields = ["spend"]
+
+[[rule]]
+  id = 20002
+  name = "Connect failed"
+  [rule.patterns]
+    level = "INFO"
+    message = "Connect failed:"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20003
+  name = "Retry subchannel"
+  [rule.patterns]
+    level = "INFO"
+    message = "Subchannel 0x[[:xdigit:]]+: Retry in [[:digit:]]+ milliseconds"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 20004
+  name = "connecting to PD endpoint"
+  [rule.patterns]
+    level = "INFO"
+    message = "connecting to PD endpoint"
+    message_mode = ""
+    fields = ["endpoints"]
+
+[[rule]]
+  id = 20005
+  name = "PD failed to respond"
+  [rule.patterns]
+    level = "INFO"
+    message = "PD failed to respond"
+    message_mode = ""
+    fields = ["err", "endpoints"]
+
+[[rule]]
+  id = 20006
+  name = "validate PD endpoints failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "validate PD endpoints failed"
+    message_mode = ""
+    fields = ["err"]
+
+[[rule]]
+  id = 20007
+  name = "environment variable `TZ` is missing, using `/etc/localtime`"
+  [rule.patterns]
+    level = "WARN"
+    message = "environment variable `TZ` is missing, using `/etc/localtime`"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20008
+  name = "memory limit in bytes: [[:digit:]]+, cpu cores quota: [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "memory limit in bytes: [[:digit:]]+, cpu cores quota: [[:digit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 20009
+  name = "TiKV Release Info"
+  [rule.patterns]
+    level = "INFO"
+    message = "Profile:"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20009
+  name = "TiKV Release Info"
+  [rule.patterns]
+    level = "INFO"
+    message = "Rust Version:"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20009
+  name = "TiKV Release Info"
+  [rule.patterns]
+    level = "INFO"
+    message = "UTC Build Time:"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20009
+  name = "TiKV Release Info"
+  [rule.patterns]
+    level = "INFO"
+    message = "Git Commit Branch:"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20009
+  name = "TiKV Release Info"
+  [rule.patterns]
+    level = "INFO"
+    message = "Git Commit Hash:"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20009
+  name = "TiKV Release Info"
+  [rule.patterns]
+    level = "INFO"
+    message = "Edition:"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20009
+  name = "TiKV Release Info"
+  [rule.patterns]
+    level = "INFO"
+    message = "Release Version:"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20009
+  name = "TiKV Release Info"
+  [rule.patterns]
+    level = "INFO"
+    message = "Enable Features:"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20010
+  name = "Welcome to TiKV"
+  [rule.patterns]
+    level = "INFO"
+    message = "Welcome to TiKV"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20011
+  name = "add learner successfully"
+  [rule.patterns]
+    level = "INFO"
+    message = "add learner successfully"
+    message_mode = ""
+    fields = ["region", "peer", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20012
+  name = "exec ConfChange"
+  [rule.patterns]
+    level = "INFO"
+    message = "exec ConfChange"
+    message_mode = ""
+    fields = ["epoch", "type", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20013
+  name = "execute admin command"
+  [rule.patterns]
+    level = "INFO"
+    message = "execute admin command"
+    message_mode = ""
+    fields = ["command", "index", "term", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20014
+  name = "compact range finished"
+  [rule.patterns]
+    level = "INFO"
+    message = "compact range finished"
+    message_mode = ""
+    fields = ["time_takes", "cf", "range_end", "range_start"]
+
+[[rule]]
+  id = 20015
+  name = "try to transfer leader"
+  [rule.patterns]
+    level = "INFO"
+    message = "try to transfer leader"
+    message_mode = ""
+    fields = ["to_peer", "from_peer", "region_id"]
+
+[[rule]]
+  id = 20016
+  name = "transfer leader"
+  [rule.patterns]
+    level = "INFO"
+    message = "transfer leader"
+    message_mode = ""
+    fields = ["peer", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20017
+  name = "RawNode created"
+  [rule.patterns]
+    level = "INFO"
+    message = "RawNode created with id [[:digit:]]+\\."
+    message_mode = "regex"
+    fields = ["id", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20018
+  name = "replicate peer"
+  [rule.patterns]
+    level = "INFO"
+    message = "replicate peer"
+    message_mode = ""
+    fields = ["peer_id", "region_id"]
+
+[[rule]]
+  id = 20019
+  name = "remove peer successfully"
+  [rule.patterns]
+    level = "INFO"
+    message = "remove peer successfully"
+    message_mode = ""
+    fields = ["region", "peer", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20020
+  name = "handle task Snap apply"
+  [rule.patterns]
+    level = "WARN"
+    message = "handle task Snap apply for [[:digit:]]+"
+    message_mode = "regex"
+    fields = ["takes"]
+
+[[rule]]
+  id = 20021
+  name = "apply new data"
+  [rule.patterns]
+    level = "INFO"
+    message = "apply new data"
+    message_mode = ""
+    fields = ["time_takes", "region_id"]
+
+[[rule]]
+  id = 20022
+  name = "add peer successfully"
+  [rule.patterns]
+    level = "INFO"
+    message = "add peer successfully"
+    message_mode = ""
+    fields = ["region", "peer", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20023
+  name = "snapshot is applied"
+  [rule.patterns]
+    level = "INFO"
+    message = "snapshot is applied"
+    message_mode = ""
+    fields = ["region", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20024
+  name = "log starts to restore snapshot"
+  [rule.patterns]
+    level = "INFO"
+    message = "log \\[.*\\] starts to restore snapshot \\[.*\\]"
+    message_mode = "regex"
+    fields = ["snapshot_term", "snapshot_index", "log", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20025
+  name = "saving snapshot file"
+  [rule.patterns]
+    level = "INFO"
+    message = "saving snapshot file"
+    message_mode = ""
+    fields = ["file", "snap_key"]
+
+[[rule]]
+  id = 20026
+  name = "begin apply snap data"
+  [rule.patterns]
+    level = "INFO"
+    message = "begin apply snap data"
+    message_mode = ""
+    fields = ["region_id"]
+
+[[rule]]
+  id = 20026
+  name = "apply snapshot with state ok"
+  [rule.patterns]
+    level = "INFO"
+    message = "apply snapshot with state ok"
+    message_mode = ""
+    fields = ["state", "region", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20027
+  name = "begin to apply snapshot"
+  [rule.patterns]
+    level = "INFO"
+    message = "begin to apply snapshot"
+    message_mode = ""
+    fields = ["peer_id", "region_id"]
+
+[[rule]]
+  id = 20028
+  name = "handle task CheckAndCompact"
+  [rule.patterns]
+    level = "WARN"
+    message = "handle task CheckAndCompact"
+    message_mode = "substr"
+    fields = ["takes"]
+
+[[rule]]
+  id = 20029
+  name = "delete data in range because of stale"
+  [rule.patterns]
+    level = "INFO"
+    message = "delete data in range because of stale"
+    message_mode = ""
+    fields = ["end_key", "start_key", "region_id"]
+
+[[rule]]
+  id = 20030
+  name = "try to change peer"
+  [rule.patterns]
+    level = "INFO"
+    message = "try to change peer"
+    message_mode = ""
+    fields = ["region_id"]
+
+[[rule]]
+  id = 20031
+  name = "raft message is stale, ignore it"
+  [rule.patterns]
+    level = "INFO"
+    message = "raft message is stale, ignore it"
+    message_mode = ""
+    fields = ["msg_type", "current_region_epoch", "region_id"]
+
+[[rule]]
+  id = 20032
+  name = "notify pd with change peer region"
+  [rule.patterns]
+    level = "INFO"
+    message = "notify pd with change peer region"
+    message_mode = ""
+    fields = ["region", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20033
+  name = "propose conf change peer"
+  [rule.patterns]
+    level = "INFO"
+    message = "propose conf change peer"
+    message_mode = ""
+    fields = ["peer_id", "region_id"]
+
+[[rule]]
+  id = 20034
+  name = "notify pd with change peer region"
+  [rule.patterns]
+    level = "INFO"
+    message = "notify pd with change peer region"
+    message_mode = ""
+    fields = ["region", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20035
+  name = "report snapshot status"
+  [rule.patterns]
+    level = "INFO"
+    message = "report snapshot status"
+    message_mode = ""
+    fields = ["status", "to", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20036
+  name = "sent snapshot"
+  [rule.patterns]
+    level = "INFO"
+    message = "sent snapshot"
+    message_mode = ""
+    fields = ["duration", "size", "snap_key", "region_id"]
+
+[[rule]]
+  id = 20037
+  name = "new connected subchannel"
+  [rule.patterns]
+    level = "INFO"
+    message = "New connected subchannel at 0x[[:xdigit:]]+ for subchannel 0x[[:xdigit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 20038
+  name = "scan snapshot"
+  [rule.patterns]
+    level = "INFO"
+    message = "scan snapshot"
+    message_mode = ""
+    fields = ["takes", "size", "key_count", "snapshot", "region_id"]
+
+[[rule]]
+  id = 20039
+  name = "scan snapshot of one cf"
+  [rule.patterns]
+    level = "INFO"
+    message = "scan snapshot of one cf"
+    message_mode = ""
+    fields = ["size", "key_count", "cf", "snapshot", "region_id"]
+
+[[rule]]
+id = 20040
+name = "register deleting data in range"
+[rule.patterns]
+  level = "INFO"
+  message = "register deleting data in range"
+  message_mode = ""
+  fields = ["end_key", "start_key", "region_id"]
+
+[[rule]]
+  id = 20041
+  name = "region shutdown mailbox"
+  [rule.patterns]
+    level = "INFO"
+    message = "\\[region [[:digit:]]+\\] shutdown mailbox"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 20042
+  name = "peer destroy itself"
+  [rule.patterns]
+    level = "INFO"
+    message = "peer destroy itself"
+    message_mode = ""
+    fields = ["takes", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20043
+  name = "finish clear peer meta"
+  [rule.patterns]
+    level = "INFO"
+    message = "finish clear peer meta"
+    message_mode = ""
+    fields = ["takes", "raft_key", "apply_key", "meta_key", "region_id"]
+
+[[rule]]
+  id = 20044
+  name = "remove peer statistic record in pd"
+  [rule.patterns]
+    level = "INFO"
+    message = "remove peer statistic record in pd"
+    message_mode = ""
+    fields = ["region_id"]
+
+[[rule]]
+  id = 20045
+  name = "begin to destroy"
+  [rule.patterns]
+    level = "INFO"
+    message = "begin to destroy"
+    message_mode = ""
+    fields = ["peer_id", "region_id"]
+
+[[rule]]
+  id = 20046
+  name = "starts destroy"
+  [rule.patterns]
+    level = "INFO"
+    message = "starts destroy"
+    message_mode = ""
+    fields = ["merged_by_target", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20047
+  name = "requesting snapshot"
+  [rule.patterns]
+    level = "INFO"
+    message = "requesting snapshot"
+    message_mode = ""
+    fields = ["request_index", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20048
+  name = "handle task Destroy"
+  [rule.patterns]
+    level = "WARN"
+    message = "handle task Destroy"
+    message_mode = "substr"
+    fields = ["takes"]
+
+[[rule]]
+  id = 20049
+  name = "cancel region heartbeat sender"
+  [rule.patterns]
+    level = "INFO"
+    message = "cancel region heartbeat sender"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20050
+  name = "updating PD client done"
+  [rule.patterns]
+    level = "WARN"
+    message = "updating PD client done"
+    message_mode = ""
+    fields = ["spend"]
+
+[[rule]]
+  id = 20051
+  name = "heartbeat sender and receiver are stale, refreshing ..."
+  [rule.patterns]
+    level = "INFO"
+    message = "heartbeat sender and receiver are stale, refreshing ..."
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20052
+  name = "connected to PD leader"
+  [rule.patterns]
+    level = "INFO"
+    message = "connected to PD leader"
+    message_mode = ""
+    fields = ["endpoints"]
+
+[[rule]]
+  id = 20053
+  name = "error-response"
+  [rule.patterns]
+    level = "WARN"
+    message = "error-response"
+    message_mode = ""
+    fields = ["err"]
+
+[[rule]]
+  id = 20054
+  name = "[logterm: [[:digit:]]+, index: [[:digit:]]+, vote: [[:digit:]]+] ignored vote from [[:digit:]]+ [logterm: [[:digit:]]+, index: [[:digit:]]+]: lease is not expired"
+  [rule.patterns]
+    level = "INFO"
+    message = "\\[logterm: [[:digit:]]+, index: [[:digit:]]+, vote: [[:digit:]]+\\] ignored vote from [[:digit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+\\]: lease is not expired"
+    message_mode = "regex"
+    fields = ["msg type", "remaining ticks", "term", "msg_index", "msg_term", "from", "vote", "log_index", "log_term", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20055
+  name = "became follower at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "became follower at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = ["term", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20056
+  name = "received a message with higher term from [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "received a message with higher term from [[:digit:]]+"
+    message_mode = "regex"
+    fields = ["msg type", "message_term", "term", "from", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20057
+  name = "received from [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "received from [[:digit:]]+"
+    message_mode = "regex"
+    fields = ["term", "msg type", "from", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20058
+  name = "became leader at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "became leader at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = ["term", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20059
+  name = "[logterm: [[:digit:]]+, index: [[:digit:]]+] sent request to [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "\\[logterm: [[:digit:]]+, index: [[:digit:]]+\\] sent request to [[:digit:]]+"
+    message_mode = "regex"
+    fields = ["msg", "term", "id", "log_index", "log_term", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20060
+  name = "[[:digit:]]+ received message from [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:digit:]]+ received message from [[:digit:]]+"
+    message_mode = "regex"
+    fields = ["term", "msg", "from", "id", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20061
+  name = "became candidate at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "became candidate at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = ["term", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20062
+  name = "starting a new election"
+  [rule.patterns]
+    level = "INFO"
+    message = "starting a new election"
+    message_mode = ""
+    fields = ["term", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20063
+  name = "[term [[:digit:]]+] received MsgTimeoutNow from [[:digit:]]+ and starts an election to get leadership."
+  [rule.patterns]
+    level = "INFO"
+    message = "\\[term [[:digit:]]+\\] received MsgTimeoutNow from [[:digit:]]+ and starts an election to get leadership."
+    message_mode = "regex"
+    fields = ["from", "term", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20064
+  name = "[logterm: [[:digit:]]+, index: [[:digit:]]+, vote: [[:digit:]]+] cast vote for [[:digit:]]+ [logterm: [[:digit:]]+, index: [[:digit:]]+] at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "\\[logterm: [[:digit:]]+, index: [[:digit:]]+, vote: [[:digit:]]+\\] cast vote for [[:digit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+\\] at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = ["msg type", "term", "msg_index", "msg_term", "from", "vote", "log_index", "log_term", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20065
+  name = "get snapshot failed"
+  [rule.patterns]
+    level = "INFO"
+    message = "get snapshot failed"
+    message_mode = ""
+    fields = ["err", "cid"]
+
+[[rule]]
+  id = 20066
+  name = "became pre-candidate at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "became pre-candidate at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = ["term", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20067
+  name = "there is a pending conf change, try later"
+  [rule.patterns]
+    level = "INFO"
+    message = "there is a pending conf change, try later"
+    message_mode = ""
+    fields = ["peer_id", "region_id"]
+
+[[rule]]
+  id = 20068
+  name = "ignored a message with lower term from [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "ignored a message with lower term from [[:digit:]]+"
+    message_mode = "regex"
+    fields = ["msg term", "msg type", "term", "from", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20069
+  name = "sends MsgTimeoutNow to [[:digit:]]+ immediately as [[:digit:]]+ already has up-to-date log"
+  [rule.patterns]
+    level = "INFO"
+    message = "sends MsgTimeoutNow to [[:digit:]]+ immediately as [[:digit:]]+ already has up-to-date log"
+    message_mode = "regex"
+    fields = ["lead_transferee", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20070
+  name = "[term [[:digit:]]+] starts to transfer leadership to [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "\\[term [[:digit:]]+\\] starts to transfer leadership to [[:digit:]]+"
+    message_mode = "regex"
+    fields = ["lead_transferee", "term", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20071
+  name = "restored snapshot"
+  [rule.patterns]
+    level = "INFO"
+    message = "\\[commit: [[:digit:]]+, term: [[:digit:]]+\\] restored snapshot \\[index: [[:digit:]]+, term: [[:digit:]]+\\]"
+    message_mode = "regex"
+    fields = ["snapshot_term", "snapshot_index", "commit", "term", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20071
+  name = "restored snapshot"
+  [rule.patterns]
+    level = "INFO"
+    message = "restored snapshot"
+    message_mode = ""
+    fields = ["commit", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20072
+  name = "[commit: [[:digit:]]+, lastindex: [[:digit:]]+, lastterm: [[:digit:]]+] starts to restore snapshot [index: [[:digit:]]+, term: [[:digit:]]+]"
+  [rule.patterns]
+    level = "INFO"
+    message = "\\[commit: [[:digit:]]+, lastindex: [[:digit:]]+, lastterm: [[:digit:]]+\\] starts to restore snapshot \\[index: [[:digit:]]+, term: [[:digit:]]+\\]"
+    message_mode = "regex"
+    fields = ["snapshot_term", "snapshot_index", "last_term", "last_index", "commit", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20073
+  name = "newRaft"
+  [rule.patterns]
+    level = "INFO"
+    message = "newRaft"
+    message_mode = ""
+    fields = ["peers", "last term", "last index", "applied", "commit", "term", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20074
+  name = "create peer"
+  [rule.patterns]
+    level = "INFO"
+    message = "create peer"
+    message_mode = ""
+    fields = ["peer_id", "region_id"]
+
+[[rule]]
+  id = 20075
+  name = "insert new region"
+  [rule.patterns]
+    level = "INFO"
+    message = "insert new region"
+    message_mode = ""
+    fields = ["region", "region_id"]
+
+[[rule]]
+  id = 20076
+  name = "split region"
+  [rule.patterns]
+    level = "INFO"
+    message = "split region"
+    message_mode = ""
+    fields = ["keys", "region", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20077
+  name = "deleting applied snap file"
+  [rule.patterns]
+    level = "INFO"
+    message = "deleting applied snap file"
+    message_mode = ""
+    fields = ["snap_file", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20078
+  name = "reject to transfer leader"
+  [rule.patterns]
+    level = "INFO"
+    message = "reject to transfer leader"
+    message_mode = ""
+    fields = ["last_index", "index", "reason", "to", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20079
+  name = "handle task Compact"
+  [rule.patterns]
+    level = "WARN"
+    message = "handle task Compact"
+    message_mode = "substr"
+    fields = ["takes"]
+
+[[rule]]
+  id = 20080
+  name = "[term [[:digit:]]+] transfer leadership to [[:digit:]]+ is in progress, ignores request to same node [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "\\[term [[:digit:]]+\\] transfer leadership to [[:digit:]]+ is in progress, ignores request to same node [[:digit:]]+"
+    message_mode = "regex"
+    fields = ["lead_transferee", "term", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20081
+  name = "update approximate size and keys with accurate value"
+  [rule.patterns]
+    level = "INFO"
+    message = "update approximate size and keys with accurate value"
+    message_mode = ""
+    fields = ["keys", "size", "region_id"]
+
+[[rule]]
+  id = 20082
+  name = "approximate keys over threshold, need to do split check"
+  [rule.patterns]
+    level = "INFO"
+    message = "approximate keys over threshold, need to do split check"
+    message_mode = ""
+    fields = ["threshold", "keys", "region_id"]
+
+[[rule]]
+  id = 20083
+  name = "cdc region is ready"
+  [rule.patterns]
+    level = "INFO"
+    message = "cdc region is ready"
+    message_mode = ""
+    fields = ["region_id"]
+
+[[rule]]
+  id = 20084
+  name = "cdc resolver initialized and schedule resolver ready"
+  [rule.patterns]
+    level = "INFO"
+    message = "cdc resolver initialized and schedule resolver ready"
+    message_mode = ""
+    fields = ["takes", "observe_id", "lock_count", "resolved_ts", "downstream_id", "conn_id", "region_id"]
+
+[[rule]]
+  id = 20085
+  name = "cdc register region"
+  [rule.patterns]
+    level = "INFO"
+    message = "cdc register region"
+    message_mode = ""
+    fields = ["downstream_id", "req_id", "conn_id", "region_id"]
+
+[[rule]]
+  id = 20086
+  name = "[region [[:digit:]]+] scheduler handle command: acquire_pessimistic_lock, ts: [[:digit:]]+"
+  [rule.patterns]
+    level = "WARN"
+    message = "\\[region [[:digit:]]+\\] scheduler handle command: acquire_pessimistic_lock, ts: [[:digit:]]+"
+    message_mode = "regex"
+    fields = ["takes"]
+
+[[rule]]
+  id = 20087
+  name = "[logterm: [[:digit:]]+, index: [[:digit:]]+, vote: [[:digit:]]+] rejected vote from [[:digit:]]+ [logterm: [[:digit:]]+, index: [[:digit:]]+] at term [[:digit:]]+"
+  [rule.patterns]
+    level = "INFO"
+    message = "\\[logterm: [[:digit:]]+, index: [[:digit:]]+, vote: [[:digit:]]+\\] rejected vote from [[:digit:]]+ \\[logterm: [[:digit:]]+, index: [[:digit:]]+\\] at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = ["msg type", "term", "msg_index", "msg_term", "from", "vote", "log_index", "log_term", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20088
+  name = "on split"
+  [rule.patterns]
+    level = "INFO"
+    message = "on split"
+    message_mode = ""
+    fields = ["source", "split_keys", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20089
+  name = "try to batch split region"
+  [rule.patterns]
+    level = "INFO"
+    message = "try to batch split region"
+    message_mode = ""
+    fields = ["task", "region", "new_region_ids", "region_id"]
+
+[[rule]]
+  id = 20090
+  name = "notify pd with split"
+  [rule.patterns]
+    level = "INFO"
+    message = "notify pd with split"
+    message_mode = ""
+    fields = ["split_count", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20091
+  name = "call GetStoreSafeTS failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "call GetStoreSafeTS failed"
+    message_mode = ""
+    fields = ["err"]
+
+[[rule]]
+  id = 20092
+  name = "broadcasting vote request"
+  [rule.patterns]
+    level = "INFO"
+    message = "broadcasting vote request"
+    message_mode = ""
+    fields = ["to", "log_index", "log_term", "term", "type", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20093
+  name = "require updating max ts"
+  [rule.patterns]
+    level = "INFO"
+    message = "require updating max ts"
+    message_mode = ""
+    fields = ["initial_status", "region_id"]
+
+[[rule]]
+  id = 20094
+  name = "succeed to update max timestamp"
+  [rule.patterns]
+    level = "INFO"
+    message = "succeed to update max timestamp"
+    message_mode = ""
+    fields = ["region_id"]
+
+[[rule]]
+  id = 20095
+  name = "slow query"
+  [rule.patterns]
+    level = "INFO"
+    message = "slow-query"
+    message_mode = ""
+    fields = ["region_id"]
+
+[[rule]]
+  id = 20096
+  name = "switched to configuration"
+  [rule.patterns]
+    level = "INFO"
+    message = "switched to configuration"
+    message_mode = ""
+    fields = ["config", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20097
+  name = "conf change successfully"
+  [rule.patterns]
+    level = "INFO"
+    message = "conf change successfully"
+    message_mode = ""
+    fields = ["changes", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20098
+  name = "leave joint state successfully"
+  [rule.patterns]
+    level = "INFO"
+    message = "leave joint state successfully"
+    message_mode = ""
+    fields = ["region", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20099
+  name = "received votes response"
+  [rule.patterns]
+    level = "INFO"
+    message = "received votes response"
+    message_mode = ""
+    fields = ["from", "vote", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20100
+  name = "exec ConfChangeV2"
+  [rule.patterns]
+    level = "INFO"
+    message = "exec ConfChangeV2"
+    message_mode = ""
+    fields = ["epoch", "kind", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20101
+  name = "raft message is stale, tell to gc"
+  [rule.patterns]
+    level = "INFO"
+    message = "raft message is stale, tell to gc"
+    message_mode = ""
+    fields = ["region_id"]
+
+[[rule]]
+  id = 20102
+  name = "failed to send extra message"
+  [rule.patterns]
+    level = "ERROR"
+    message = "failed to send extra message"
+    message_mode = ""
+    fields = ["target", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20103
+  name = "deadlock detect rpc stream disconnected"
+  [rule.patterns]
+    level = "WARN"
+    message = "deadlock detect rpc stream disconnected"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20104
+  name = "KvService::batch_raft send response fail"
+  [rule.patterns]
+    level = "ERROR"
+    message = "KvService::batch_raft send response fail"
+    message_mode = ""
+    fields = ["err"]
+
+[[rule]]
+  id = 20105
+  name = "resolve store address ok"
+  [rule.patterns]
+    level = "INFO"
+    message = "resolve store address ok"
+    message_mode = ""
+    fields = ["addr", "store_id"]
+
+[[rule]]
+  id = 20106
+  name = "Connect failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "connection aborted"
+    message_mode = ""
+    fields = ["addr", "store_id"]
+
+[[rule]]
+  id = 20107
+  name = "new connection with tikv endpoint"
+  [rule.patterns]
+    level = "INFO"
+    message = "server: new connection with tikv endpoint"
+    message_mode = ""
+    fields = ["store_id", "addr"]
+
+[[rule]]
+  id = 20108
+  name = "connection abort"
+  [rule.patterns]
+    level = "ERROR"
+    message = "connection abort"
+    message_mode = ""
+    fields = ["addr", "store_id"]
+
+[[rule]]
+  id = 20109
+  name = "received votes response"
+  [rule.patterns]
+    level = "ERROR"
+    message = "Keepalive watchdog fired. Closing transport."
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20110
+  name = "send raft msg err"
+  [rule.patterns]
+    level = "ERROR"
+    message = "send raft msg err"
+    message_mode = ""
+    fields = ["err"]
+
+[[rule]]
+  id = 20111
+  name = "dispatch raft msg from gRPC to raftstore fail"
+  [rule.patterns]
+    level = "ERROR"
+    message = "dispatch raft msg from gRPC to raftstore fail"
+    message_mode = ""
+    fields = ["err"]
+
+[[rule]]
+  id = 20112
+  name = "KvService response batch commands fail"
+  [rule.patterns]
+    level = "ERROR"
+    message = "KvService response batch commands fail"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20113
+  name = "leader client failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "leader client failed"
+    message_mode = ""
+    fields = ["err"]
+
+[[rule]]
+  id = 20114
+  name = "handle raft message failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "handle raft message failed"
+    message_mode = ""
+    fields = ["err"]
+
+[[rule]]
+  id = 20115
+  name = "failed to look up recipient peer"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to look up recipient peer"
+    message_mode = ""
+    fields = ["to_peer", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20116
+  name = "skip proposal"
+  [rule.patterns]
+    level = "WARN"
+    message = "skip proposal"
+    message_mode = ""
+    fields = ["err", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20117
+  name = "handle task [split check worker]"
+  [rule.patterns]
+    level = "WARN"
+    message = "handle task [split check worker]"
+    message_mode = "substr"
+    fields = ["takes"]
+
+[[rule]]
+  id = 20118
+  name = "failed to look up recipient peer"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to look up recipient peer"
+    message_mode = ""
+    fields = ["to_peer", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20119
+  name = "stepped down to follower since quorum is not active"
+  [rule.patterns]
+    level = "WARN"
+    message = "stepped down to follower since quorum is not active"
+    message_mode = ""
+    fields = ["raft_id", "region_id"]
+
+[[rule]]
+  id = 20120
+  name = "RPC batch_raft fail"
+  [rule.patterns]
+    level = "WARN"
+    message = "RPC batch_raft fail"
+    message_mode = ""
+    fields = ["err", "sink_err", "to_addr"]
+
+[[rule]]
+  id = 20121
+  name = "send to peer fail, the gRPC connection could be broken"
+  [rule.patterns]
+    level = "WARN"
+    message = "send to [[:digit:]]+.[[:digit:]]+.[[:digit:]]+.[[:digit:]]+.:[[:digit:]]+ fail, the gRPC connection could be broken"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 20122
+  name = "txn conflicts"
+  [rule.patterns]
+    level = "WARN"
+    message = "txn conflicts"
+    message_mode = ""
+    fields = ["err"]
+
+[[rule]]
+  id = 20123
+  name = "failed to schedule peer tick"
+  [rule.patterns]
+    level = "INFO"
+    message = "failed to schedule peer tick"
+    message_mode = ""
+    fields = ["err", "tick", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20124
+  name = "succeed in deleting data in range"
+  [rule.patterns]
+    level = "INFO"
+    message = "succeed in deleting data in range"
+    message_mode = ""
+    fields = ["end_key", "start_key", "region_id"]
+
+[[rule]]
+  id = 20125
+  name = "sent MsgTimeoutNow after received MsgAppResp"
+  [rule.patterns]
+    level = "INFO"
+    message = "sent MsgTimeoutNow to [[:digit:]]+ after received MsgAppResp"
+    message_mode = "regex"
+    fields = ["from", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20126
+  name = "leader changed"
+  [rule.patterns]
+    level = "INFO"
+    message = "leader changed"
+    message_mode = ""
+    fields = ["leader_addr", "leader_id"]
+
+[[rule]]
+  id = 20127
+  name = "remove delegate from apply delegates"
+  [rule.patterns]
+    level = "INFO"
+    message = "remove delegate from apply delegates"
+    message_mode = ""
+    fields = ["peer_id", "region_id"]
+
+[[rule]]
+  id = 20128
+  name = "target region is not found, drop messages"
+  [rule.patterns]
+    level = "INFO"
+    message = "target region is not found, drop messages"
+    message_mode = ""
+    fields = ["region_id"]
+
+[[rule]]
+  id = 20129
+  name = "cgroup quota message"
+  [rule.patterns]
+    level = "INFO"
+    message = "cgroup quota:"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20130
+  name = "batch_raft RPC is called, new gRPC stream established"
+  [rule.patterns]
+    level = "INFO"
+    message = "batch_raft RPC is called, new gRPC stream established"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20131
+  name = "backup store labels"
+  [rule.patterns]
+    level = "INFO"
+    message = "backup store labels"
+    message_mode = ""
+    fields = ["labels", "store_id"]
+
+[[rule]]
+  id = 20132
+  name = "call CheckLeader failed"
+  [rule.patterns]
+    level = "INFO"
+    message = "call CheckLeader failed"
+    message_mode = ""
+    fields = ["address", "err"]
+
+[[rule]]
+  id = 20133
+  name = "Resolver initialized"
+  [rule.patterns]
+    level = "INFO"
+    message = "Resolver initialized"
+    message_mode = ""
+    fields = ["pending_data_index", "snapshot_index", "observe_id", "region"]
+
+[[rule]]
+  id = 20134
+  name = "register observe region"
+  [rule.patterns]
+    level = "INFO"
+    message = "register observe region"
+    message_mode = ""
+    fields = ["region"]
+
+[[rule]]
+  id = 20135
+  name = "region doesn't exist yet, wait for it to be split"
+  [rule.patterns]
+    level = "INFO"
+    message = "region doesn't exist yet, wait for it to be split"
+    message_mode = ""
+    fields = ["region_id"]
+
+[[rule]]
+  id = 20136
+  name = "became the leader of deadlock detector"
+  [rule.patterns]
+    level = "INFO"
+    message = "became the leader of deadlock detector!"
+    message_mode = ""
+    fields = ["self_id"]
+
+[[rule]]
+  id = 20137
+  name = "snapshot is persisted"
+  [rule.patterns]
+    level = "INFO"
+    message = "snapshot is persisted"
+    message_mode = ""
+    fields = ["region", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20138
+  name = "the environment may not support IPv6"
+  [rule.patterns]
+    level = "INFO"
+    message = "the environment may not support IPv6"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20139
+  name = "set cluster"
+  [rule.patterns]
+    level = "INFO"
+    message = "set cluster version to .*"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 20140
+  name = "TiKV is ready to serve"
+  [rule.patterns]
+    level = "INFO"
+    message = "TiKV is ready to serve"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20141
+  name = "listening on addr"
+  [rule.patterns]
+    level = "INFO"
+    message = "listening on addr"
+    message_mode = ""
+    fields = ["addr"]
+
+[[rule]]
+  id = 20142
+  name = "disk space checker not enabled"
+  [rule.patterns]
+    level = "INFO"
+    message = "disk space checker not enabled"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20143
+  name = "starting working thread"
+  [rule.patterns]
+    level = "INFO"
+    message = "starting working thread"
+    message_mode = ""
+    fields = ["worker"]
+
+[[rule]]
+  id = 20144
+  name = "initialize GC context for compaction filter"
+  [rule.patterns]
+    level = "INFO"
+    message = "initialize GC context for compaction filter"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20145
+  name = "initialize compaction filter to perform GC when necessary"
+  [rule.patterns]
+    level = "INFO"
+    message = "initialize compaction filter to perform GC when necessary"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20146
+  name = "set thread priority for raftstore failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "set thread priority for raftstore failed"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 20147
+  name = "cleans up garbage data"
+  [rule.patterns]
+    level = "INFO"
+    message = "cleans up garbage data"
+    message_mode = ""
+    fields = ["takes", "garbage_range_count", "store_id"]
+
+[[rule]]
+  id = 20148
+  name = "start store"
+  [rule.patterns]
+    level = "INFO"
+    message = "start store"
+    message_mode = ""
+    fields = ["takes", "merge_count", "applying_count", "tombstone_count", "region_count", "store_id"]
+
+[[rule]]
+  id = 20149
+  name = "Initializing SnapManager"
+  [rule.patterns]
+    level = "INFO"
+    message = "Initializing SnapManager"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20150
+  name = "start raft store thread"
+  [rule.patterns]
+    level = "INFO"
+    message = "start raft store thread"
+    message_mode = ""
+    fields = ["store_id"]
+
+[[rule]]
+  id = 20151
+  name = "associated store labels"
+  [rule.patterns]
+    level = "INFO"
+    message = "associated store labels"
+    message_mode = ""
+    fields = ["labels", "store_id"]
+
+[[rule]]
+  id = 20152
+  name = "initializing replication mode"
+  [rule.patterns]
+    level = "INFO"
+    message = "initializing replication mode"
+    message_mode = ""
+    fields = ["store_id", "status"]
+
+[[rule]]
+  id = 20153
+  name = "put store to PD"
+  [rule.patterns]
+    level = "INFO"
+    message = "put store to PD"
+    message_mode = ""
+    fields = ["store"]
+
+[[rule]]
+  id = 20154
+  name = "Storage started"
+  [rule.patterns]
+    level = "INFO"
+    message = "Storage started."
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20155
+  name = "Recovering raft logs"
+  [rule.patterns]
+    level = "INFO"
+    message = "Recovering raft logs takes "
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20156
+  name = "encryption is disabled"
+  [rule.patterns]
+    level = "INFO"
+    message = "encryption is disabled"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20157
+  name = "encryption: none of key dictionary and file dictionary are found"
+  [rule.patterns]
+    level = "INFO"
+    message = "encryption: none of key dictionary and file dictionary are found."
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20158
+  name = "failed to remove space holder on starting"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to remove space holder on starting"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20159
+  name = "TiKV bootstrap info"
+  [rule.patterns]
+    level = "INFO"
+    message = "using config"
+    message_mode = ""
+    fields = ["config"]
+
+[[rule]]
+  id = 20159
+  name = "TiKV bootstrap info"
+  [rule.patterns]
+    level = "INFO"
+    message = "data dir"
+    message_mode = ""
+    fields = ["mount_fs", "data_path"]
+
+[[rule]]
+  id = 20160
+  name = "beginning system configuration check"
+  [rule.patterns]
+    level = "INFO"
+    message = "beginning system configuration check"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20161
+  name = "no advertise-status-addr specified and can't falling back to status-addr"
+  [rule.patterns]
+    level = "INFO"
+    message = "no advertise-status-addr is specified, and we can't falling back to status-addr because it is invalid as advertise-status-addr"
+    message_mode = ""
+    fields = ["status-addr"]
+
+[[rule]]
+  id = 20162
+  name = "readpool.coprocessor.use-unified-pool is not set"
+  [rule.patterns]
+    level = "INFO"
+    message = "readpool.coprocessor.use-unified-pool is not set, set to true by default"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20163
+  name = "readpool.storage.use-unified-pool is not set"
+  [rule.patterns]
+    level = "INFO"
+    message = "readpool.storage.use-unified-pool is not set, set to true by default"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20164
+  name = "connect to PD cluster"
+  [rule.patterns]
+    level = "INFO"
+    message = "connect to PD cluster"
+    message_mode = ""
+    fields = ["cluster_id"]
+
+[[rule]]
+  id = 20165
+  name = "all PD endpoints are consistent"
+  [rule.patterns]
+    level = "INFO"
+    message = "all PD endpoints are consistent"
+    message_mode = ""
+    fields = ["endpoints"]
+
+[[rule]]
+  id = 20166
+  name = "connected to PD member"
+  [rule.patterns]
+    level = "INFO"
+    message = "connected to PD member"
+    message_mode = ""
+    fields = ["endpoints"]
+
+[[rule]]
+  id = 20167
+  name = "TCP_USER_TIMEOUT is available"
+  [rule.patterns]
+    level = "INFO"
+    message = "TCP_USER_TIMEOUT is available. TCP_USER_TIMEOUT will be used thereafter"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20168
+  name = "Disabling AF_INET6 sockets"
+  [rule.patterns]
+    level = "INFO"
+    message = "Disabling AF_INET6 sockets"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20169
+  name = "check kernel error"
+  [rule.patterns]
+    level = "WARN"
+    message = "check: kernel"
+    message_mode = ""
+    fields = ["err"]
+
+[[rule]]
+  id = 20170
+  name = "kernel parameters"
+  [rule.patterns]
+    level = "INFO"
+    message = "kernel parameters"
+    message_mode = ""
+    fields = ["value", "param"]
+
+[[rule]]
+  id = 20171
+  name = "api check success"
+  [rule.patterns]
+    level = "INFO"
+    message = "api_check success"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20172
+  name = "enter import mode"
+  [rule.patterns]
+    level = "INFO"
+    message = "enter import mode"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20173
+  name = "switch mode"
+  [rule.patterns]
+    level = "INFO"
+    message = "switch mode"
+    message_mode = ""
+    fields = ["mode"]
+
+[[rule]]
+  id = 20174
+  name = "download op"
+  [rule.patterns]
+    level = "INFO"
+    message = "download"
+    message_mode = ""
+    fields = ["range", "name", "meta"]
+
+[[rule]]
+  id = 20175
+  name = "delete op"
+  [rule.patterns]
+    level = "INFO"
+    message = "delete"
+    message_mode = ""
+    fields = ["path"]
+
+[[rule]]
+  id = 20176
+  name = "ingest op"
+  [rule.patterns]
+    level = "INFO"
+    message = "ingest"
+    message_mode = ""
+    fields = ["metas"]
+
+[[rule]]
+  id = 20177
+  name = "deregister observe region"
+  [rule.patterns]
+    level = "INFO"
+    message = "deregister observe region"
+    message_mode = ""
+    fields = ["observe_id", "region_id", "store_id"]
+
+[[rule]]
+  id = 20178
+  name = "region met split/merge command, stop tracking since key range changed, wait for re-register"
+  [rule.patterns]
+    level = "INFO"
+    message = "region met split/merge command, stop tracking since key range changed, wait for re-register"
+    message_mode = ""
+    fields = ["req_type"]
+
+[[rule]]
+  id = 20179
+  name = "asking delegate to stop"
+  [rule.patterns]
+    level = "INFO"
+    message = "asking delegate to stop"
+    message_mode = ""
+    fields = ["source_region_id", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20180
+  name = "resolved_ts scan get snapshot failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "resolved_ts scan get snapshot failed"
+    message_mode = ""
+    fields = ["err"]
+
+[[rule]]
+  id = 20181
+  name = "source logs are all applied now"
+  [rule.patterns]
+    level = "INFO"
+    message = "source logs are all applied now"
+    message_mode = ""
+    fields = ["peer_id", "region_id"]
+
+[[rule]]
+  id = 20182
+  name = "approximate size over threshold, need to do split check"
+  [rule.patterns]
+    level = "INFO"
+    message = "approximate size over threshold, need to do split check"
+    message_mode = ""
+    fields = ["threshold", "size", "region_id"]
+
+[[rule]]
+  id = 20183
+  name = "purged expired log files for queue Append"
+  [rule.patterns]
+    level = "INFO"
+    message = "purged [[:digit:]]+ expired log files for queue Append"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 20184
+  name = "delays destroy"
+  [rule.patterns]
+    level = "INFO"
+    message = "delays destroy"
+    message_mode = ""
+    fields = ["reason", "merged_by_target", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20185
+  name = "merge finished"
+  [rule.patterns]
+    level = "INFO"
+    message = "merge finished"
+    message_mode = ""
+    fields = ["target_region", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20186
+  name = "reset safe_ts due to merge"
+  [rule.patterns]
+    level = "INFO"
+    message = "reset safe_ts due to merge"
+    message_mode = ""
+    fields = ["safe_ts", "target_safe_ts", "source_safe_ts", "tag"]
+
+[[rule]]
+  id = 20187
+  name = "execute CommitMerge"
+  [rule.patterns]
+    level = "INFO"
+    message = "execute CommitMerge"
+    message_mode = ""
+    fields = ["source_region", "index", "term", "entries", "commit", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20188
+  name = "notify pd with merge"
+  [rule.patterns]
+    level = "INFO"
+    message = "notify pd with merge"
+    message_mode = ""
+    fields = ["target_region", "source_region", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20189
+  name = "Compaction filter reports"
+  [rule.patterns]
+    level = "INFO"
+    message = "Compaction filter reports"
+    message_mode = ""
+    fields = ["filtered", "total"]
+
+[[rule]]
+  id = 20190
+  name = "no need to catch up logs"
+  [rule.patterns]
+    level = "INFO"
+    message = "no need to catch up logs"
+    message_mode = ""
+    fields = ["peer_id", "region_id"]
+
+[[rule]]
+  id = 20191
+  name = "try to merge"
+  [rule.patterns]
+    level = "INFO"
+    message = "try to merge"
+    message_mode = ""
+    fields = ["merge", "region_id"]
+
+[[rule]]
+  id = 20192
+  name = "changed from the leader of deadlock detector to follower"
+  [rule.patterns]
+    level = "INFO"
+    message = "changed from the leader of deadlock detector to follower!"
+    message_mode = ""
+    fields = ["self_id"]
+
+[[rule]]
+  id = 20193
+  name = "kv rpc failed"
+  [rule.patterns]
+    level = "INFO"
+    message = "kv rpc failed"
+    message_mode = ""
+    fields = ["err", "request"]
+
+[[rule]]
+  id = 20194
+  name = "changed from the leader of deadlock detector to follower"
+  [rule.patterns]
+    level = "INFO"
+    message = "changed from the leader of deadlock detector to follower!"
+    message_mode = ""
+    fields = ["self_id"]
+
+[[rule]]
+  id = 20195
+  name = "kv rpc failed"
+  [rule.patterns]
+    level = "INFO"
+    message = "kv rpc failed"
+    message_mode = ""
+    fields = ["err", "request"]
+
+[[rule]]
+  id = 20196
+  name = "enter normal mode"
+  [rule.patterns]
+    level = "INFO"
+    message = "enter normal mode"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20197
+  name = "subchannel verbose"
+  [rule.patterns]
+    level = "INFO"
+    message = "subchannel .* {.*"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 20198
+  name = "check leader failed"
+  [rule.patterns]
+    level = "INFO"
+    message = "check leader failed"
+    message_mode = ""
+    fields = ["to_store", "error"]
+
+[[rule]]
+  id = 20198
+  name = "check leader failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "check leader failed"
+    message_mode = ""
+    fields = ["to_store", "error"]
+
+[[rule]]
+  id = 20199
+  name = "handle raft message err"
+  [rule.patterns]
+    level = "ERROR"
+    message = "handle raft message err"
+    message_mode = ""
+    fields = ["err_code", "err", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20200
+  name = "log item offset is smaller than log batch header length"
+  [rule.patterns]
+    level = "WARN"
+    message = "The tail of raft log is corrupted but ignored: Corruption: Log item offset is smaller than log batch header length"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20201
+  name = "reconnect leader succeeded"
+  [rule.patterns]
+    level = "INFO"
+    message = "reconnect leader succeeded"
+    message_mode = ""
+    fields = ["leader_id"]
+
+[[rule]]
+  id = 20202
+  name = "gc raft log with a large range"
+  [rule.patterns]
+    level = "WARN"
+    message = "gc raft log with a large range"
+    message_mode = ""
+    fields = ["end_index", "start_index", "region_id"]
+
+[[rule]]
+  id = 20203
+  name = "cancel detect sender"
+  [rule.patterns]
+    level = "INFO"
+    message = "cancel detect sender"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20204
+  name = "broadcasting unreachable"
+  [rule.patterns]
+    level = "INFO"
+    message = "broadcasting unreachable"
+    message_mode = ""
+    fields = ["unreachable_store_id", "store_id"]
+
+[[rule]]
+  id = 20205
+  name = "commit_ts is too large, fallback to normal 2PC"
+  [rule.patterns]
+    level = "WARN"
+    message = "commit_ts is too large, fallback to normal 2PC"
+    message_mode = ""
+    fields = ["lock", "max_commit_ts", "min_commit_ts", "start_ts", "key"]
+
+[[rule]]
+  id = 20206
+  name = "async fetch invalid"
+  [rule.patterns]
+    level = "INFO"
+    message = "async fetch invalid"
+    message_mode = ""
+    fields = ["res_max_size", "max_size", "high", "low", "last", "first", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20207
+  name = "trying to commit with smaller commit_ts than min_commit_ts"
+  [rule.patterns]
+    level = "INFO"
+    message = "trying to commit with smaller commit_ts than min_commit_ts"
+    message_mode = ""
+    fields = ["min_commit_ts", "commit_ts", "start_ts", "key"]
+
+[[rule]]
+  id = 20208
+  name = "update pd client"
+  [rule.patterns]
+    level = "INFO"
+    message = "update pd client"
+    message_mode = ""
+    fields = ["via", "leader", "prev_via", "prev_leader"]
+
+[[rule]]
+  id = 20209
+  name = "TSO worker terminated"
+  [rule.patterns]
+    level = "INFO"
+    message = "TSO worker terminated"
+    message_mode = ""
+    fields = ["receiver_cause", "sender_cause"]
+
+[[rule]]
+  id = 20210
+  name = "request failed, retry"
+  [rule.patterns]
+    level = "ERROR"
+    message = "request failed, retry"
+    message_mode = ""
+    fields = ["err_code", "err"]
+
+[[rule]]
+  id = 20211
+  name = "failed to send heartbeat"
+  [rule.patterns]
+    level = "ERROR"
+    message = "failed to send heartbeat"
+    message_mode = ""
+    fields = ["err_code", "err"]
+
+[[rule]]
+  id = 20212
+  name = "dump cpu profile successfully"
+  [rule.patterns]
+    level = "INFO"
+    message = "dump cpu profile successfully"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20213
+  name = "stopping cpu profiler"
+  [rule.patterns]
+    level = "INFO"
+    message = "stopping cpu profiler"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20214
+  name = "starting cpu profiler"
+  [rule.patterns]
+    level = "INFO"
+    message = "starting cpu profiler"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20215
+  name = "failed to update PD client"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to update PD client"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 20216
+  name = "monotonic time jumped back"
+  [rule.patterns]
+    level = "ERROR"
+    message = "monotonic time jumped back"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20217
+  name = "TSO stream is closed, reconnect to PD"
+  [rule.patterns]
+    level = "INFO"
+    message = "TSO stream is closed, reconnect to PD"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20218
+  name = "failed to connect to PD member"
+  [rule.patterns]
+    level = "ERROR"
+    message = "failed to connect to PD member"
+    message_mode = ""
+    fields = ["error", "endpoints"]
+
+[[rule]]
+  id = 20219
+  name = "rejected MsgRequestPreVote"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:digit:]]+ \\[log_term: [[:digit:]]+, index: [[:digit:]]+, vote: [[:digit:]]+\\] rejected MsgRequestPreVote from [[:digit:]]+ \\[log_term: [[:digit:]]+, index: [[:digit:]]+\\] at term [[:digit:]]+"
+    message_mode = "regex"
+    fields = ["raft_id", "region_id"]
+
+[[rule]]
+  id = 20220
+  name = "stoping worker"
+  [rule.patterns]
+    level = "INFO"
+    message = "stoping worker"
+    message_mode = ""
+    fields = ["worker"]
+
+[[rule]]
+  id = 20221
+  name = "failed to send write flow statistics"
+  [rule.patterns]
+    level = "ERROR"
+    message = "Failed to send write flow statistics"
+    message_mode = ""
+    fields = ["err"]
+
+[[rule]]
+  id = 20222
+  name = "start raft store thread"
+  [rule.patterns]
+    level = "INFO"
+    message = "batch system raftstore-[[:digit:]]+ is stopped."
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 20223
+  name = "broadcasting unreachable"
+  [rule.patterns]
+    level = "INFO"
+    message = "broadcasting shutdown"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20224
+  name = "try to batch split region"
+  [rule.patterns]
+    level = "INFO"
+    message = "shutdown batch system raftstore-[[:digit:]]+"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 20225
+  name = "batch system apply is stopped"
+  [rule.patterns]
+    level = "INFO"
+    message = "batch system apply is stopped."
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20226
+  name = "shutdown batch system apply"
+  [rule.patterns]
+    level = "INFO"
+    message = "shutdown batch system apply"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20227
+  name = "stop raft store thread"
+  [rule.patterns]
+    level = "INFO"
+    message = "stop raft store thread"
+    message_mode = ""
+    fields = ["store_id"]
+
+[[rule]]
+  id = 20228
+  name = "Storage stopped"
+  [rule.patterns]
+    level = "INFO"
+    message = "Storage stopped."
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20229
+  name = "stopping server"
+  [rule.patterns]
+    level = "INFO"
+    message = "receive signal 15, stopping server..."
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20230
+  name = "snap key is registered more than once"
+  [rule.patterns]
+    level = "WARN"
+    message = "snap key is registered more than once!"
+    message_mode = ""
+    fields = ["key"]
+
+[[rule]]
+  id = 20231
+  name = "stale deregister snapshot"
+  [rule.patterns]
+    level = "WARN"
+    message = "stale deregister snapshot"
+    message_mode = ""
+    fields = ["entry", "key"]
+
+[[rule]]
+  id = 20232
+  name = "failed to send records"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to send records"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 20233
+  name = "Failed to connect to channel, retrying"
+  [rule.patterns]
+    level = "INFO"
+    message = "Failed to connect to channel, retrying"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20234
+  name = "Subchannel 0x[[:xdigit:]]+: Retry immediately"
+  [rule.patterns]
+    level = "INFO"
+    message = "Subchannel 0x[[:xdigit:]]+: Retry immediately"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 20235
+  name = "new encrypted file"
+  [rule.patterns]
+    level = "INFO"
+    message = "new encrypted file"
+    message_mode = ""
+    fields = ["iv", "method", "fname"]
+
+[[rule]]
+  id = 20236
+  name = "delete encrypted file"
+  [rule.patterns]
+    level = "INFO"
+    message = "delete encrypted file"
+    message_mode = ""
+    fields = ["fname"]
+
+[[rule]]
+  id = 20237
+  name = "failed to register addr to pd"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to register addr to pd"
+    message_mode = ""
+    fields = ["body", "status code"]
+
+[[rule]]
+  id = 20238
+  name = "append and commit entries to source region"
+  [rule.patterns]
+    level = "INFO"
+    message = "append and commit entries to source region"
+    message_mode = ""
+    fields = ["last_index", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20239
+  name = "try to rotate data key"
+  [rule.patterns]
+    level = "INFO"
+    message = "Try to rotate data key"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20240
+  name = "failed to register addr to pd after 5 tries"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to register addr to pd after 5 tries"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20241
+  name = "failed to reconnect pd client"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to reconnect pd client"
+    message_mode = ""
+    fields = ["err"]
+
+[[rule]]
+  id = 20242
+  name = "delete untracked plaintext file"
+  [rule.patterns]
+    level = "INFO"
+    message = "delete untracked plaintext file"
+    message_mode = ""
+    fields = ["fname"]
+
+[[rule]]
+  id = 20243
+  name = "send keepalive message fail, store maybe disconnected"
+  [rule.patterns]
+    level = "WARN"
+    message = "send keepalive message fail, store maybe disconnected"
+    message_mode = ""
+    fields = ["target-store-id", "error"]
+
+[[rule]]
+  id = 20244
+  name = "link encrypted file"
+  [rule.patterns]
+    level = "INFO"
+    message = "link encrypted file"
+    message_mode = ""
+    fields = ["dst", "src"]
+
+[[rule]]
+  id = 20245
+  name = "connect failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "connect failed"
+    message_mode = ""
+    fields = ["error", "endpoints"]
+
+[[rule]]
+  id = 20246
+  name = "store heartbeat failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "store heartbeat failed"
+    message_mode = ""
+    fields = ["err"]
+
+[[rule]]
+  id = 20247
+  name = "unsafe destroy range started"
+  [rule.patterns]
+    level = "INFO"
+    message = "unsafe destroy range started"
+    message_mode = ""
+    fields = ["end_key", "start_key"]
+
+[[rule]]
+  id = 20248
+  name = "unsafe destroy range finished cleaning up all"
+  [rule.patterns]
+    level = "INFO"
+    message = "unsafe destroy range finished cleaning up all"
+    message_mode = ""
+    fields = ["cost_time", "end_key", "start_key"]
+
+[[rule]]
+  id = 20249
+  name = "encryption: found both of key dictionary and file dictionary"
+  [rule.patterns]
+    level = "INFO"
+    message = "encryption: found both of key dictionary and file dictionary."
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20250
+  name = "failed to init io snooper"
+  [rule.patterns]
+    level = "ERROR"
+    message = "failed to init io snooper"
+    message_mode = ""
+    fields = ["err_code", "err"]
+
+[[rule]]
+  id = 20251
+  name = "Encryption init cloud backend"
+  [rule.patterns]
+    level = "INFO"
+    message = "Encryption init cloud backend"
+    message_mode = ""
+    fields = ["vendor", "key_id", "endpoint", "region"]
+
+[[rule]]
+  id = 20252
+  name = "resolve store address failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "resolve store address failed"
+    message_mode = ""
+    fields = ["err_code", "err", "store_id"]
+
+[[rule]]
+  id = 20253
+  name = "request failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "request failed"
+    message_mode = ""
+    fields = ["err_code", "err"]
+
+[[rule]]
+  id = 20254
+  name = "keepalive watchdog fired"
+  [rule.patterns]
+    level = "INFO"
+    message = "Keepalive watchdog fired. Closing transport."
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20255
+  name = "memory_usage_limit > recommanded"
+  [rule.patterns]
+    level = "WARN"
+    message = "memory_usage_limit:ReadableSize\\([[:digit:]]+\\) > recommanded:ReadableSize\\([[:digit:]]+\\), maybe page cache isn't enough"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 20256
+  name = "unsafe destroy range finished deleting files in range"
+  [rule.patterns]
+    level = "INFO"
+    message = "unsafe destroy range finished deleting files in range"
+    message_mode = ""
+    fields = ["cost_time", "end_key", "start_key"]
+
+[[rule]]
+  id = 20257
+  name = "encryption is enabled"
+  [rule.patterns]
+    level = "INFO"
+    message = "encryption is enabled."
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20258
+  name = "reconnect failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "reconnect failed"
+    message_mode = ""
+    fields = ["err_code", "err"]
+
+[[rule]]
+  id = 20259
+  name = "check leader rpc costs too long"
+  [rule.patterns]
+    level = "WARN"
+    message = "check leader rpc costs too long"
+    message_mode = "substr"
+    fields = ["takes"]
+
+[[rule]]
+  id = 20260
+  name = "failed to get safe point from pd"
+  [rule.patterns]
+    level = "ERROR"
+    message = "failed to get safe point from pd"
+    message_mode = ""
+    fields = ["err_code", "err"]
+
+[[rule]]
+  id = 20261
+  name = "handle raft message err"
+  [rule.patterns]
+    level = "WARN"
+    message = "\\[store [[:digit:]]+\\] handle ready [[:digit:]]+ committed entries"
+    message_mode = "regex"
+    fields = ["takes"]
+
+[[rule]]
+  id = 20262
+  name = "re-register to apply delegates"
+  [rule.patterns]
+    level = "INFO"
+    message = "re-register to apply delegates"
+    message_mode = ""
+    fields = ["term", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20263
+  name = "trying to create region but it already exists, try to update it"
+  [rule.patterns]
+    level = "INFO"
+    message = "trying to create region but it already exists, try to update it"
+    message_mode = ""
+    fields = ["region_id"]
+
+[[rule]]
+  id = 20264
+  name = "region changed after persisting snapshot"
+  [rule.patterns]
+    level = "INFO"
+    message = "region changed after persisting snapshot"
+    message_mode = ""
+    fields = ["region", "prev_region", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20265
+  name = "cdc min_ts lag too large"
+  [rule.patterns]
+    level = "INFO"
+    message = "cdc min_ts lag too large"
+    message_mode = ""
+    fields = ["min_ts_min_lock", "min_ts_pd", "min_ts"]
+
+[[rule]]
+  id = 20266
+  name = "found conflict"
+  [rule.patterns]
+    level = "INFO"
+    message = "found conflict at index [[:digit:]]+"
+    message_mode = "regex"
+    fields = ["conflicting term", "existing term", "index", "raft_id", "region_id"]
+
+[[rule]]
+  id = 20267
+  name = "store handle pending peers"
+  [rule.patterns]
+    level = "WARN"
+    message = "\\[store [[:digit:]]+\\] handle [[:digit:]]+ pending peers.*"
+    message_mode = "regex"
+    fields = ["takes"]
+
+[[rule]]
+  id = 20268
+  name = "txn deadlocks"
+  [rule.patterns]
+    level = "WARN"
+    message = "txn deadlocks"
+    message_mode = ""
+    fields = ["err"]
+
+[[rule]]
+  id = 20269
+  name = "Sending goaway"
+  [rule.patterns]
+    level = "INFO"
+    message = "Sending goaway"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20270
+  name = "async write too slow"
+  [rule.patterns]
+    level = "WARN"
+    message = "async write too slow"
+    message_mode = "substr"
+    fields = ["takes"]
+
+[[rule]]
+  id = 20271
+  name = "schedule pd task failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "schedule pd task failed"
+    message_mode = ""
+    fields = ["err"]
+
+[[rule]]
+  id = 20273
+  name = "fast-forwarded commit to vote request"
+  [rule.patterns]
+    level = "INFO"
+    message = "[commit: [[:digit:]]+, lastindex: [[:digit:]]+, lastterm: [[:digit:]]+] fast-forwarded commit to vote request [index: [[:digit:]]+, term: [[:digit:]]+]"
+    message_mode = "regex"
+    fields = ["raft_id", "region_id"]
+
+[[rule]]
+  id = 20274
+  name = "txn aborts"
+  [rule.patterns]
+    level = "ERROR"
+    message = "txn aborts"
+    message_mode = ""
+    fields = ["err_code", "err"]
+
+[[rule]]
+  id = 20275
+  name = "register region again"
+  [rule.patterns]
+    level = "INFO"
+    message = "register region again"
+    message_mode = ""
+    fields = ["cause", "observe_id", "region_id"]
+
+[[rule]]
+  id = 20276
+  name = "region is merging"
+  [rule.patterns]
+    level = "INFO"
+    message = "region is merging"
+    message_mode = ""
+    fields = ["store_id", "region"]
+
+[[rule]]
+  id = 20277
+  name = "merged peer receives a stale message"
+  [rule.patterns]
+    level = "INFO"
+    message = "merged peer receives a stale message"
+    message_mode = ""
+    fields = ["msg_type", "current_region_epoch", "region_id"]
+
+[[rule]]
+  id = 20278
+  name = "target region still not catch up, skip"
+  [rule.patterns]
+    level = "INFO"
+    message = "target region still not catch up, skip."
+    message_mode = ""
+    fields = ["exist_region", "target_region", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20279
+  name = "reject transfer leader due to pending conf change"
+  [rule.patterns]
+    level = "INFO"
+    message = "reject transfer leader due to pending conf change"
+    message_mode = ""
+    fields = ["peer", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20280
+  name = "batch_commands error"
+  [rule.patterns]
+    level = "ERROR"
+    message = "batch_commands error"
+    message_mode = ""
+    fields = ["err"]
+
+[[rule]]
+  id = 20281
+  name = "target region is not found, drop proposals"
+  [rule.patterns]
+    level = "INFO"
+    message = "target region is not found, drop proposals"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20282
+  name = "updating commit index"
+  [rule.patterns]
+    level = "INFO"
+    message = "updating commit index"
+    message_mode = ""
+    fields = ["new", "old", "region_id"]
+
+[[rule]]
+  id = 20283
+  name = "detect request dropped"
+  [rule.patterns]
+    level = "WARN"
+    message = "detect request dropped"
+    message_mode = ""
+    fields = ["lock", "txn_ts", "tp"]
+
+[[rule]]
+  id = 20284
+  name = "stale leader info"
+  [rule.patterns]
+    level = "INFO"
+    message = "stale leader info"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20285
+  name = "prewrite failed (pessimistic lock not found)"
+  [rule.patterns]
+    level = "WARN"
+    message = "prewrite failed (pessimistic lock not found)"
+    message_mode = ""
+    fields = ["key", "start_ts"]
+
+[[rule]]
+  id = 20286
+  name = "min_matched < min_committed, raft progress is inaccurate"
+  [rule.patterns]
+    level = "WARN"
+    message = "min_matched < min_committed, raft progress is inaccurate"
+    message_mode = ""
+    fields = ["min_committed", "min_matched", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20287
+  name = "run backup task"
+  [rule.patterns]
+    level = "INFO"
+    message = "run backup task"
+    message_mode = ""
+    fields = ["task"]
+
+[[rule]]
+  id = 20288
+  name = "backup closed"
+  [rule.patterns]
+    level = "INFO"
+    message = "backup closed"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 20289
+  name = "load base split region"
+  [rule.patterns]
+    level = "INFO"
+    message = "load base split region"
+    message_mode = ""
+    fields = ["qps", "region_id"]
+
+[[rule]]
+  id = 20290
+  name = "failed to schedule store tick"
+  [rule.patterns]
+    level = "INFO"
+    message = "failed to schedule store tick, are we shutting down?"
+    message_mode = ""
+    fields = ["err", "tick"]
+
+[[rule]]
+  id = 20291
+  name = "epoch changed, retry later"
+  [rule.patterns]
+    level = "INFO"
+    message = "epoch changed, retry later"
+    message_mode = ""
+    fields = ["epoch", "prev_epoch", "peer_id", "region_id"]
+
+[[rule]]
+  id = 20292
+  name = "failed to register addr to pd"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to register addr to pd"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 20293
+  name = "disk usage AlmostFull"
+  [rule.patterns]
+    level = "WARN"
+    message = "disk usage Normal->AlmostFull"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20294
+  name = "reported disk usage changes Some(AlmostFull) -> Normal"
+  [rule.patterns]
+    level = "INFO"
+    message = "reported disk usage changes Some(AlmostFull) -> Normal"
+    message_mode = ""
+    fields = ["peer_id", "region_id"]
+
+[[rule]]
+  id = 20295
+  name = "UnsafeDestroyRange"
+  [rule.patterns]
+    level = "WARN"
+    message = "UnsafeDestroyRange start_key [[:xdigit:]]+, end_key [[:xdigit:]]+"
+    message_mode = "regex"
+    fields = ["takes"]
+
+[[rule]]
+  id = 20296
+  name = "reported disk usage changes None -> AlmostFull"
+  [rule.patterns]
+    level = "INFO"
+    message = "reported disk usage changes None -> AlmostFull"
+    message_mode = ""
+    fields = ["peer_id", "region_id"]
+
+[[rule]]
+  id = 20297
+  name = "failed to update max timestamp for some region"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to update max timestamp for region"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20298
+  name = "encryption is being enabled"
+  [rule.patterns]
+    level = "INFO"
+    message = "encryption is being enabled."
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 20299
+  name = "encryption: rotate data key"
+  [rule.patterns]
+    level = "INFO"
+    message = "encryption: rotate data key."
+    message_mode = ""
+    fields = ["key_id"]

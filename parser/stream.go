@@ -25,8 +25,9 @@ import (
 // io.Reader into individual *LogEntry. Users can parse large log files
 // on demand without having to read them all into memory at once.
 type StreamParser struct {
-	scanner *bufio.Scanner
-	Line    int
+	scanner     *bufio.Scanner
+	Line        int
+	withoutTime bool
 }
 
 // NewStreamParser creates new *StreamParser associated with the io.Reader.
@@ -40,13 +41,22 @@ func NewStreamParser(reader io.Reader) *StreamParser {
 	}
 }
 
+func (sp *StreamParser) WithoutTime() *StreamParser {
+	sp.withoutTime = true
+	return sp
+}
+
 // Next reads and parses one LogEntry from bufio.Reader on demand.
 // This function will return (nil, nil) if the underlying io.Reader returns
 // io.EOF in the standard case.
 func (sp *StreamParser) Next() (*LogEntry, error) {
 	for sp.scanner.Scan() {
 		sp.Line++
-		tokens := parseLine(sp.scanner.Text())
+		line := sp.scanner.Text()
+		if sp.withoutTime {
+			line = "[2006/01/02 15:04:05.000 -07:00] " + line
+		}
+		tokens := parseLine(line)
 		if len(tokens) == 0 {
 			continue
 		}

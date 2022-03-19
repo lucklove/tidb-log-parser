@@ -483,7 +483,7 @@ name = "send schedule command"
     level = "INFO"
     message = "PD cluster leader is ready to serve"
     message_mode = ""
-    fields = ["leader-name"]
+    fields = []
 
 [[rule]]
   id = 30055
@@ -603,6 +603,15 @@ name = "send schedule command"
     fields = ["campaign-leader-name"]
 
 [[rule]]
+  id = 30067
+  name = "campaign leader ok"
+  [rule.patterns]
+    level = "INFO"
+    message = "campaign pd leader ok"
+    message_mode = ""
+    fields = ["campaign-pd-leader-name"]
+
+[[rule]]
   id = 30068
   name = "start to campaign leader"
   [rule.patterns]
@@ -610,6 +619,15 @@ name = "send schedule command"
     message = "start to campaign leader"
     message_mode = ""
     fields = ["campaign-leader-name"]
+
+[[rule]]
+  id = 30068
+  name = "start to campaign leader"
+  [rule.patterns]
+    level = "INFO"
+    message = "start to campaign pd leader"
+    message_mode = ""
+    fields = ["campaign-pd-leader-name"]
 
 [[rule]]
   id = 30069
@@ -771,7 +789,7 @@ name = "send schedule command"
     level = "INFO"
     message = "add operator"
     message_mode = ""
-    fields = ["region-id", "operator", "additional info"]
+    fields = ["region-id", "operator"]
 
 [[rule]]
   id = 30086
@@ -780,7 +798,7 @@ name = "send schedule command"
     level = "INFO"
     message = "operator finish"
     message_mode = ""
-    fields = ["region-id", "takes", "operator", "additional info"]
+    fields = ["region-id", "takes", "operator"]
 
 [[rule]]
   id = 30087
@@ -962,3 +980,1083 @@ name = "send schedule command"
     message = "replace the unstable entries from index [[:digit:]]+"
     message_mode = "regex"
     fields = []
+
+[[rule]]
+  id = 30106
+  name = "Key visual service is started"
+  [rule.patterns]
+    level = "INFO"
+    message = "Key visual service is started"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30107
+  name = "Save dynamic config to etcd"
+  [rule.patterns]
+    level = "INFO"
+    message = "Save dynamic config to etcd"
+    message_mode = ""
+    fields = ["json"]
+
+[[rule]]
+  id = 30108
+  name = "Dynamic config does not exist in etcd"
+  [rule.patterns]
+    level = "WARN"
+    message = "Dynamic config does not exist in etcd"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30109
+  name = "start serve requests to remotes"
+  [rule.patterns]
+    level = "INFO"
+    message = "start serve requests to remotes"
+    message_mode = ""
+    fields = ["endpoint", "remotes"]
+
+[[rule]]
+  id = 30110
+  name = "now serving peer/client/metrics"
+  [rule.patterns]
+    level = "INFO"
+    message = "now serving peer/client/metrics"
+    message_mode = ""
+    fields = ["local-member-id", "initial-advertise-peer-urls", "listen-peer-urls", "advertise-client-urls", "listen-client-urls", "listen-metrics-urls"]
+
+[[rule]]
+  id = 30111
+  name = "serving peer traffic"
+  [rule.patterns]
+    level = "INFO"
+    message = "serving peer traffic"
+    message_mode = ""
+    fields = ["address"]
+
+[[rule]]
+  id = 30112
+  name = "enabled capabilities for version"
+  [rule.patterns]
+    level = "INFO"
+    message = "enabled capabilities for version"
+    message_mode = ""
+    fields = ["cluster-version"]
+
+[[rule]]
+  id = 30113
+  name = "set initial cluster version"
+  [rule.patterns]
+    level = "INFO"
+    message = "set initial cluster version"
+    message_mode = ""
+    fields = ["cluster-id", "local-member-id", "cluster-version"]
+
+[[rule]]
+  id = 30114
+  name = "added member"
+  [rule.patterns]
+    level = "INFO"
+    message = "added member"
+    message_mode = ""
+    fields = ["cluster-id", "local-member-id", "added-peer-id", "added-peer-peer-urls"]
+
+[[rule]]
+  id = 30115
+  name = "[[:xdigit:]]+ switched to configuration voters=([[:digit:]]*)"
+  [rule.patterns]
+    level = "INFO"
+    message = "[[:xdigit:]]+ switched to configuration voters=\\(([[:digit:]]|[[:space:]])*\\)"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30116
+  name = "starting initial election tick advance"
+  [rule.patterns]
+    level = "INFO"
+    message = "starting initial election tick advance"
+    message_mode = ""
+    fields = ["election-ticks"]
+
+[[rule]]
+  id = 30117
+  name = "failed to get file descriptor usage"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to get file descriptor usage"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 30118
+  name = "starting etcd server"
+  [rule.patterns]
+    level = "INFO"
+    message = "starting etcd server"
+    message_mode = ""
+    fields = ["local-member-id", "local-server-version", "cluster-version"]
+
+[[rule]]
+  id = 30119
+  name = "enabled backend quota"
+  [rule.patterns]
+    level = "INFO"
+    message = "enabled backend quota"
+    message_mode = ""
+    fields = ["quota-name", "quota-size-bytes", "quota-size"]
+
+[[rule]]
+  id = 30120
+  name = "simple token is not cryptographically signed"
+  [rule.patterns]
+    level = "WARN"
+    message = "simple token is not cryptographically signed"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30121
+  name = "PD server config is updated"
+  [rule.patterns]
+    level = "INFO"
+    message = "PD server config is updated"
+    message_mode = ""
+    fields = ["new", "old"]
+
+[[rule]]
+  id = 30122
+  name = "start lease keep alive worker"
+  [rule.patterns]
+    level = "INFO"
+    message = "start lease keep alive worker"
+    message_mode = ""
+    fields = ["interval", "purpose"]
+
+[[rule]]
+  id = 30123
+  name = "newRaft"
+  [rule.patterns]
+    level = "INFO"
+    message = "newRaft [[:xdigit:]]+ .*"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 30124
+  name = "starting an etcd server"
+  [rule.patterns]
+    level = "INFO"
+    message = "starting an etcd server"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30125
+  name = "opened backend db"
+  [rule.patterns]
+    level = "INFO"
+    message = "opened backend db"
+    message_mode = ""
+    fields = ["path", "took"]
+
+[[rule]]
+  id = 30126
+  name = "restarting local member"
+  [rule.patterns]
+    level = "INFO"
+    message = "restarting local member"
+    message_mode = ""
+    fields = ["cluster-id", "local-member-id", "commit-index"]
+
+[[rule]]
+  id = 30127
+  name = "pprof is enabled"
+  [rule.patterns]
+    level = "INFO"
+    message = "pprof is enabled"
+    message_mode = ""
+    fields = ["path"]
+
+[[rule]]
+  id = 30128
+  name = "configuring client listeners"
+  [rule.patterns]
+    level = "INFO"
+    message = "configuring client listeners"
+    message_mode = ""
+    fields = ["listen-client-urls"]
+
+[[rule]]
+  id = 30129
+  name = "start system time monitor"
+  [rule.patterns]
+    level = "INFO"
+    message = "start system time monitor"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30130
+  name = "configuring peer listeners"
+  [rule.patterns]
+    level = "INFO"
+    message = "configuring peer listeners"
+    message_mode = ""
+    fields = ["listen-peer-urls"]
+
+[[rule]]
+  id = 30131
+  name = "register REST path"
+  [rule.patterns]
+    level = "INFO"
+    message = "register REST path"
+    message_mode = ""
+    fields = ["path"]
+
+[[rule]]
+  id = 30132
+  name = "PD Config"
+  [rule.patterns]
+    level = "INFO"
+    message = "PD Config"
+    message_mode = ""
+    fields = ["config"]
+
+[[rule]]
+  id = 30133
+  name = "Dashboard server is started"
+  [rule.patterns]
+    level = "INFO"
+    message = "Dashboard server is started"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30134
+  name = "TiDB Dashboard started"
+  [rule.patterns]
+    level = "INFO"
+    message = "TiDB Dashboard started"
+    message_mode = ""
+    fields = ["internal-version", "standalone", "pd-version", "build-time", "build-git-hash"]
+
+[[rule]]
+  id = 30135
+  name = "Dashboard initializing local storage file"
+  [rule.patterns]
+    level = "INFO"
+    message = "Dashboard initializing local storage file"
+    message_mode = ""
+    fields = ["path"]
+
+[[rule]]
+  id = 30136
+  name = "initializing the global TSO allocator"
+  [rule.patterns]
+    level = "INFO"
+    message = "initializing the global TSO allocator"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30137
+  name = "write leaderData to leaderPath ok"
+  [rule.patterns]
+    level = "INFO"
+    message = "write leaderData to leaderPath ok"
+    message_mode = ""
+    fields = ["leaderPath", "purpose"]
+
+[[rule]]
+  id = 30138
+  name = "check campaign resp"
+  [rule.patterns]
+    level = "INFO"
+    message = "check campaign resp"
+    message_mode = ""
+    fields = ["resp"]
+
+[[rule]]
+  id = 30139
+  name = "lease granted"
+  [rule.patterns]
+    level = "INFO"
+    message = "lease granted"
+    message_mode = ""
+    fields = ["lease-id", "lease-timeout", "purpose"]
+
+[[rule]]
+  id = 30140
+  name = "start from history index"
+  [rule.patterns]
+    level = "INFO"
+    message = "start from history index"
+    message_mode = ""
+    fields = ["start-index"]
+
+[[rule]]
+  id = 30141
+  name = "disable Prometheus push client"
+  [rule.patterns]
+    level = "INFO"
+    message = "disable Prometheus push client"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30142
+  name = "PD build info"
+  [rule.patterns]
+    level = "INFO"
+    message = "PD"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30143
+  name = "error with trace info"
+  [rule.patterns]
+    level = "ERROR"
+    message = "trace"
+    message_mode = ""
+    fields = ["error", "elapsed", "rows", "sql"]
+
+[[rule]]
+  id = 30144
+  name = "Load dynamic config from etcd"
+  [rule.patterns]
+    level = "INFO"
+    message = "Load dynamic config from etcd"
+    message_mode = ""
+    fields = ["json"]
+
+[[rule]]
+  id = 30145
+  name = "init cluster id"
+  [rule.patterns]
+    level = "INFO"
+    message = "init cluster id"
+    message_mode = ""
+    fields = ["cluster-id"]
+
+[[rule]]
+  id = 30146
+  name = "serving client traffic insecurely"
+  [rule.patterns]
+    level = "INFO"
+    message = "serving client traffic insecurely; this is strongly discouraged!"
+    message_mode = ""
+    fields = ["address"]
+
+[[rule]]
+  id = 30147
+  name = "published local member to cluster through raft"
+  [rule.patterns]
+    level = "INFO"
+    message = "published local member to cluster through raft"
+    message_mode = ""
+    fields = ["local-member-id", "local-member-attributes", "request-path", "cluster-id", "publish-timeout"]
+
+[[rule]]
+  id = 30148
+  name = "create etcd v3 client"
+  [rule.patterns]
+    level = "INFO"
+    message = "create etcd v3 client"
+    message_mode = ""
+    fields = ["endpoints", "cert"]
+
+[[rule]]
+  id = 30149
+  name = "Welcome to Placement Driver (PD)"
+  [rule.patterns]
+    level = "INFO"
+    message = "Welcome to Placement Driver (PD)"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30150
+  name = "system time jump backward"
+  [rule.patterns]
+    level = "ERROR"
+    message = "system time jump backward"
+    message_mode = ""
+    fields = ["last", "error"]
+
+[[rule]]
+  id = 30151
+  name = "warning with trace info"
+  [rule.patterns]
+    level = "WARN"
+    message = "trace"
+    message_mode = ""
+    fields = ["elapsed", "rows", "sql"]
+
+[[rule]]
+  id = 30152
+  name = "region syncer finished load region"
+  [rule.patterns]
+    level = "INFO"
+    message = "region syncer finished load region"
+    message_mode = ""
+    fields = ["time-cost"]
+
+[[rule]]
+  id = 30153
+  name = "region syncer start load region"
+  [rule.patterns]
+    level = "INFO"
+    message = "region syncer start load region"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30154
+  name = "start to watch pd leader"
+  [rule.patterns]
+    level = "INFO"
+    message = "start to watch pd leader"
+    message_mode = ""
+    fields = ["pd-leader"]
+
+[[rule]]
+  id = 30155
+  name = "initialized peer connections; fast-forwarding election ticks"
+  [rule.patterns]
+    level = "INFO"
+    message = "initialized peer connections; fast-forwarding election ticks"
+    message_mode = ""
+    fields = ["local-member-id", "forward-ticks", "forward-duration", "election-ticks", "election-timeout", "active-remote-members"]
+
+[[rule]]
+  id = 30156
+  name = "started stream reader with remote peer"
+  [rule.patterns]
+    level = "INFO"
+    message = "started stream reader with remote peer"
+    message_mode = ""
+    fields = ["stream-reader-type", "local-member-id", "remote-peer-id"]
+
+[[rule]]
+  id = 30157
+  name = "added remote peer"
+  [rule.patterns]
+    level = "INFO"
+    message = "added remote peer"
+    message_mode = ""
+    fields = ["local-member-id", "remote-peer-id", "remote-peer-urls"]
+
+[[rule]]
+  id = 30158
+  name = "started remote peer"
+  [rule.patterns]
+    level = "INFO"
+    message = "started remote peer"
+    message_mode = ""
+    fields = ["remote-peer-id"]
+
+[[rule]]
+  id = 30159
+  name = "started stream writer with remote peer"
+  [rule.patterns]
+    level = "INFO"
+    message = "started stream writer with remote peer"
+    message_mode = ""
+    fields = ["local-member-id", "remote-peer-id"]
+
+[[rule]]
+  id = 30160
+  name = "started HTTP pipelining with remote peer"
+  [rule.patterns]
+    level = "INFO"
+    message = "started HTTP pipelining with remote peer"
+    message_mode = ""
+    fields = ["local-member-id", "remote-peer-id"]
+
+[[rule]]
+  id = 30161
+  name = "starting remote peer"
+  [rule.patterns]
+    level = "INFO"
+    message = "starting remote peer"
+    message_mode = ""
+    fields = ["remote-peer-id"]
+
+[[rule]]
+  id = 30162
+  name = "starting local member"
+  [rule.patterns]
+    level = "INFO"
+    message = "starting local member"
+    message_mode = ""
+    fields = ["local-member-id", "cluster-id"]
+
+[[rule]]
+  id = 30163
+  name = "failed to get cluster from remote"
+  [rule.patterns]
+    level = "ERROR"
+    message = "failed to get cluster from remote"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 30164
+  name = "query supported changed"
+  [rule.patterns]
+    level = "INFO"
+    message = "query supported changed"
+    message_mode = ""
+    fields = ["last-query-support", "cluster-version", "config", "valid-config"]
+
+[[rule]]
+  id = 30165
+  name = "coordinator begins to check suspect key ranges"
+  [rule.patterns]
+    level = "INFO"
+    message = "coordinator begins to check suspect key ranges"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30166
+  name = "coordinator starts patrol regions"
+  [rule.patterns]
+    level = "INFO"
+    message = "coordinator starts patrol regions"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30167
+  name = "coordinator begins to actively drive push operator"
+  [rule.patterns]
+    level = "INFO"
+    message = "coordinator begins to actively drive push operator"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30168
+  name = "create scheduler"
+  [rule.patterns]
+    level = "INFO"
+    message = "create scheduler"
+    message_mode = ""
+    fields = ["scheduler-name", "scheduler-args"]
+
+[[rule]]
+  id = 30169
+  name = "setting up initial cluster version"
+  [rule.patterns]
+    level = "INFO"
+    message = "setting up initial cluster version"
+    message_mode = ""
+    fields = ["cluster-version"]
+
+[[rule]]
+  id = 30170
+  name = "cluster version is updated"
+  [rule.patterns]
+    level = "INFO"
+    message = "cluster version is updated"
+    message_mode = ""
+    fields = ["cluster-version"]
+
+[[rule]]
+  id = 30171
+  name = "try to bootstrap raft cluster"
+  [rule.patterns]
+    level = "INFO"
+    message = "try to bootstrap raft cluster"
+    message_mode = ""
+    fields = ["cluster-id", "request"]
+
+[[rule]]
+  id = 30172
+  name = "bootstrap cluster ok"
+  [rule.patterns]
+    level = "INFO"
+    message = "bootstrap cluster ok"
+    message_mode = ""
+    fields = ["cluster-id"]
+
+[[rule]]
+  id = 30173
+  name = "cluster version changed"
+  [rule.patterns]
+    level = "INFO"
+    message = "cluster version changed"
+    message_mode = ""
+    fields = ["old-cluster-version", "new-cluster-version"]
+
+[[rule]]
+  id = 30174
+  name = "coordinator starts to run schedulers"
+  [rule.patterns]
+    level = "INFO"
+    message = "coordinator starts to run schedulers"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30175
+  name = "coordinator has finished cluster information preparation"
+  [rule.patterns]
+    level = "INFO"
+    message = "coordinator has finished cluster information preparation"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30176
+  name = "put store ok"
+  [rule.patterns]
+    level = "INFO"
+    message = "put store ok"
+    message_mode = ""
+    fields = ["store"]
+
+[[rule]]
+  id = 30177
+  name = "store limit added"
+  [rule.patterns]
+    level = "INFO"
+    message = "store limit added"
+    message_mode = ""
+    fields = ["store-id"]
+
+[[rule]]
+  id = 30178
+  name = "replication mode config is updated"
+  [rule.patterns]
+    level = "INFO"
+    message = "replication mode config is updated"
+    message_mode = ""
+    fields = ["new", "old"]
+
+[[rule]]
+  id = 30179
+  name = "address has already been registere"
+  [rule.patterns]
+    level = "INFO"
+    message = "address has already been registered"
+    message_mode = ""
+    fields = ["component", "address"]
+
+[[rule]]
+  id = 30180
+  name = "send keepalive message fail, store maybe disconnected"
+  [rule.patterns]
+    level = "WARN"
+    message = "send keepalive message fail, store maybe disconnected"
+    message_mode = ""
+    fields = ["target-store-id", "error"]
+
+[[rule]]
+  id = 30181
+  name = "full config reset"
+  [rule.patterns]
+    level = "INFO"
+    message = "full config reset"
+    message_mode = ""
+    fields = ["config"]
+
+[[rule]]
+  id = 30182
+  name = "rejected connection"
+  [rule.patterns]
+    level = "WARN"
+    message = "rejected connection"
+    message_mode = ""
+    fields = ["remote-addr", "server-name", "error"]
+
+[[rule]]
+  id = 30183
+  name = "create scheduler with independent configuration"
+  [rule.patterns]
+    level = "INFO"
+    message = "create scheduler with independent configuration"
+    message_mode = ""
+    fields = ["scheduler-name"]
+
+[[rule]]
+  id = 30184
+  name = "start to watch pd leader"
+  [rule.patterns]
+    level = "WARN"
+    message = "region have no leader"
+    message_mode = ""
+    fields = ["scheduler", "region-id"]
+
+[[rule]]
+  id = 30185
+  name = "delete the leader key ok"
+  [rule.patterns]
+    level = "INFO"
+    message = "delete the leader key ok"
+    message_mode = ""
+    fields = ["leaderPath", "purpose"]
+
+[[rule]]
+  id = 30186
+  name = "the pd leader has not changed, delete and campaign again"
+  [rule.patterns]
+    level = "WARN"
+    message = "the pd leader has not changed, delete and campaign again"
+    message_mode = ""
+    fields = ["old-pd-leader"]
+
+[[rule]]
+  id = 30187
+  name = "serving client traffic securely"
+  [rule.patterns]
+    level = "INFO"
+    message = "serving client traffic securely"
+    message_mode = ""
+    fields = ["address"]
+
+[[rule]]
+  id = 30188
+  name = "starting with client TLS"
+  [rule.patterns]
+    level = "INFO"
+    message = "starting with client TLS"
+    message_mode = ""
+    fields = ["tls-info", "cipher-suites"]
+
+[[rule]]
+  id = 30189
+  name = "started as single-node; fast-forwarding election ticks"
+  [rule.patterns]
+    level = "INFO"
+    message = "started as single-node; fast-forwarding election ticks"
+    message_mode = ""
+    fields = ["local-member-id", "forward-ticks", "forward-duration", "election-ticks", "election-timeout"]
+
+[[rule]]
+  id = 30190
+  name = "recovered v3 backend from snapshot"
+  [rule.patterns]
+    level = "INFO"
+    message = "recovered v3 backend from snapshot"
+    message_mode = ""
+    fields = ["backend-size-bytes", "backend-size", "backend-size-in-use-bytes", "backend-size-in-use"]
+
+[[rule]]
+  id = 30191
+  name = "recovered v2 store from snapshot"
+  [rule.patterns]
+    level = "INFO"
+    message = "recovered v2 store from snapshot"
+    message_mode = ""
+    fields = ["snapshot-index", "snapshot-size"]
+
+[[rule]]
+  id = 30192
+  name = "starting with peer TLS"
+  [rule.patterns]
+    level = "INFO"
+    message = "starting with peer TLS"
+    message_mode = ""
+    fields = ["tls-info", "cipher-suites"]
+
+[[rule]]
+  id = 30193
+  name = "restored last compact revision"
+  [rule.patterns]
+    level = "INFO"
+    message = "restored last compact revision"
+    message_mode = ""
+    fields = ["meta-bucket-name", "meta-bucket-name-key", "restored-compact-revision"]
+
+[[rule]]
+  id = 30194
+  name = "recovered/added member from store"
+  [rule.patterns]
+    level = "INFO"
+    message = "recovered/added member from store"
+    message_mode = ""
+    fields = ["cluster-id", "local-member-id", "recovered-remote-peer-id", "recovered-remote-peer-urls"]
+
+[[rule]]
+  id = 30195
+  name = "set cluster version from store"
+  [rule.patterns]
+    level = "INFO"
+    message = "set cluster version from store"
+    message_mode = ""
+    fields = ["cluster-version"]
+
+[[rule]]
+  id = 30196
+  name = "DASHBOARD_SESSION_SECRET is overridden from env var"
+  [rule.patterns]
+    level = "INFO"
+    message = "DASHBOARD_SESSION_SECRET is overridden from env var"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30197
+  name = "Alive of TiDB has expired, maybe local time in different hosts are not synchronized"
+  [rule.patterns]
+    level = "WARN"
+    message = "Alive of TiDB has expired, maybe local time in different hosts are not synchronized"
+    message_mode = ""
+    fields = ["key", "value"]
+
+[[rule]]
+  id = 30198
+  name = "closing server"
+  [rule.patterns]
+    level = "INFO"
+    message = "closing server"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30199
+  name = "check suspect key ranges has been stopped"
+  [rule.patterns]
+    level = "INFO"
+    message = "check suspect key ranges has been stopped"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30200
+  name = "Got signal to exit"
+  [rule.patterns]
+    level = "INFO"
+    message = "Got signal to exit"
+    message_mode = ""
+    fields = ["signal"]
+
+[[rule]]
+  id = 30201
+  name = "server is closed"
+  [rule.patterns]
+    level = "INFO"
+    message = "server is closed"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30202
+  name = "server is closed, exist encryption key manager loop"
+  [rule.patterns]
+    level = "INFO"
+    message = "server is closed, exist encryption key manager loop"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30203
+  name = "server is closed, exit etcd leader loop"
+  [rule.patterns]
+    level = "INFO"
+    message = "server is closed, exit etcd leader loop"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30204
+  name = "server is closed, exit metrics loop"
+  [rule.patterns]
+    level = "INFO"
+    message = "server is closed, exit metrics loop"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30205
+  name = "server is closed, exit allocator loop"
+  [rule.patterns]
+    level = "INFO"
+    message = "server is closed, exit allocator loop"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30206
+  name = "start lease keep alive worker"
+  [rule.patterns]
+    level = "INFO"
+    message = "stop lease keep alive worker"
+    message_mode = ""
+    fields = ["purpose"]
+
+[[rule]]
+  id = 30207
+  name = "Dashboard server is stopped"
+  [rule.patterns]
+    level = "INFO"
+    message = "Dashboard server is stopped"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30208
+  name = "Key visual service is stopped"
+  [rule.patterns]
+    level = "INFO"
+    message = "Key visual service is stopped"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30209
+  name = "statistics background jobs has been stopped"
+  [rule.patterns]
+    level = "INFO"
+    message = "statistics background jobs has been stopped"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30210
+  name = "reset the timestamp in memory"
+  [rule.patterns]
+    level = "INFO"
+    message = "reset the timestamp in memory"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30211
+  name = "server is closed, return pd leader loop"
+  [rule.patterns]
+    level = "INFO"
+    message = "server is closed, return pd leader loop"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30212
+  name = "raftcluster is stoppe"
+  [rule.patterns]
+    level = "INFO"
+    message = "raftcluster is stopped"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30213
+  name = "closing etcd server"
+  [rule.patterns]
+    level = "INFO"
+    message = "closing etcd server"
+    message_mode = ""
+    fields = ["name", "data-dir", "advertise-peer-urls", "advertise-client-urls"]
+
+[[rule]]
+  id = 30214
+  name = "grpc failed to connect"
+  [rule.patterns]
+    level = "WARN"
+    message = "grpc: addrConn.createTransport failed to connect"
+    message_mode = "substr"
+    fields = []
+
+[[rule]]
+  id = 30215
+  name = "skipped leadership transfer for single voting member cluster"
+  [rule.patterns]
+    level = "INFO"
+    message = "skipped leadership transfer for single voting member cluster"
+    message_mode = ""
+    fields = ["local-member-id", "current-leader-member-id"]
+
+[[rule]]
+  id = 30216
+  name = "serving peer traffic"
+  [rule.patterns]
+    level = "INFO"
+    message = "stopping serving peer traffic"
+    message_mode = ""
+    fields = ["address"]
+
+[[rule]]
+  id = 30217
+  name = "closed etcd server"
+  [rule.patterns]
+    level = "INFO"
+    message = "closed etcd server"
+    message_mode = ""
+    fields = ["name", "data-dir", "advertise-peer-urls", "advertise-client-urls"]
+
+[[rule]]
+  id = 30218
+  name = "exit dashboard loop"
+  [rule.patterns]
+    level = "INFO"
+    message = "exit dashboard loop"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30219
+  name = "close server"
+  [rule.patterns]
+    level = "INFO"
+    message = "close server"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 30220
+  name = "fail to recv activity from remote, stay inactive and wait to next checking round"
+  [rule.patterns]
+    level = "WARN"
+    message = "fail to recv activity from remote, stay inactive and wait to next checking round"
+    message_mode = ""
+    fields = ["remote", "interval", "error"]
+
+[[rule]]
+  id = 30221
+  name = "stopped serving peer traffic"
+  [rule.patterns]
+    level = "INFO"
+    message = "stopped serving peer traffic"
+    message_mode = ""
+    fields = ["address"]
+
+[[rule]]
+  id = 30222
+  name = "stopped serving peer traffic"
+  [rule.patterns]
+    level = "INFO"
+    message = "stopped serving peer traffic"
+    message_mode = ""
+    fields = ["address"]
+
+[[rule]]
+  id = 30223
+  name = "trying to update gc safe poin"
+  [rule.patterns]
+    level = "WARN"
+    message = "trying to update gc safe point"
+    message_mode = ""
+    fields = ["old-safe-point", "new-safe-point"]
+
+[[rule]]
+  id = 30224
+  name = "operator expired"
+  [rule.patterns]
+    level = "INFO"
+    message = "operator expired"
+    message_mode = ""
+    fields = ["region-id", "lives", "operator"]
+
+[[rule]]
+  id = 30225
+  name = "label configuration is incorrect"
+  [rule.patterns]
+    level = "WARN"
+    message = "label configuration is incorrect"
+    message_mode = ""
+    fields = ["store", "label-key"]

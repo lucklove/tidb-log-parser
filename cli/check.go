@@ -15,6 +15,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"strings"
 
@@ -25,11 +26,22 @@ import (
 )
 
 func newCheckCommand() *cobra.Command {
+	withoutTime := false
 	cmd := &cobra.Command{
-		Use: "check",
+		Use: "check <component>",
 		RunE: func(cmd *cobra.Command, args []string) error {
+			if len(args) == 0 {
+				return cmd.Help()
+			}
+			comp, err := event.GetComponentType(args[0])
+			if err != nil {
+				return err
+			}
 			p := parser.NewStreamParser(os.Stdin)
-			em, err := event.NewEventManager(event.ComponentTiDB)
+			if withoutTime {
+				p = p.WithoutTime()
+			}
+			em, err := event.NewEventManager(comp)
 			assert(err)
 
 			for {
@@ -38,6 +50,7 @@ func newCheckCommand() *cobra.Command {
 					break
 				}
 				if log == nil || err != nil {
+					fmt.Println(err)
 					continue
 				}
 				if ignore(log) {
@@ -69,6 +82,7 @@ func newCheckCommand() *cobra.Command {
 		},
 	}
 
+	cmd.Flags().BoolVarP(&withoutTime, "without-time", "", false, "if every line doesn't contains the time header")
 	return cmd
 }
 

@@ -199,6 +199,14 @@
     fields = ["conn", "connInfo", "command", "status", "sql", "txn_mode", "err"]
 
 [[rule]]
+  id = 10025
+  name = "command dispatched failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "command dispatched failed"
+    fields = ["conn", "connInfo", "command", "status", "sql", "txn_mode", "err"]
+
+[[rule]]
   id = 10026
   name = "[pd] create pd client with endpoints"
   [rule.patterns]
@@ -746,7 +754,7 @@
   [rule.patterns]
     level = "ERROR"
     message = "encountered error"
-    fields = ["error", "stack"]
+    fields = ["error"]
 
 [[rule]]
   id = 10091
@@ -2993,3 +3001,345 @@
     message = "[gc worker] finish resolve locks with physical scan locks"
     message_mode = ""
     fields = ["uuid", "safePoint"]
+
+[[rule]]
+  id = 10338
+  name = "[gc worker] delete range failed on range"
+  [rule.patterns]
+    level = "ERROR"
+    message = "[gc worker] delete range failed on range"
+    message_mode = ""
+    fields = ["uuid", "startKey", "endKey", "error"]
+
+[[rule]]
+  id = 10339
+  name = "buildBatchCopTasks takes too much time"
+  [rule.patterns]
+    level = "WARN"
+    message = "buildBatchCopTasks takes too much time"
+    message_mode = ""
+    fields = ["elapsed", "range len", "task len"]
+
+[[rule]]
+  id = 10340
+  name = "memory exceeds quota, destroy one token now"
+  [rule.patterns]
+    level = "INFO"
+    message = "memory exceeds quota, destroy one token now."
+    message_mode = ""
+    fields = ["consumed", "quota", "total token count", "remaining token count"]
+
+[[rule]]
+  id = 10341
+  name = "memory exceeds quota, rateLimitAction delegate to fallback action"
+  [rule.patterns]
+    level = "INFO"
+    message = "memory exceeds quota, rateLimitAction delegate to fallback action"
+    message_mode = ""
+    fields = ["total token count"]
+
+[[rule]]
+  id = 10342
+  name = "staleCommand backoffer.maxSleep [0-9ms]+ is exceeded"
+  [rule.patterns]
+    level = "WARN"
+    message = "staleCommand backoffer\\.maxSleep [0-9ms]+ is exceeded.*"
+    message_mode = "regex"
+    fields = []
+
+[[rule]]
+  id = 10343
+  name = "memory exceeds quota, spill to disk now"
+  [rule.patterns]
+    level = "INFO"
+    message = "memory exceeds quota, spill to disk now."
+    message_mode = ""
+    fields = ["consumed", "quota"]
+
+[[rule]]
+  id = 10344
+  name = "indexHashJoinInnerWorker.run failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "indexHashJoinInnerWorker.run failed"
+    message_mode = ""
+    fields = ["conn", "error"]
+
+[[rule]]
+  id = 10345
+  name = "LoadSysVarCacheLoop loop watch channel closed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "LoadSysVarCacheLoop loop watch channel closed"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10346
+  name = "watch canceled, no owner"
+  [rule.patterns]
+    level = "INFO"
+    message = "watch canceled, no owner"
+    message_mode = ""
+    fields = ["owner info"]
+
+[[rule]]
+  id = 20347
+  name = "Enabled ciphersuites"
+  [rule.patterns]
+    level = "INFO"
+    message = "Enabled ciphersuites"
+    message_mode = ""
+    fields = ["cipherNames"]
+
+[[rule]]
+  id = 20348
+  name = "Disabling weak cipherSuite"
+  [rule.patterns]
+    level = "INFO"
+    message = "Disabling weak cipherSuite"
+    message_mode = ""
+    fields = ["cipherSuite"]
+
+[[rule]]
+  id = 10349
+  name = "mysql protocol server secure connection is enabled"
+  [rule.patterns]
+    level = "INFO"
+    message = "mysql protocol server secure connection is enabled"
+    message_mode = ""
+    fields = ["client verification enabled"]
+
+[[rule]]
+  id = 10350
+  name = "tidb-server is operating with security enhanced mode (SEM) enabled"
+  [rule.patterns]
+    level = "INFO"
+    message = "tidb-server is operating with security enhanced mode (SEM) enabled"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10351
+  name = "Minimum TLS version allows pre-TLSv1.2 protocols, this is not recommended"
+  [rule.patterns]
+    level = "WARN"
+    message = "Minimum TLS version allows pre-TLSv1.2 protocols, this is not recommended"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10352
+  name = "resolve async commit"
+  [rule.patterns]
+    level = "INFO"
+    message = "resolve async commit"
+    message_mode = ""
+    fields = ["startTS", "commitTS"]
+
+[[rule]]
+  id = 10353
+  name = "PlanReplayerLoop exited"
+  [rule.patterns]
+    level = "INFO"
+    message = "PlanReplayerLoop exited."
+    message_mode = ""
+    fields = []
+    
+[[rule]]
+  id = 10354
+  name = "[pd] fetch pending tso requests error"
+  [rule.patterns]
+    level = "ERROR"
+    message = "[pd] fetch pending tso requests error"
+    message_mode = ""
+    fields = ["dc-location", "error"]
+
+[[rule]]
+  id = 10355
+  name = "[pd] update connection contexts failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "[pd] update connection contexts failed"
+    message_mode = ""
+    fields = ["dc", "error"]
+
+[[rule]]
+  id = 10356
+  name = "loadStore from PD failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "loadStore from PD failed"
+    message_mode = ""
+    fields = ["id", "error"]
+
+[[rule]]
+  id = 10357
+  name = "refresh topology in loop failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "refresh topology in loop failed"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10358
+  name = "server topology syncer need to restart"
+  [rule.patterns]
+    level = "INFO"
+    message = "server topology syncer need to restart"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10359
+  name = "server topology syncer restarted"
+  [rule.patterns]
+    level = "INFO"
+    message = "server topology syncer restarted"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10360
+  name = "the schema validator stopped before updating"
+  [rule.patterns]
+    level = "INFO"
+    message = "the schema validator stopped before updating"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10361
+  name = "mustReload succeed"
+  [rule.patterns]
+    level = "INFO"
+    message = "mustReload succeed"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10362
+  name = "schema syncer restarted"
+  [rule.patterns]
+    level = "INFO"
+    message = "schema syncer restarted"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10363
+  name = "update minStartTS failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "update minStartTS failed"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10364
+  name = "server info syncer need to restart"
+  [rule.patterns]
+    level = "INFO"
+    message = "server info syncer need to restart"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10365
+  name = "update minStartTS failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "update minStartTS failed"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10366
+  name = "server info syncer restarted"
+  [rule.patterns]
+    level = "INFO"
+    message = "server info syncer restarted"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10367
+  name = "[gc worker] resolve locks failed"
+  [rule.patterns]
+    level = "ERROR"
+    message = "[gc worker] resolve locks failed"
+    message_mode = ""
+    fields = ["uuid", "safePoint", "error"]
+
+[[rule]]
+  id = 10368
+  name = "range task failed"
+  [rule.patterns]
+    level = "INFO"
+    message = "range task failed"
+    message_mode = ""
+    fields = ["name", "startKey", "endKey", "cost time", "error"]
+
+[[rule]]
+  id = 10369
+  name = "canceling range task because of error"
+  [rule.patterns]
+    level = "INFO"
+    message = "canceling range task because of error"
+    message_mode = ""
+    fields = ["name", "startKey", "endKey", "error"]
+
+[[rule]]
+  id = 10370
+  name = "[gc worker] resolve locks returns an error"
+  [rule.patterns]
+    level = "ERROR"
+    message = "[gc worker] resolve locks returns an error"
+    message_mode = ""
+    fields = ["uuid", "error"]
+
+[[rule]]
+  id = 10371
+  name = "the schema validator restarts"
+  [rule.patterns]
+    level = "INFO"
+    message = "the schema validator restarts"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10372
+  name = "reload the schema failed"
+  [rule.patterns]
+    level = "INFO"
+    message = "reload the schema failed"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10373
+  name = "[gc worker] redo-delete range failed on range"
+  [rule.patterns]
+    level = "ERROR"
+    message = "[gc worker] redo-delete range failed on range"
+    message_mode = ""
+    fields = ["uuid", "startKey", "endKey", "error"]
+
+[[rule]]
+  id = 10374
+  name = "[health check] service not serving"
+  [rule.patterns]
+    level = "INFO"
+    message = "[health check] service not serving"
+    message_mode = ""
+    fields = ["status"]
+
+[[rule]]
+  id = 10375
+  name = "Schema changed for async commit txn"
+  [rule.patterns]
+    level = "INFO"
+    message = "Schema changed for async commit txn"
+    message_mode = ""
+    fields = ["error", "startTS"]

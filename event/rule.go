@@ -16,6 +16,8 @@ package event
 
 import (
 	_ "embed"
+	"fmt"
+	"strings"
 
 	"github.com/BurntSushi/toml"
 )
@@ -59,6 +61,20 @@ type RulePattern struct {
 	Message     string   `toml:"message"`
 	MessageMode string   `toml:"message_mode"`
 	Fields      []string `toml:"fields"`
+}
+
+func GetComponentType(component string) (ComponentType, error) {
+	switch strings.ToLower(component) {
+	case "tidb":
+		return ComponentTiDB, nil
+	case "tikv":
+		return ComponentTiKV, nil
+	case "pd":
+		return ComponentPD, nil
+	case "tiflash":
+		return ComponentTiFlash, nil
+	}
+	return ComponentType(0), fmt.Errorf("not supported component: %s", component)
 }
 
 func (r *Rule) MessageMode() MessageModeType {
