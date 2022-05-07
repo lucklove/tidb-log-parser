@@ -1,11 +1,10 @@
 [[rule]]
-id = 30001
-name = "send schedule command"
-
+  id = 30001
+  name = "send schedule command"
   [rule.patterns]
-  level = "INFO"
-  message = "send schedule command"
-  fields = ["region-id", "step", "source"]
+    level = "INFO"
+    message = "send schedule command"
+    fields = ["region-id", "step", "source"]
 
 [[rule]]
   id = 30002

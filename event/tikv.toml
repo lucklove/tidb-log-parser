@@ -1,11 +1,10 @@
 [[rule]]
-id = 20001
-name = "trying to update PD client done"
-
+  id = 20001
+  name = "trying to update PD client done"
   [rule.patterns]
-  level = "INFO"
-  message = "trying to update PD client done"
-  fields = ["spend"]
+    level = "INFO"
+    message = "trying to update PD client done"
+    fields = ["spend"]
 
 [[rule]]
   id = 20002
@@ -1265,7 +1264,16 @@ name = "register deleting data in range"
     level = "INFO"
     message = "call CheckLeader failed"
     message_mode = ""
-    fields = ["address", "err"]
+    fields = ["err"]
+    
+[[rule]]
+  id = 20132
+  name = "call CheckLeader failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "call CheckLeader failed"
+    message_mode = ""
+    fields = ["err"]
 
 [[rule]]
   id = 20133
@@ -1742,7 +1750,7 @@ name = "register deleting data in range"
     level = "INFO"
     message = "delays destroy"
     message_mode = ""
-    fields = ["reason", "merged_by_target", "peer_id", "region_id"]
+    fields = ["merged_by_target", "peer_id", "region_id"]
 
 [[rule]]
   id = 20185
@@ -2778,3 +2786,201 @@ name = "register deleting data in range"
     message = "encryption: rotate data key."
     message_mode = ""
     fields = ["key_id"]
+    
+[[rule]]
+  id = 20300
+  name = "receives gc message, trying to remove"
+  [rule.patterns]
+    level = "INFO"
+    message = "receives gc message, trying to remove"
+    message_mode = ""
+    fields = ["to_peer", "peer_id", "region_id"]
+    
+[[rule]]
+  id = 20301
+  name = "cdc incremental scan uses ts filter: true"
+  [rule.patterns]
+    level = "INFO"
+    message = "cdc incremental scan uses ts filter: true"
+    message_mode = ""
+    fields = ["tables", "region_id"]
+    
+[[rule]]
+  id = 20302
+  name = "cdc downstream is initialized"
+  [rule.patterns]
+    level = "INFO"
+    message = "cdc downstream is initialized"
+    message_mode = ""
+    fields = ["downstream_id"]
+    
+[[rule]]
+  id = 20303
+  name = "cdc met region error"
+  [rule.patterns]
+    level = "INFO"
+    message = "cdc met region error"
+    message_mode = ""
+    fields = ["error", "region_id"]
+    
+[[rule]]
+  id = 20304
+  name = "cdc deregister"
+  [rule.patterns]
+    level = "INFO"
+    message = "cdc deregister"
+    message_mode = ""
+    fields = ["deregister"]
+    
+[[rule]]
+  id = 20305
+  name = "cdc downstream is initialized"
+  [rule.patterns]
+    level = "INFO"
+    message = "cdc downstream is initialized"
+    message_mode = ""
+    fields = ["downstream_id"]
+    
+[[rule]]
+  id = 20306
+  name = "tombstone peer receives a stale message"
+  [rule.patterns]
+    level = "INFO"
+    message = "tombstone peer receives a stale message"
+    message_mode = ""
+    fields = ["msg_type", "current_region_epoch", "from_region_epoch", "region_id"]
+    
+[[rule]]
+  id = 20307
+  name = "receive stale gc message, ignore"
+  [rule.patterns]
+    level = "INFO"
+    message = "receive stale gc message, ignore."
+    message_mode = ""
+    fields = ["peer_id", "region_id"]
+    
+[[rule]]
+  id = 20308
+  name = "is being destroyed, skip"
+  [rule.patterns]
+    level = "INFO"
+    message = "is being destroyed, skip"
+    message_mode = ""
+    fields = ["peer_id", "region_id"]
+    
+[[rule]]
+  id = 20309
+  name = "cdc initialize fail: peer is not leader, leader may None"
+  [rule.patterns]
+    level = "ERROR"
+    message = "cdc initialize fail: Request error message: \"peer is not leader for region [[:digit:]]+, leader may None\" not_leader { region_id: [[:digit:]]+ }"
+    message_mode = "regex"
+    fields = ["region_id"]
+    
+[[rule]]
+  id = 20309
+  name = "cdc initialize fail: peer is not leader, leader may Some"
+  [rule.patterns]
+    level = "ERROR"
+    message = "cdc initialize fail: Request error message: \"peer is not leader for region [[:digit:]]+, leader may Some\\(id: [[:digit:]]+ store_id: [[:digit:]]+\\)\" not_leader { region_id: [[:digit:]]+ leader { id: [[:digit:]]+ store_id: [[:digit:]]+ } }"
+    message_mode = "regex"
+    fields = ["region_id"]
+    
+[[rule]]
+  id = 20310
+  name = "cdc initialize fail: stale command"
+  [rule.patterns]
+    level = "ERROR"
+    message = "cdc initialize fail: Request error message: \"stale command\""
+    message_mode = ""
+    fields = ["region_id"]
+    
+[[rule]]
+  id = 20311
+  name = "cdc incremental scan uses ts filter: false"
+  [rule.patterns]
+    level = "INFO"
+    message = "cdc incremental scan uses ts filter: false"
+    message_mode = ""
+    fields = ["tables", "region_id"]
+    
+[[rule]]
+  id = 20312
+  name = "failed to propose confchange"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to propose confchange"
+    message_mode = ""
+    fields = ["error"]
+    
+[[rule]]
+  id = 20313
+  name = "failed to propose confchange"
+  [rule.patterns]
+    level = "WARN"
+    message = "failed to propose confchange"
+    message_mode = ""
+    fields = ["error"]
+    
+[[rule]]
+  id = 20314
+  name = "cdc initialize fail: epoch_not_match"
+  [rule.patterns]
+    level = "ERROR"
+    message = "epoch_not_match"
+    message_mode = "substr"
+    fields = ["region_id"]
+    
+[[rule]]
+  id = 20315
+  name = "cdc initialize fail: other error"
+  [rule.patterns]
+    level = "ERROR"
+    message = "cdc initialize fail: Other error"
+    message_mode = "substr"
+    fields = ["region_id"]
+    
+[[rule]]
+  id = 20316
+  name = "cdc async incremental scan canceled"
+  [rule.patterns]
+    level = "INFO"
+    message = "cdc async incremental scan canceled"
+    message_mode = ""
+    fields = ["conn_id", "observe_id", "downstream_id", "region_id"]
+    
+[[rule]]
+  id = 20317
+  name = "region is disconnected, remove snaps"
+  [rule.patterns]
+    level = "INFO"
+    message = "region is disconnected, remove snaps"
+    message_mode = ""
+    fields = ["snaps", "region_id"]
+    
+[[rule]]
+  id = 20318
+  name = "cdc initialize fail: region_not_found"
+  [rule.patterns]
+    level = "ERROR"
+    message = "cdc initialize fail: Request error message: \"region [[:digit:]]+ not found\" region_not_found { region_id: [[:digit:]]+ }"
+    message_mode = "regex"
+    fields = ["region_id"]
+    
+[[rule]]
+  id = 20319
+  name = "failed to send significant msg"
+  [rule.patterns]
+    level = "ERROR"
+    message = "failed to send significant msg"
+    message_mode = ""
+    fields = ["msg"]
+    
+[[rule]]
+  id = 20320
+  name = "cdc send capture change cmd failed"
+  [rule.patterns]
+    level = "WARN"
+    message = "cdc send capture change cmd failed"
+    message_mode = ""
+    fields = ["error", "region_id"]

@@ -3343,3 +3343,39 @@
     message = "Schema changed for async commit txn"
     message_mode = ""
     fields = ["error", "startTS"]
+
+[[rule]]
+  id = 10376
+  name = "[ddl] run reorg job wait timeout"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] run reorg job wait timeout"
+    message_mode = ""
+    fields = ["waitTime", "elementType", "elementID", "totalAddedRowCount", "doneKey"]
+    
+[[rule]]
+  id = 10377
+  name = "[ddl] backfill worker back fill index"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] backfill worker back fill index"
+    message_mode = ""
+    fields = ["workerID", "addedCount", "scanCount", "nextHandle", "speed(rows/s)"]
+    
+[[rule]]
+  id = 10378
+  name = "[top-sql] single target data sink failed to send data to receiver"
+  [rule.patterns]
+    level = "WARN"
+    message = "[top-sql] single target data sink failed to send data to receiver"
+    message_mode = ""
+    fields = ["error"]
+    
+[[rule]]
+  id = 10379
+  name = "[ddl] slow operations"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] slow operations"
+    message_mode = ""
+    fields = ["takeTimes", "msg"]
