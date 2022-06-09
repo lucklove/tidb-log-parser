@@ -24,6 +24,7 @@ func NewLogService() *LogService {
 		event.ComponentTiDB,
 		event.ComponentTiKV,
 		event.ComponentPD,
+		event.ComponentLightning,
 		event.ComponentTiFlash,
 	}
 	for _, tp := range tps {

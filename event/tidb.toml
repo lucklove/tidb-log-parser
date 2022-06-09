@@ -770,7 +770,7 @@
   [rule.patterns]
     level = "WARN"
     message = "schemaLeaseChecker is not set for this transaction"
-    fields = ["sessionID", "startTS", "commitTS"]
+    fields = ["sessionID", "startTS"]
 
 [[rule]]
   id = 10093
@@ -2787,7 +2787,7 @@
 
 [[rule]]
   id = 10314
-  name = "[pd] failed updateMember"
+  name = "[pd] failed updateLeader"
   [rule.patterns]
     level = "ERROR"
     message = "[pd] failed updateLeader"
@@ -3346,6 +3346,141 @@
 
 [[rule]]
   id = 10376
+  name = "updateTiFlashStores finished"
+  [rule.patterns]
+    level = "INFO"
+    message = "updateTiFlashStores finished"
+    message_mode = ""
+    fields = ["TiFlash store count"]
+
+[[rule]]
+  id = 10377
+  name = "try delete TiFlash pd rule"
+  [rule.patterns]
+    level = "INFO"
+    message = "try delete TiFlash pd rule"
+    message_mode = ""
+    fields = ["tableID", "endKey", "safePoint"]
+
+[[rule]]
+  id = 10378
+  name = "DeleteTiFlashPlacementRule"
+  [rule.patterns]
+    level = "INFO"
+    message = "DeleteTiFlashPlacementRule"
+    message_mode = ""
+    fields = ["ruleID"]
+
+[[rule]]
+  id = 10379
+  name = "Server.onConn handshake"
+  [rule.patterns]
+    level = "WARN"
+    message = "Server.onConn handshake"
+    message_mode = ""
+    fields = ["conn", "error", "remote addr"]
+
+[[rule]]
+  id = 10380
+  name = "failed to insert analyze job"
+  [rule.patterns]
+    level = "ERROR"
+    message = "failed to insert analyze job"
+    message_mode = ""
+    fields = ["error"]
+
+[[rule]]
+  id = 10381
+  name = "[ddl] DDL job is failed"
+  [rule.patterns]
+    level = "INFO"
+    message = "[ddl] DDL job is failed"
+    message_mode = ""
+    fields = ["jobID"]
+
+[[rule]]
+  id = 10382
+  name = "sql cpu collector started"
+  [rule.patterns]
+    level = "INFO"
+    message = "sql cpu collector started"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10383
+  name = "init TiFlashPlacementManager"
+  [rule.patterns]
+    level = "WARN"
+    message = "init TiFlashPlacementManager"
+    message_mode = ""
+    fields = ["pd addrs"]
+
+[[rule]]
+  id = 10384
+  name = "parallel cpu profiler started"
+  [rule.patterns]
+    level = "INFO"
+    message = "parallel cpu profiler started"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10385
+  name = "parallel cpu profiler stopped"
+  [rule.patterns]
+    level = "INFO"
+    message = "parallel cpu profiler stopped"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10386
+  name = "sql cpu collector stopped"
+  [rule.patterns]
+    level = "INFO"
+    message = "sql cpu collector stopped"
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10387
+  name = "[pd] stop fetching the pending tso requests due to context canceled"
+  [rule.patterns]
+    level = "INFO"
+    message = "[pd] stop fetching the pending tso requests due to context canceled"
+    message_mode = ""
+    fields = ["dc-location"]
+
+[[rule]]
+  id = 10388
+  name = "SubLoadWorker exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "SubLoadWorker exited."
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10389
+  name = "dumpFileGcChecker exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "dumpFileGcChecker exited."
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10390
+  name = "gcAnalyzeHistory exited."
+  [rule.patterns]
+    level = "INFO"
+    message = "gcAnalyzeHistory exited."
+    message_mode = ""
+    fields = []
+
+[[rule]]
+  id = 10391
   name = "[ddl] run reorg job wait timeout"
   [rule.patterns]
     level = "INFO"
@@ -3354,7 +3489,7 @@
     fields = ["waitTime", "elementType", "elementID", "totalAddedRowCount", "doneKey"]
     
 [[rule]]
-  id = 10377
+  id = 10392
   name = "[ddl] backfill worker back fill index"
   [rule.patterns]
     level = "INFO"
@@ -3363,7 +3498,7 @@
     fields = ["workerID", "addedCount", "scanCount", "nextHandle", "speed(rows/s)"]
     
 [[rule]]
-  id = 10378
+  id = 10393
   name = "[top-sql] single target data sink failed to send data to receiver"
   [rule.patterns]
     level = "WARN"
@@ -3372,7 +3507,7 @@
     fields = ["error"]
     
 [[rule]]
-  id = 10379
+  id = 10394
   name = "[ddl] slow operations"
   [rule.patterns]
     level = "INFO"

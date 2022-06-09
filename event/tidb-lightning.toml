@@ -1,0 +1,16 @@
+[[rule]]
+  id = 40001
+  name = "restore file start"
+  [rule.patterns]
+    level = "INFO"
+    message = "restore file start"
+    fields = ["table"]
+
+[[rule]]
+  id = 40002
+  name = "restore file completed"
+  [rule.patterns]
+    level = "INFO"
+    message = "restore file completed"
+    message_mode = ""
+    fields = ["table"]

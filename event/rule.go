@@ -31,6 +31,9 @@ var tikvRuleStr string
 //go:embed pd.toml
 var pdRuleStr string
 
+//go:embed tidb-lightning.toml
+var lightningRuleStr string
+
 //go:embed tiflash.toml
 var tiflashRuleStr string
 
@@ -38,10 +41,11 @@ type ComponentType int
 type MessageModeType int
 
 const (
-	ComponentTiDB    ComponentType = iota
-	ComponentTiKV    ComponentType = iota
-	ComponentPD      ComponentType = iota
-	ComponentTiFlash ComponentType = iota
+	ComponentTiDB      ComponentType = iota
+	ComponentTiKV      ComponentType = iota
+	ComponentPD        ComponentType = iota
+	ComponentLightning ComponentType = iota
+	ComponentTiFlash   ComponentType = iota
 
 	MessageModeEqual  MessageModeType = iota
 	MessageModeRegex  MessageModeType = iota
@@ -71,6 +75,8 @@ func GetComponentType(component string) (ComponentType, error) {
 		return ComponentTiKV, nil
 	case "pd":
 		return ComponentPD, nil
+	case "tidb-lightning":
+		return ComponentLightning, nil
 	case "tiflash":
 		return ComponentTiFlash, nil
 	}
@@ -91,7 +97,7 @@ func (r *Rule) MessageMode() MessageModeType {
 func loadRule(tps ...ComponentType) ([]*Rule, error) {
 	if len(tps) == 0 {
 		tps = []ComponentType{
-			ComponentTiDB, ComponentTiKV, ComponentPD, ComponentTiFlash,
+			ComponentTiDB, ComponentTiKV, ComponentPD, ComponentLightning, ComponentTiFlash,
 		}
 	}
 
@@ -111,6 +117,10 @@ func loadRule(tps ...ComponentType) ([]*Rule, error) {
 			}
 		case ComponentPD:
 			if _, err := toml.Decode(pdRuleStr, &rs); err != nil {
+				return nil, err
+			}
+		case ComponentLightning:
+			if _, err := toml.Decode(lightningRuleStr, &rs); err != nil {
 				return nil, err
 			}
 		case ComponentTiFlash:

@@ -2984,3 +2984,12 @@ name = "register deleting data in range"
     message = "cdc send capture change cmd failed"
     message_mode = ""
     fields = ["error", "region_id"]
+
+[[rule]]
+  id = 20321
+  name = "reject transferring leader"
+  [rule.patterns]
+    level = "INFO"
+    message = "reject transferring leader"
+    message_mode = ""
+    fields = ["disk_usage", "pending_snapshot", "from", "peer_id", "region_id"]
