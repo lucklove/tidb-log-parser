@@ -3514,3 +3514,12 @@
     message = "[ddl] slow operations"
     message_mode = ""
     fields = ["takeTimes", "msg"]
+    
+[[rule]]
+  id = 10395
+  name = "Store is not ready"
+  [rule.patterns]
+    level = "WARN"
+    message = "Store is not ready"
+    message_mode = ""
+    fields = ["store address", "err message"]
